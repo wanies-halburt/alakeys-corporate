@@ -1,0 +1,87 @@
+import React from "react";
+import Navigation from "./Navigation";
+import Mega from "./Mega";
+import MobileNavigation6 from "./MobileNavigation6";
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Header16() {
+  return (
+    <>
+      <header className="header-nav nav-innerpage-style main-menu mx30">
+        <nav className="posr">
+          <div className="container posr">
+            <div className="row align-items-center justify-content-between">
+              <div className="col-auto px-0 px-xl-3">
+                <div className="d-flex align-items-center justify-content-between">
+                  <div className="logos">
+                    <Link className="header-logo logo1" href="/">
+                      <Image
+                        width={133}
+                        height={40}
+                        src="https://a.sfdcstatic.com/shared/images/c360-nav/salesforce-with-type-logo.svg"
+                        alt="Header Logo"
+                      />
+                    </Link>
+                  </div>
+
+                  <div className="home1_style">
+                    <Mega />
+                  </div>
+                  <Navigation />
+                </div>
+              </div>
+              <div className="col-auto pe-0 pe-xl-3">
+                <div className="d-flex align-items-center gap-3">
+                  <Image
+                    src="https://a.sfdcstatic.com/shared/images/c360-nav/icons.svg#search-blue"
+                    alt="search icon"
+                    width={18}
+                    height={18}
+                    style={{ cursor: "pointer" }}
+                  />
+                  <div className="d-flex flex-column align-items-center">
+                    <p
+                      className="text-decoration-underline m-0"
+                      style={{ color: "rgb(3, 45, 96)" }}
+                    >
+                      Contact Us
+                    </p>{" "}
+                    {/* Underline using Bootstrap */}
+                    <a
+                      href="tel:+2348088844023"
+                      style={{ color: "rgb(3, 45, 96)" }}
+                    >
+                      08088844023
+                    </a>
+                  </div>
+
+                  <Link
+                    className=" d-flex align-items-center fs-6 fw-bold gap-1"
+                    href="/login"
+                    style={{ color: "rgb(1, 118, 211)" }}
+                  >
+                    <Image
+                      src="https://a.sfdcstatic.com/shared/images/c360-nav/icons.svg#user-blue"
+                      width={18}
+                      height={18}
+                      alt="icon"
+                    />
+                    Login
+                  </Link>
+                  <Link
+                    className="ud-btn btn-dark add-joining bdrs12 text-white"
+                    href="/register"
+                  >
+                    Try for free
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <MobileNavigation6 />
+    </>
+  );
+}
