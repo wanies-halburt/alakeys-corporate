@@ -197,6 +197,52 @@ const Page = () => {
               </li>
             </ul>
           </p>
+          <p>
+            <span className=" fw-bold">Financial Accounting:</span> We are
+            committed to delivering expert Financial Accounting Services that
+            help businesses stay financially healthy and compliant with
+            regulatory requirements. With a team of qualified accountants and
+            financial professionals, we provide accurate and timely financial
+            reporting, bookkeeping, and advisory services that empower
+            businesses to make informed decisions. We understand that managing
+            finances can be complex and time-consuming, which is why we offer
+            tailored accounting solutions designed to meet the unique needs of
+            each client. Whether you’re a small business, a large corporation,
+            or an individual seeking accounting assistance, we ensure that your
+            financial records are managed with precision and care.
+            <br />
+            <span className=" fw-semibold">What we offer</span>
+            <ul className=" fs-6">
+              <li>
+                <span className=" fw-semibold">Bookkeeping:</span>
+                We offer comprehensive bookkeeping services that ensure your
+                financial transactions are recorded accurately and
+                systematically, providing you with clear insights into your
+                business’s financial health.
+              </li>
+              <li>
+                <span className=" fw-semibold">Financial Reporting:</span>
+                We prepare detailed financial statements, including balance
+                sheets, income statements, and cash flow reports, to help you
+                understand your financial position and comply with regulatory
+                requirements.
+              </li>
+              <li>
+                <span className=" fw-semibold">Payroll Services: </span>
+                We manage payroll processes efficiently, ensuring that your
+                employees are paid accurately and on time, while also handling
+                tax deductions and reporting.
+              </li>
+              <li>
+                <span className=" fw-semibold">
+                  Financial Advisory Services:
+                </span>
+                Our team offers personalized financial advice to help you
+                optimize your business operations, manage cash flow, and make
+                sound investment decisions.
+              </li>
+            </ul>
+          </p>
         </div>
       </div>
     </div>
