@@ -1,11 +1,10 @@
 import LearnFreeio1 from "@/components/section/LearnFreeio1";
-import OurCta2 from "@/components/section/OurCta2";
 import OurFaq1 from "@/components/section/OurFaq1";
 import Testimonial1 from "@/components/section/Testimonial1";
 import PopularService1 from "@/components/section/PopularService1";
 
 import Hero11 from "@/components/hero/Hero11";
-import Blog15 from "@/components/section/Blog15";
+import Hero from "@/components/hero/Hero";
 import InspiringService11 from "@/components/section/InspiringService11";
 import NeedSomething2 from "@/components/section/NeedSomething2";
 import Talent15 from "@/components/section/Talent15";
@@ -20,7 +19,7 @@ export default function page() {
   return (
     <>
       <div className="body_content">
-        <Hero11 />
+        <Hero />
         <NeedSomething2 />
         <PopularService1 />
         <LearnFreeio1 />
