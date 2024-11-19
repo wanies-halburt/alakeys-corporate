@@ -1,4 +1,5 @@
 "use client";
+import React, { useState, useEffect } from "react";
 import navigation from "@/data/navigation";
 import { isActiveNavigation } from "@/utils/isActiveNavigation";
 
@@ -6,17 +7,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navigation() {
+  const [scrolled, setScrolled] = useState(false);
   const path = usePathname();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
-      <ul
-        className={`ace-responsive-menu ui-navigation ${
-          path == "/home-3" || path == "/home-4" || path == "/home-10"
-            ? "menu-without-paddingy"
-            : ""
-        } `}
-      >
+      <ul className={`ace-responsive-menu ui-navigation`}>
         {navigation.map((item, i) => (
           <li
             key={i}
@@ -30,18 +41,40 @@ export default function Navigation() {
                   isActiveNavigation(path, item) ? "ui-active" : ""
                 }`}
               >
-                <span className="title primary-text-color">{item.name}</span>{" "}
+                <span
+                  className={`title ${
+                    path === "/" && !scrolled
+                      ? "text-white"
+                      : "primary-text-color"
+                  }`}
+                >
+                  {item.name}
+                </span>{" "}
                 {item.children && (
-                  <span className="arrow primary-text-color"></span>
+                  <span
+                    className={`arrow ${
+                      path === "/" && !scrolled
+                        ? "text-white"
+                        : "primary-text-color"
+                    }`}
+                  ></span>
                 )}
               </a>
             ) : (
               <Link
                 href={item.path}
                 className={`list-item
-                                ${item.path === path ? "ui-active" : ""}`}
+                                ${item.path == path ? "ui-active" : ""}`}
               >
-                <span className="title primary-text-color">{item.name}</span>
+                <span
+                  className={`title ${
+                    path === "/" && !scrolled
+                      ? "text-white"
+                      : "primary-text-color"
+                  }`}
+                >
+                  {item.name}
+                </span>
               </Link>
             )}
 

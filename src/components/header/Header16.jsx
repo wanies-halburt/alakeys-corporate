@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 import Mega from "./Mega";
 import MobileNavigation6 from "./MobileNavigation6";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Header16() {
+  const [scrolled, setScrolled] = useState(false);
+  const path = usePathname();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
-      <header className="header-nav nav-innerpage-style main-menu mx30">
+      <header
+        className={`header-nav nav-innerpage-style main-menu mx30 ${
+          path === "/" && !scrolled ? "" : "bg-white"
+        }`}
+      >
         <nav className="posr">
           <div className="container posr">
             <div className="row align-items-center justify-content-between">
@@ -42,7 +65,9 @@ export default function Header16() {
                   />
                   <div className="d-flex flex-column align-items-center">
                     <p
-                      className="text-decoration-underline m-0"
+                      className={`text-decoration-underline m-0 ${
+                        path === "/" && !scrolled ? "text-white" : ""
+                      }`}
                       style={{ color: "rgb(3, 45, 96)" }}
                     >
                       Contact Us
@@ -50,6 +75,9 @@ export default function Header16() {
                     {/* Underline using Bootstrap */}
                     <a
                       href="tel:+2348088844023"
+                      className={`${
+                        path === "/" && !scrolled ? "text-white" : ""
+                      }`}
                       style={{ color: "rgb(3, 45, 96)" }}
                     >
                       08088844023
@@ -57,7 +85,9 @@ export default function Header16() {
                   </div>
 
                   <Link
-                    className=" d-flex align-items-center fs-6 fw-bold gap-1"
+                    className={`d-flex align-items-center fs-6 fw-bold gap-1 ${
+                      path === "/" && !scrolled ? "text-white" : ""
+                    }`}
                     href="/login"
                     style={{ color: "rgb(1, 118, 211)" }}
                   >

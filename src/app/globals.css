@@ -257,6 +257,8 @@ a {
 .ui-active,
 .ui-navigation .ui-active {
   color: #5bbb7b !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .ui-navigation .ui-child-active {

@@ -7791,12 +7791,13 @@ textarea {
 
 /*	Menu Style  */
 header.nav-innerpage-style {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   border-bottom: 1px solid #E9E9E9;
   padding: 7px 0;
   position: fixed;
   width: 98vw;
   z-index: 10;
+  color: #fff;
 }
 header.nav-innerpage-style .ace-responsive-menu .sub-menu {
   background-color: #ffffff;
