@@ -47,40 +47,30 @@ const Page = () => {
         {/* Right Div */}
         <div className="col-12 col-md-9 col-lg-6 p-3 text-white fs-5">
           <p>
-            At Alakeys, we are dedicated to empowering businesses by offering
-            expert consulting services tailored to your unique needs. With a
-            team of experienced consultants across various industries, we
-            provide innovative solutions that help companies grow, optimize
-            their operations, and stay competitive in an ever-changing
-            marketplace. Our approach combines strategic insights with
-            practical, hands-on experience to ensure that our clients achieve
-            their business objectives. We work closely with you to understand
-            your challenges, identify opportunities, and implement strategies
-            that drive measurable results.
+            At Alakeys, we empower businesses with tailored consulting services,
+            combining strategic insights and practical expertise to drive
+            growth, optimize operations, and ensure competitiveness. Our
+            experienced team works closely with clients to address challenges,
+            identify opportunities, and deliver measurable results.
           </p>
           <h3>Our Services</h3>
           <p>
             <span className=" fw-bold">
               Registration & Formation of Companies:
             </span>{" "}
-            We are committed to making the process of registering and forming
-            companies seamless and hassle-free. With a team of dedicated
-            professionals, we guide entrepreneurs, startups, and established
-            businesses through every step of the legal and administrative
-            processes involved in setting up a company. We understand the
-            challenges and complexities that come with company formation,
-            whether you're a first-time entrepreneur or expanding your business
-            ventures. Our goal is to simplify this journey, ensuring that your
-            company is set up efficiently and in full compliance with local and
+            We simplify company registration and formation, guiding
+            entrepreneurs, startups, and businesses through every legal and
+            administrative step. Our dedicated team ensures a seamless process,
+            addressing challenges and ensuring compliance with local and
             international regulations.
             <br />
             <span className=" fw-semibold">Services include:</span>
             <ul className=" fs-6">
               <li>
                 <span className=" fw-semibold">Company Registration:</span>
-                We assist with the entire registration process, from choosing
-                the right business structure to filing necessary documents with
-                the relevant authorities.
+                We assist with the entire registration process, guiding you from
+                selecting the right business structure to filing essential
+                documents with the relevant authorities.
               </li>
               <li>
                 <span className=" fw-semibold">
@@ -107,17 +97,11 @@ const Page = () => {
           </p>
           <p>
             <span className=" fw-bold">Company Annual Returns:</span> We
-            specialize in simplifying the process of filing Company Annual
-            Returns, ensuring your business remains compliant with regulatory
-            requirements. With a deep understanding of corporate governance and
-            statutory obligations, we help businesses of all sizes stay up to
-            date with their annual filings, allowing you to focus on what you do
-            best—growing your business. Our dedicated team is committed to
-            providing timely and accurate services, making sure that all
-            necessary documents are filed in accordance with local laws and
-            regulations. We take pride in our attention to detail, efficiency,
-            and personalized approach, offering peace of mind to business owners
-            and corporate entities.
+            streamline the filing of Company Annual Returns, ensuring businesses
+            of all sizes stay compliant with regulatory requirements. Our expert
+            team handles filings with precision and efficiency, allowing you to
+            focus on growing your business while we ensure compliance with local
+            laws.
             <br />
             <span className=" fw-semibold">What we offer</span>
             <ul className=" fs-6">
@@ -150,16 +134,11 @@ const Page = () => {
           </p>
           <p>
             <span className=" fw-bold">Tax Registration and Returns:</span> We
-            provide comprehensive Tax Registration and Returns services designed
-            to help individuals and businesses navigate the complexities of tax
-            compliance. With a team of skilled tax professionals, we ensure that
-            your tax obligations are handled accurately and efficiently,
-            minimizing risks and maximizing opportunities for tax savings.
-            Whether you’re a small business, a growing enterprise, or an
-            individual seeking personal tax assistance, we offer tailored
-            solutions to meet your needs. Our approach combines deep expertise
-            in tax law with a client-centered focus, making sure you receive the
-            best advice and services for your specific situation.
+            offer comprehensive Tax Registration and Returns services, helping
+            individuals and businesses navigate tax compliance with accuracy and
+            efficiency. Our skilled professionals provide tailored solutions,
+            combining tax law expertise with a client-focused approach to
+            minimize risks and maximize savings.
             <br />
             <span className=" fw-semibold">What we offer</span>
             <ul className=" fs-6">
@@ -198,18 +177,13 @@ const Page = () => {
             </ul>
           </p>
           <p>
-            <span className=" fw-bold">Financial Accounting:</span> We are
-            committed to delivering expert Financial Accounting Services that
-            help businesses stay financially healthy and compliant with
-            regulatory requirements. With a team of qualified accountants and
-            financial professionals, we provide accurate and timely financial
-            reporting, bookkeeping, and advisory services that empower
-            businesses to make informed decisions. We understand that managing
-            finances can be complex and time-consuming, which is why we offer
-            tailored accounting solutions designed to meet the unique needs of
-            each client. Whether you’re a small business, a large corporation,
-            or an individual seeking accounting assistance, we ensure that your
-            financial records are managed with precision and care.
+            <span className=" fw-bold">Financial Accounting:</span> We deliver
+            expert Financial Accounting Services to help businesses maintain
+            financial health and regulatory compliance. Our qualified team
+            offers accurate reporting, bookkeeping, and tailored advisory
+            solutions, empowering clients to make informed decisions while
+            ensuring their financial records are managed with precision and
+            care.
             <br />
             <span className=" fw-semibold">What we offer</span>
             <ul className=" fs-6">
@@ -240,6 +214,57 @@ const Page = () => {
                 Our team offers personalized financial advice to help you
                 optimize your business operations, manage cash flow, and make
                 sound investment decisions.
+              </li>
+            </ul>
+          </p>
+          <p>
+            <span className=" fw-bold">Auditing:</span> We provide comprehensive
+            Auditing Services to ensure transparency, accuracy, and compliance
+            with regulatory standards. Our experienced auditors deliver tailored
+            solutions to help businesses and organizations maintain stakeholder
+            trust, improve internal controls, and enhance operational
+            efficiency.
+            <br />
+            <span className=" fw-semibold">Our Services</span>
+            <ul className=" fs-6">
+              <li>
+                <span className=" fw-semibold">
+                  Financial Statement Audits:
+                </span>
+                We conduct thorough audits of your financial statements to
+                ensure they provide a true and fair view of your financial
+                position, in accordance with local and international accounting
+                standards.
+              </li>
+              <li>
+                <span className=" fw-semibold">Internal Audits:</span>
+                Our internal audit services help you evaluate and improve the
+                effectiveness of your internal controls, risk management, and
+                governance processes.
+              </li>
+              <li>
+                <span className=" fw-semibold">Compliance Audits: </span>
+                We help businesses stay compliant with industry regulations and
+                standards by conducting audits that ensure adherence to legal
+                and regulatory requirements.
+              </li>
+              <li>
+                <span className=" fw-semibold">Operational Audits:</span>
+                We assess the efficiency and effectiveness of your business
+                operations, helping you identify areas for improvement and
+                optimization.
+              </li>
+              <li>
+                <span className=" fw-semibold">Forensic Audits:</span>
+                Our forensic audit services are designed to investigate and
+                detect financial irregularities, fraud, or discrepancies within
+                your organization.
+              </li>
+              <li>
+                <span className=" fw-semibold">Tax Audits:</span>
+                We assist businesses in preparing for tax audits and ensure that
+                their financial records and tax filings are in full compliance
+                with the relevant tax authorities.
               </li>
             </ul>
           </p>
