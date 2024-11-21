@@ -16,6 +16,7 @@ export default function Mega({ staticMenuClass }) {
           />
           Categories
         </a>
+
         <ul className="menu ps-0">
           <li>
             <a className="dropdown">
