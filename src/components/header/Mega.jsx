@@ -47,7 +47,6 @@ export default function Mega({ staticMenuClass }) {
                 </ul>
               </div>
               <div>
-                {" "}
                 <div className="h6 cat-title">IT Support &amp; Services</div>
                 <ul className="ps-0 mb-0">
                   <li>
