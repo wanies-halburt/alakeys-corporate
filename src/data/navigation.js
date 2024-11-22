@@ -17,46 +17,46 @@ const menus = [
   {
     id: 4,
     name: "Services",
-    children: [
-      {
-        id: 1,
-        name: "Consulting",
-
-        children: [
-          {
-            id: 1,
-            name: "Registration & Formation of Companies",
-            path: "/service",
-          },
-          { id: 2, name: "Company Annual Returns", path: "/service" },
-          { id: 3, name: "Tax Registration and Returns", path: "/service" },
-          { id: 4, name: "Financial Accounting", path: "/service" },
-          { id: 5, name: "Auditing", path: "/service" },
-          { id: 6, name: "Other CAC Services", path: "/service" },
-          {
-            id: 7,
-            name: "Website Design – Corporate websites and ecommerce websites",
-            path: "/service",
-          },
-        ],
-      },
-      {
-        id: 2,
-        name: "Recruitment",
-        children: [
-          { id: 1, name: "DIY Recruitment,", path: "/service" },
-          { id: 1, name: "Talent Pool Recruitment", path: "/service" },
-        ],
-      },
-      {
-        id: 3,
-        name: "Training",
-        children: [
-          { id: 1, name: "Business Analysis", path: "/service" },
-          { id: 2, name: "Technical Skills", path: "/service" },
-        ],
-      },
-    ],
+    path: "/service",
+    // children: [
+    //   {
+    //     id: 1,
+    //     name: "Consulting",
+    //     // children: [
+    //     //   {
+    //     //     id: 1,
+    //     //     name: "Registration & Formation of Companies",
+    //     //     path: "/service",
+    //     //   },
+    //     //   { id: 2, name: "Company Annual Returns", path: "/service" },
+    //     //   { id: 3, name: "Tax Registration and Returns", path: "/service" },
+    //     //   { id: 4, name: "Financial Accounting", path: "/service" },
+    //     //   { id: 5, name: "Auditing", path: "/service" },
+    //     //   { id: 6, name: "Other CAC Services", path: "/service" },
+    //     //   {
+    //     //     id: 7,
+    //     //     name: "Website Design – Corporate websites and ecommerce websites",
+    //     //     path: "/service",
+    //     //   },
+    //     // ],
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "Recruitment",
+    //     children: [
+    //       { id: 1, name: "DIY Recruitment,", path: "/service" },
+    //       { id: 1, name: "Talent Pool Recruitment", path: "/service" },
+    //     ],
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "Training",
+    //     children: [
+    //       { id: 1, name: "Business Analysis", path: "/service" },
+    //       { id: 2, name: "Technical Skills", path: "/service" },
+    //     ],
+    //   },
+    // ],
   },
 ];
 
