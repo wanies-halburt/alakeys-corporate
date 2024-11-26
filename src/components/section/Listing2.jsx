@@ -5,7 +5,7 @@ import ListingSidebarModal1 from "../modal/ListingSidebarModal1";
 import Pagination1 from "./Pagination1";
 import listingStore from "@/store/listingStore";
 import priceStore from "@/store/priceStore";
-import PopularServiceCard2 from "../card/PopularServiceCard2";
+import PopularServiceCard2 from "../card/ProductCard";
 import PopularServiceSlideCard2 from "../card/PopularServiceSlideCard2";
 
 export default function Listing2() {
@@ -69,8 +69,8 @@ export default function Listing2() {
               .filter(sortByFilter)
               .filter(designToolFilter)
               .filter(speakFilter)
-              .map((item,i) => (
-                <div key={ i } className="col-sm-6">
+              .map((item, i) => (
+                <div key={i} className="col-sm-6">
                   {item?.gallery?.length > 0 ? (
                     <PopularServiceSlideCard2 data={item} />
                   ) : (

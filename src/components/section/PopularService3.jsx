@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { product1 } from "@/data/product";
-import PopularServiceCard2 from "../card/PopularServiceCard2";
+import PopularServiceCard2 from "../card/ProductCard";
 
 const categories = [
   "Development & IT",
@@ -85,8 +85,8 @@ export default function PopularService3() {
             </div>
           </div>
           <div className="row">
-            {product1.slice(getPosition.min, getPosition.max).map((item,i) => (
-              <div key={ i } className="col-md-6">
+            {product1.slice(getPosition.min, getPosition.max).map((item, i) => (
+              <div key={i} className="col-md-6">
                 <PopularServiceCard2 data={item} />
               </div>
             ))}

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Breadcumb7 from "@/components/breadcumb/Breadcumb7";
 import SelectInput from "@/components/dashboard/option/SelectInput";
 import { product1 } from "@/data/product";
-import PopularServiceCard1 from "@/components/card/PopularServiceCard1";
+import ProductCard from "@/components/card/ProductCard";
 
 const Products = () => {
   const [getCategory, setCategory] = useState({
@@ -101,7 +101,7 @@ const Products = () => {
             {filteredProducts.length > 0 ? (
               filteredProducts.map((item, i) => (
                 <div key={i} className="col-sm-6 col-xl-3">
-                  <PopularServiceCard1 data={item} />
+                  <ProductCard data={item} />
                 </div>
               ))
             ) : (

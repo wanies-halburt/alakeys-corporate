@@ -7,7 +7,7 @@ import Pagination1 from "./Pagination1";
 import listingStore from "@/store/listingStore";
 import priceStore from "@/store/priceStore";
 import ClearButton from "../button/ClearButton";
-import PopularServiceCard2 from "../card/PopularServiceCard2";
+import PopularServiceCard2 from "../card/ProductCard";
 import PopularServiceSlideCard2 from "../card/PopularServiceSlideCard2";
 
 export default function Listing4() {
@@ -65,8 +65,8 @@ export default function Listing4() {
     .filter(sortByFilter)
     .filter(designToolFilter)
     .filter(speakFilter)
-    .map((item,i) => (
-      <div key={ i } className="col-lg-12">
+    .map((item, i) => (
+      <div key={i} className="col-lg-12">
         {item?.gallery ? (
           <PopularServiceSlideCard2 data={item} />
         ) : (
