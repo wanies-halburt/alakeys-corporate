@@ -14,7 +14,7 @@ const role = [
   "Programming & Tech",
 ];
 
-export default function Breadcumb7() {
+export default function Breadcumb7({ title, subtitle }) {
   const [getSelectedRole, setSelectedRole] = useState(null);
 
   // choose a category
@@ -43,9 +43,11 @@ export default function Breadcumb7() {
             <div className="row wow fadeInUp">
               <div className="col-xl-12">
                 <div className="position-relative">
-                  <h1 className="text-white text-center">Services</h1>
+                  <h1 className="text-white text-center">
+                    {title ?? "Services"}
+                  </h1>
                   <p className="text mb30 text-white text-center">
-                    Empowering Your Business Journey
+                    {subtitle ?? "Empowering Your Business Journey"}
                   </p>
                   {/* <div className="advance-search-tab bgc-white p10 bdrs4">
                     <div className="row">

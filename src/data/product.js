@@ -4,7 +4,7 @@ export const product1 = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShoa3fTQVLjpRKBF8M7MlF7i6EdtHq2xupDQ&s",
     img2: "https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png",
     category: "Web & App Design",
-    title: "I will design modern websites in figma or adobe xd",
+    title: "Best development using Next js",
     rating: 4.82,
     review: 94,
     author: {
@@ -199,7 +199,7 @@ export const product1 = [
     img: "https://www.arkonwebsolutions.com/blog/wp-content/uploads/2019/07/web-design.jpg",
     img2: "/images/listings/g-17.jpg",
     category: "Web & App Design",
-    title: "I will design modern websites in figma or adobe xd",
+    title: "I will design create websites in figma or adobe xd",
     rating: 4.82,
     review: 94,
     author: {

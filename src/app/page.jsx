@@ -8,7 +8,7 @@ import Hero from "@/components/hero/Hero";
 import InspiringService11 from "@/components/section/InspiringService11";
 import NeedSomething2 from "@/components/section/NeedSomething2";
 import Talent15 from "@/components/section/Talent15";
-import TrendingService15 from "@/components/section/TrendingService15";
+// import TrendingService15 from "@/components/section/TrendingService15";
 import NewsLetterSubscribe1 from "@/components/section/NewsLetterSubscribe1";
 
 export const metadata = {
@@ -23,7 +23,7 @@ export default function page() {
         <NeedSomething2 />
         <PopularService1 />
         <LearnFreeio1 />
-        <TrendingService15 />
+        {/* <TrendingService15 /> */}
         <Talent15 />
         <Testimonial1 />
         <InspiringService11 />

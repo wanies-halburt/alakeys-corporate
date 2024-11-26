@@ -39,7 +39,7 @@ export default function SelectInput({
                       ? defaultSelect.length > 0
                         ? defaultSelect.join(", ") // Show selected items for multiple
                         : "Select options"
-                      : defaultSelect || "Select an option"}{" "}
+                      : defaultSelect?.value || "Select an option"}{" "}
                     {/* For single */}
                   </div>
                 </div>

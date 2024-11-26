@@ -1,10 +1,6 @@
 export const about = [
-  { id: 1, name: "Careers", path: "/" },
-  { id: 2, name: "Press & News", path: "/" },
-  { id: 3, name: "Partnerships", path: "/" },
-  { id: 4, name: "Privacy Policy", path: "/" },
-  { id: 5, name: "Terms of Service", path: "/" },
-  { id: 6, name: "Investor Relations", path: "/" },
+  { id: 1, name: "About Us", path: "/about-us" },
+  { id: 2, name: "Products", path: "/products" },
 ];
 
 export const category = [
@@ -19,11 +15,7 @@ export const category = [
   { id: 9, name: "Lifestyle", path: "/" },
 ];
 
-export const support = [
-  { id: 11, name: "Contact Us", path: "/contact" },
-  { id: 1, name: "Help & Support", path: "/" },
-  { id: 2, name: "Trust & Safety", path: "/" },
-];
+export const support = [{ id: 11, name: "Contact Us", path: "/contact-us" }];
 
 export const momney = ["US$ USD", "Euro", "Pound"];
 export const lan = ["English", "Frenc", "Italian", "Spanish", "Turkey"];
