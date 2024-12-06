@@ -1,7 +1,7 @@
 export default function ContactInfo1() {
   return (
     <>
-      <section className="pt-0">
+      <section className="pt-90">
         <div className="container">
           <div className="row wow fadeInUp" data-wow-delay="300ms">
             <div className="col-lg-6">
@@ -20,8 +20,7 @@ export default function ContactInfo1() {
                   <div className="details">
                     <h5 className="title">Address</h5>
                     <p className="mb-0 text">
-                      328 Queensberry Street, North <br /> Melbourne VIC 3051,
-                      Australia.
+                      54B Adeniyi Jones Avenue, Ikeja, Lagos
                     </p>
                   </div>
                 </div>
@@ -31,7 +30,7 @@ export default function ContactInfo1() {
                   </div>
                   <div className="details">
                     <h5 className="title">Phone</h5>
-                    <p className="mb-0 text">+(0) 392 94 03 01</p>
+                    <p className="mb-0 text">08088844023</p>
                   </div>
                 </div>
                 <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
@@ -40,7 +39,7 @@ export default function ContactInfo1() {
                   </div>
                   <div className="details">
                     <h5 className="title">Email</h5>
-                    <p className="mb-0 text">hello@freeio.com</p>
+                    <p className="mb-0 text">info@alakeys.com</p>
                   </div>
                 </div>
               </div>

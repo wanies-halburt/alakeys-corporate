@@ -34,9 +34,9 @@ export default function Invoice() {
                     <div className="col-lg-7">
                       <div className="main_logo mb30-md">
                         <Image
-                          height={40}
-                          width={133}
-                          src="/images/header-logo-dark.svg"
+                          width={100}
+                          height={20}
+                          src="/images/logo.png"
                           alt="logo"
                         />
                       </div>

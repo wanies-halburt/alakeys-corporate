@@ -26,7 +26,7 @@ export default function Footer15() {
               <div className="row justify-content-between">
                 <div className="col-auto">
                   <div className="link-style1 mb-3">
-                    <h6 className="text-white mb25">About</h6>
+                    <h6 className="text-white h3 mb25">About</h6>
                     <div className="link-list">
                       {about.map((item, i) => (
                         <Link key={i} href={item.path}>
@@ -38,7 +38,7 @@ export default function Footer15() {
                 </div>
                 <div className="col-auto">
                   <div className="link-style1 mb-3">
-                    <h6 className="text-white mb25">Categories</h6>
+                    <h6 className="text-white h3 mb25">Categories</h6>
                     <ul className="ps-0">
                       {category.map((item, i) => (
                         <li key={i}>
@@ -50,7 +50,7 @@ export default function Footer15() {
                 </div>
                 <div className="col-auto">
                   <div className="link-style1 mb-3">
-                    <h6 className="text-white mb25">Support</h6>
+                    <h6 className="text-white h3 mb25">Support</h6>
                     <ul className="ps-0">
                       {support.map((item, i) => (
                         <li key={i}>
@@ -67,10 +67,10 @@ export default function Footer15() {
             <div className="footer-widget mb-4 mb-lg-5">
               <Link className="footer-logo" href="/">
                 <Image
-                  width={133}
-                  height={40}
+                  width={100}
+                  height={20}
                   className="mb40"
-                  src="https://a.sfdcstatic.com/shared/images/c360-nav/salesforce-with-type-logo.svg"
+                  src="/images/logo.png"
                   alt=" image "
                 />
               </Link>

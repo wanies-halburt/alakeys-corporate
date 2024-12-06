@@ -1,61 +1,4 @@
 @charset "UTF-8";
-/*
-Project/Template Name:  Freeio - Freelance Marketplace HTML Template
-Template Url: 
-Author: CreativeLayers
-Author Url: https://themeforest.net/user/creativelayers/portfolio
-Version: 1.0.0
-Description: Freeio - Freelance Marketplace HTML Template
-Tag:  bidding, fiverr, freelance marketplace, freelancers, freelancing, gigs, hiring, job board, job portal, job posting, jobs marketplace, peopleperhour, proposals, sell services, upwork
-*/
-/* == Table Of Content  == */
-/* Variables */
-/* Mixins */
-/* Typography Styles */
-/* Header Styles */
-/* All Type Of Footer Styles */
-/* All styles about breadcumb */
-/* Dashboard Style Code Here */
-/* Messages Styles */
-/* Listings Styles */
-/* About Pages Design Content Styles  */
-/* Hero Styles All Type Of */
-/* ALl Blogs Styles Here  */
-/* Brands */
-/* Commons Styles of Template */
-/* Contact Styles */
-/* All CTA Styles Here */
-/* Error Pages Styles */
-/* Iconbox Styles */
-/* All Type Of Forms Styles */
-/* Gallery Styles */
-/* Packages And Pricing Tables */
-/* Testimonials Styles */
-/* Team Styles */
-/* Different Styles Of Animations */
-/* Different Accordion Styles*/
-/* Different Styles of Alart */
-/* blockquote Styles*/
-/* All kind Of btns Styles */
-/* Funfact Styles */
-/* Menu Style */
-/* Nav & Tabs Styles */
-/* Paginations Styles */
-/* ProgressBar Styles */
-/* Social Styles */
-/* Sliders Styles */
-/* Sidebar Styles */
-/* Table Styles */
-/* Essential utility classes */
-/*=================================
-   Bootstrap Sass
-==================================*/
-/*=================================
-   Theme Based
-==================================*/
-/* @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;display=swap"); */
-/* Mixins */
-/* Variables */
 :root {
   --title-font-family: "DM Sans", sans-serif;
   --body-font-family: "DM Sans", sans-serif;
@@ -210,9 +153,31 @@ h6 {
   font-size: 15px;
 }
 
-li {
+/* li {
   list-style-type: none;
+} */
+
+
+ol {
+  counter-reset: list-counter; /* Optional: Reset numbering */
 }
+ol li::marker {
+  font-size: 1.5rem;
+  /* color: darkred; */
+}
+
+ul {
+  list-style-type: disc; /* Options: disc, circle, square, none */
+  margin-left: 20px; /* Add indentation */
+}
+ul li::marker {
+  color: #5bbb7b; /* Change bullet color */
+  font-size: 2.2em; /* Adjust size */
+}
+
+/* li {
+  margin: 5px 0;
+} */
 
 @media (max-width: 575.98px) {
   .h2,

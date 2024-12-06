@@ -9,7 +9,7 @@ export default function ServiceDetailPrice1() {
     <>
       <div className="price-widget">
         <div className="navtab-style1">
-          <nav>
+          {/* <nav>
             <div className="nav nav-tabs mb20">
               {tabs.map((item, i) => (
                 <button
@@ -21,11 +21,11 @@ export default function ServiceDetailPrice1() {
                 </button>
               ))}
             </div>
-          </nav>
+          </nav> */}
           <div className="tab-content" id="nav-tabContent">
             {getTab === 0 && (
               <div className="price-content">
-                <div className="price">$50</div>
+                <div className="price">₦25,000</div>
                 <div className="h5 mb-2">High-converting Landing Pages</div>
                 <p className="text fz14">
                   I will redesign your current landing page or create one for
@@ -37,32 +37,16 @@ export default function ServiceDetailPrice1() {
                     <i className="flaticon-sandclock fz20 text-thm2 me-2 vam" />
                     3 Days Delivery
                   </li>
-                  <li className="fz14 fw500 dark-color ml20 ml0-xs">
-                    <i className="flaticon-recycle fz20 text-thm2 me-2 vam" />2
-                    Revisions
-                  </li>
                 </ul>
-                <div className="list-style1">
-                  <ul>
-                    <li className="mb15">
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />2
-                      Page / Screen
-                    </li>
-                    <li>
-                      <i className="far fa-check text-thm3 bgc-thm3-light" />
-                      Source file
-                    </li>
-                  </ul>
-                </div>
                 <div className="d-grid">
                   <a className="ud-btn btn-thm">
-                    Continue $50
+                    Continue ₦25,000
                     <i className="fal fa-arrow-right-long" />
                   </a>
                 </div>
               </div>
             )}
-            {getTab === 1 && (
+            {/* {getTab === 1 && (
               <div className="price-content">
                 <div className="price">$29</div>
                 <div className="h5 mb-2">High-converting Landing Pages</div>
@@ -139,7 +123,7 @@ export default function ServiceDetailPrice1() {
                   </a>
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

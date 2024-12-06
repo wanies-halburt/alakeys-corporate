@@ -9,9 +9,9 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
 
 const gigImages = [
-  "/images/listings/service-details-1.jpg",
-  "/images/listings/service-details-1.jpg",
-  "/images/listings/service-details-1.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl3cxZ2MbkRrbknqiADQdR_7Po5B1Bz6WH1w&s",
+  "https://cdn.britannica.com/94/192794-050-3F3F3DDD/panels-electricity-order-sunlight.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkLZzaFHIfxkrGiRfhmk9vgUYS9utMfz0C2g&s",
 ];
 
 export default function ServiceDetailSlider1() {
@@ -25,7 +25,7 @@ export default function ServiceDetailSlider1() {
     <>
       <div className="scrollbalance-inner">
         <div className="row">
-          <div className="col-sm-6 col-md-4">
+          {/* <div className="col-sm-6 col-md-4">
             <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
               <div className="icon flex-shrink-0">
                 <span className="flaticon-calendar" />
@@ -35,8 +35,8 @@ export default function ServiceDetailSlider1() {
                 <p className="mb-0 text">1-3 Days</p>
               </div>
             </div>
-          </div>
-          <div className="col-sm-6 col-md-4">
+          </div> */}
+          {/* <div className="col-sm-6 col-md-4">
             <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
               <div className="icon flex-shrink-0">
                 <span className="flaticon-goal" />
@@ -54,10 +54,10 @@ export default function ServiceDetailSlider1() {
               </div>
               <div className="details">
                 <h5 className="title">Location</h5>
-                <p className="mb-0 text">New York</p>
+                <p className="mb-0 text">Lagos, Nigeria</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="service-single-sldier vam_nav_style slider-1-grid owl-carousel owl-theme mb60 owl-loaded owl-drag">
           <div className="thumb p50 p30-sm">

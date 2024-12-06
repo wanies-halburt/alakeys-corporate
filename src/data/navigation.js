@@ -5,16 +5,6 @@ const menus = [
     path: "/",
   },
   {
-    id: 2,
-    name: "Contact Us",
-    path: "/contact-us",
-  },
-  {
-    id: 3,
-    name: "About Us",
-    path: "/about-us",
-  },
-  {
     id: 4,
     name: "Services",
     path: "/service",
@@ -22,23 +12,23 @@ const menus = [
     //   {
     //     id: 1,
     //     name: "Consulting",
-    //     // children: [
-    //     //   {
-    //     //     id: 1,
-    //     //     name: "Registration & Formation of Companies",
-    //     //     path: "/service",
-    //     //   },
-    //     //   { id: 2, name: "Company Annual Returns", path: "/service" },
-    //     //   { id: 3, name: "Tax Registration and Returns", path: "/service" },
-    //     //   { id: 4, name: "Financial Accounting", path: "/service" },
-    //     //   { id: 5, name: "Auditing", path: "/service" },
-    //     //   { id: 6, name: "Other CAC Services", path: "/service" },
-    //     //   {
-    //     //     id: 7,
-    //     //     name: "Website Design – Corporate websites and ecommerce websites",
-    //     //     path: "/service",
-    //     //   },
-    //     // ],
+    //     children: [
+    //       {
+    //         id: 1,
+    //         name: "Registration & Formation of Companies",
+    //         path: "/service",
+    //       },
+    //       { id: 2, name: "Company Annual Returns", path: "/service" },
+    //       { id: 3, name: "Tax Registration and Returns", path: "/service" },
+    //       { id: 4, name: "Financial Accounting", path: "/service" },
+    //       { id: 5, name: "Auditing", path: "/service" },
+    //       { id: 6, name: "Other CAC Services", path: "/service" },
+    //       {
+    //         id: 7,
+    //         name: "Website Design – Corporate websites and ecommerce websites",
+    //         path: "/service",
+    //       },
+    //     ],
     //   },
     //   {
     //     id: 2,
@@ -57,6 +47,16 @@ const menus = [
     //     ],
     //   },
     // ],
+  },
+  {
+    id: 2,
+    name: "Contact Us",
+    path: "/contact-us",
+  },
+  {
+    id: 3,
+    name: "About Us",
+    path: "/about-us",
   },
 ];
 

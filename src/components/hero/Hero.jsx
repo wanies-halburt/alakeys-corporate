@@ -15,29 +15,29 @@ const HeroSlider = () => {
       id: 1,
       url: "/images/home/hero1.jpg",
       urlMobile: "/images/home/hero_mobile1.jpg",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-      bottomText: "Consulting",
+      text: "Our goal is to simplify CAC filing processes and ensure your business remains compliant throughout its growth.",
+      bottomText: "CAC Services",
     },
     {
       id: 2,
       url: "/images/home/hero2.jpg",
       urlMobile: "/images/home/hero_mobile2.jpg",
-      text: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain",
-      bottomText: "DIY Recruiting",
+      text: "We provide innovative and flexible Recruitment Solutions to help businesses find the right talent quickly and efficiently",
+      bottomText: "Recruitment ",
     },
     {
       id: 3,
       url: "/images/home/hero3.jpg",
       urlMobile: "/images/home/hero_mobile3.jpg",
-      text: "Nor again is there anyone who loves or pursues or desires to obtain pain of itself",
-      bottomText: "Business Analysis",
+      text: "We are dedicated to equipping professionals and businesses with the skills and knowledge they need to excel in Business Analysis",
+      bottomText: "Training & Development",
     },
     {
       id: 4,
       url: "/images/home/hero4.jpg",
       urlMobile: "/images/home/hero_mobile4.jpg",
-      text: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized",
-      bottomText: "Web Design",
+      text: "Our goal is to provide expert financial accounting services, ensuring businesses achieve financial health and regulatory compliance.",
+      bottomText: "Accounting Services",
     },
   ];
 
@@ -115,8 +115,9 @@ const HeroSlider = () => {
           top: 0;
           bottom: 0;
           color: white;
+          width: 95%;
           z-index: 10;
-          max-width: 400px;
+          max-width: 500px;
           font-weight: 600;
           font-size: 2.375rem;
         }

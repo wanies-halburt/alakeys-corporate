@@ -11,9 +11,9 @@ export default function MobileNavigation6() {
               <div className="mobile_menu_bar d-flex justify-content-between align-items-center">
                 <Link className="mobile_logo" href="/home-2">
                   <Image
-                    height={40}
-                    width={133}
-                    src="/images/header-logo-dark.svg"
+                    width={100}
+                    height={20}
+                    src="/images/logo.png"
                     alt="Header Logo"
                   />
                 </Link>

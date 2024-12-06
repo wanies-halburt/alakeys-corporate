@@ -4,21 +4,24 @@ export const about = [
 ];
 
 export const category = [
-  { id: 1, name: "Graphics & Design", path: "/" },
-  { id: 2, name: "Digital Marketing", path: "/" },
-  { id: 3, name: "Writing & Translation", path: "/" },
-  { id: 4, name: "Video & Animation", path: "/" },
-  { id: 5, name: "Music & Audio", path: "/" },
-  { id: 6, name: "Programming & Tech", path: "/" },
-  { id: 7, name: "Data", path: "/" },
-  { id: 8, name: "Business", path: "/" },
-  { id: 9, name: "Lifestyle", path: "/" },
+  { id: 1, name: "CAC Services", path: "/service#cac-section" },
+  { id: 2, name: "Taxation", path: "/service#taxation-section" },
+  {
+    id: 3,
+    name: "Financial Accounting Services",
+    path: "/service#accounting-section",
+  },
+  { id: 4, name: "Auditing", path: "/service#auditing-section" },
+  { id: 5, name: "Recruitment ", path: "/service#recruitment-section" },
+  { id: 6, name: "Training & Development", path: "/service#training-section" },
+  { id: 7, name: "Website Design & Development", path: "/service#web-section" },
 ];
 
 export const support = [{ id: 11, name: "Contact Us", path: "/contact-us" }];
 
 export const momney = ["US$ USD", "Euro", "Pound"];
-export const lan = ["English", "Frenc", "Italian", "Spanish", "Turkey"];
+export const lan = ["English"];
+// export const lan = ["English", "Frenc", "Italian", "Spanish", "Turkey"];
 
 export const footer = [
   "/dashboard",

@@ -40,9 +40,9 @@ export default function Header16() {
                   <div className="logos">
                     <Link className="header-logo logo1" href="/">
                       <Image
-                        width={133}
-                        height={40}
-                        src="https://a.sfdcstatic.com/shared/images/c360-nav/salesforce-with-type-logo.svg"
+                        width={100}
+                        height={20}
+                        src="/images/logo.png"
                         alt="Header Logo"
                       />
                     </Link>

@@ -47,13 +47,23 @@ const Page = () => {
         {/* Right Div */}
         <div className="col-12 col-md-9 col-lg-6 p-3 text-white fs-5">
           <p>
-            At Alakeys, we empower businesses with tailored consulting services,
-            combining strategic insights and practical expertise to drive
-            growth, optimize operations, and ensure competitiveness. Our
-            experienced team works closely with clients to address challenges,
-            identify opportunities, and deliver measurable results.
+            At Alakeys, we are dedicated to empowering businesses by offering
+            expert consulting services tailored to your unique needs. With a
+            team of experienced consultants across various industries, we
+            provide innovative solutions that help companies grow, optimize
+            their operations, and stay competitive in an ever-changing
+            marketplace.
+            <br />
+            Our approach combines strategic insights with practical, hands-on
+            experience to ensure that our clients achieve their business
+            objectives. We work closely with you to understand your challenges,
+            identify opportunities, and implement strategies that drive
+            measurable results.
+            <br />
+            We work in collaboration with our partners to ensure you get value
+            for money for your outsourced business activities with us.
           </p>
-          <h3>Our Services</h3>
+          {/* <h3>Our Services</h3>
           <p>
             <span className=" fw-bold">
               Registration & Formation of Companies:
@@ -267,7 +277,7 @@ const Page = () => {
                 with the relevant tax authorities.
               </li>
             </ul>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
