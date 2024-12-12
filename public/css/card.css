@@ -1,0 +1,42 @@
+.hover-card {
+    border-left: 10px solid green;
+    transition: border-width 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .hover-card:hover {
+    border-left-width: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .servicecard-title {
+    position: relative;
+    font-size: 18px;
+    font-weight: 700;
+    color: black;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .servicecard-title:hover::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: black;
+    margin-top: 4px;
+  }
+  
+  .servicecard-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 16px;
+    text-overflow: ellipsis;
+  }
+  
+  .servicecard-link {
+    color: blue;
+    font-weight: bold;
+  }
+  

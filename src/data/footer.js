@@ -4,17 +4,17 @@ export const about = [
 ];
 
 export const category = [
-  { id: 1, name: "CAC Services", path: "/service#cac-section" },
-  { id: 2, name: "Taxation", path: "/service#taxation-section" },
+  { id: 1, name: "CAC Services", path: "/service/cac" },
+  { id: 2, name: "Tax", path: "/service/tax" },
   {
     id: 3,
     name: "Financial Accounting Services",
-    path: "/service#accounting-section",
+    path: "/service/accounting",
   },
-  { id: 4, name: "Auditing", path: "/service#auditing-section" },
-  { id: 5, name: "Recruitment ", path: "/service#recruitment-section" },
-  { id: 6, name: "Training & Development", path: "/service#training-section" },
-  { id: 7, name: "Website Design & Development", path: "/service#web-section" },
+  { id: 4, name: "Auditing", path: "/service/auditing" },
+  { id: 5, name: "Recruitment ", path: "/service/recruitment" },
+  { id: 6, name: "Training & Development", path: "/service/training" },
+  { id: 7, name: "Website Design & Development", path: "/service/web" },
 ];
 
 export const support = [{ id: 11, name: "Contact Us", path: "/contact-us" }];

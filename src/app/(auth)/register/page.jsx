@@ -1,42 +1,64 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useAuthStore } from "../../../store/authStore";
-import { useRouter } from "next/navigation";
+import { useDebounce } from "@/hook/useDebounce";
 
 export default function Page() {
-  const { login, loading, getUserProfile } = useAuthStore();
   const router = useRouter();
+  const {
+    register,
+    loading,
+    error,
+    verifyUsername,
+    getUsernameSuggestion,
+    usernameSuggestions,
+  } = useAuthStore();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [isAvailable, setIsAvailable] = useState(false);
+
+  const debouncedUsername = useDebounce(username, 1000);
+  const debouncedEmail = useDebounce(email, 1000);
+  const debouncedDisplayName = useDebounce(displayName, 1000);
+
+  useEffect(() => {
+    const checkUsername = async () => {
+      const val = await verifyUsername(debouncedUsername);
+      setIsAvailable(val);
+    };
+
+    checkUsername();
+  }, [verifyUsername, debouncedUsername]);
+
+  useEffect(() => {
+    const getSuggestions = async () =>
+      await getUsernameSuggestion(debouncedDisplayName, debouncedEmail);
+
+    getSuggestions();
+  }, [debouncedDisplayName, debouncedEmail, getUsernameSuggestion]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const isLoggedIn = await login(email, password);
-    if (isLoggedIn) {
-      router.push("/dashboard");
+    const isRegistered = await register(email, password, displayName, username);
+    if (isRegistered) {
+      router.push("/");
     }
   };
+
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-  useEffect(() => {
-    const checkUserprofile = async () => {
-      const res = await getUserProfile();
-      console.log("ress", res);
-      // if (res?.email) {
-      //   router.push("/dashboard");
-      // }
-    };
-    checkUserprofile();
-  }, [getUserProfile, router]);
   return (
     <>
-      <section className="our-login">
+      <section className="our-register">
         <div className="container">
           <div className="row">
             <div
@@ -44,7 +66,7 @@ export default function Page() {
               data-wow-delay="300ms"
             >
               <div className="main-title text-center">
-                <h2 className="title">Log In</h2>
+                <h2 className="title">Register</h2>
                 <p className="paragraph">
                   Give your visitor a smooth online experience with a solid UX
                   design
@@ -56,28 +78,73 @@ export default function Page() {
             <div className="col-xl-6 mx-auto">
               <div className="log-reg-form search-modal form-style1 bgc-white p50 p30-sm default-box-shadow1 bdrs12">
                 <div className="mb30">
-                  <h4>We're glad to see you again!</h4>
-                  <p className="text">
-                    Don't have an account?{" "}
-                    <Link href="/register" className="text-thm">
-                      Sign Up!
+                  <h4>Let's create your account!</h4>
+                  <p className="text mt20">
+                    Already have an account?{" "}
+                    <Link href="/login" className="text-thm">
+                      Log In!
                     </Link>
                   </p>
                 </div>
-                <div className="mb20">
-                  <label className="form-label fw600 dark-color">
-                    Email Address
+                <div className="mb25">
+                  <label className="form-label fw500 dark-color">
+                    Full Name
                   </label>
                   <input
-                    value={email}
+                    type="text"
+                    value={displayName}
+                    className="form-control"
+                    placeholder="Mark Yusuf"
+                    onChange={(e) => setDisplayName(e.target.value)}
+                  />
+                </div>
+                <div className="mb25">
+                  <label className="form-label fw500 dark-color">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value.toLowerCase())}
+                    className="form-control"
+                    placeholder="alitf"
+                  />
+                  {debouncedUsername.length ? (
+                    isAvailable ? (
+                      <p className=" text-success">
+                        <span className="fw-bold">"{username}"</span> is
+                        available.
+                      </p>
+                    ) : (
+                      <p className=" text-danger">
+                        <span className="fw-bold">"{username}"</span> already
+                        taken
+                      </p>
+                    )
+                  ) : null}
+                  {usernameSuggestions.length ? (
+                    <p>
+                      Here are some other recommendations:{" "}
+                      {usernameSuggestions.map((val) => (
+                        <span key={val} className="text-success">
+                          {val},{" "}
+                        </span>
+                      ))}
+                    </p>
+                  ) : null}
+                </div>
+                <div className="mb25">
+                  <label className="form-label fw500 dark-color">Email</label>
+                  <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="form-control"
                     placeholder="alitfn58@gmail.com"
-                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="mb15">
-                  <label className="form-label fw600 dark-color">
+                  <label className="form-label fw500 dark-color">
                     Password
                   </label>
                   <div
@@ -105,26 +172,18 @@ export default function Page() {
                     </span>
                   </div>
                 </div>
-                <div className="checkbox-style1 d-block d-sm-flex align-items-center justify-content-between mb20">
-                  <label className="custom_checkbox fz14 ff-heading">
-                    Remember me
-                    <input type="checkbox" defaultChecked="checked" />
-                    <span className="checkmark" />
-                  </label>
-                  <a className="fz14 ff-heading">Lost your password?</a>
-                </div>
                 <div className="d-grid mb20">
                   <button
-                    className="ud-btn btn-thm"
+                    className="ud-btn btn-thm default-box-shadow2"
                     type="button"
-                    disabled={loading}
                     onClick={handleSubmit}
+                    disabled={loading}
                   >
-                    {loading ? "Logging in..." : "Log In"}{" "}
+                    {loading ? "Creating..." : "Create Account"}{" "}
                     <i className="fal fa-arrow-right-long" />
                   </button>
                 </div>
-                <div className="hr_content mb20">
+                {/* <div className="hr_content mb20">
                   <hr />
                   <span className="hr_top_text">OR</span>
                 </div>
@@ -144,7 +203,7 @@ export default function Page() {
                   <button className="ud-btn btn-apple fz14 fw400" type="button">
                     <i className="fab fa-apple" /> Continue Apple
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

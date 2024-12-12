@@ -1,10 +1,9 @@
-"use client";
-import { lan, momney } from "@/data/footer";
-import { useState } from "react";
+// import { lan, momney } from "@/data/footer";
+// import { useState } from "react";
 
 export default function FooterSelect2() {
-  const [getMoneySelect, setMoneySelect] = useState("Euro");
-  const [getLanSelect, setLanSelect] = useState("English");
+  // const [getMoneySelect, setMoneySelect] = useState("Euro");
+  // const [getLanSelect, setLanSelect] = useState("English");
 
   return (
     <>
@@ -46,7 +45,7 @@ export default function FooterSelect2() {
             </div>
           </div>
         </li> */}
-        <li className="list-inline-item">
+        {/* <li className="list-inline-item">
           <div className="dropdown bootstrap-select show-tick">
             <button
               type="button"
@@ -81,7 +80,7 @@ export default function FooterSelect2() {
               </div>
             </div>
           </div>
-        </li>
+        </li> */}
       </ul>
     </>
   );
