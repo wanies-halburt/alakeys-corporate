@@ -5,14 +5,15 @@ import PopularServiceSlideCard1 from "../card/PopularServiceSlideCard1";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ProductCard from "@/components/card/ProductCard";
 
 const categories = [
   "All",
-  "Development & IT",
-  "Design & Creative",
-  "Digital Marketing",
-  "Music & Audio",
-  "Video & Animation",
+  "CAC Services",
+  "Tax",
+  "Financial Accounting",
+  "Auditing",
+  "Website Design & Development",
 ];
 
 export default function PopularService1() {
@@ -27,7 +28,7 @@ export default function PopularService1() {
 
   return (
     <>
-      <section className={`pt-0 ${path === "/home-9" ? "pb0" : "pb100"}`}>
+      <section className={`pt-10 ${path === "/home-9" ? "pb0" : "pb10"}`}>
         <div className="container">
           <div className="row align-items-center wow fadeInUp">
             <div className="col-xl-3">
@@ -72,11 +73,7 @@ export default function PopularService1() {
                   )
                   .map((item, i) => (
                     <div key={i} className="col-sm-6 col-xl-3">
-                      {item.gallery ? (
-                        <PopularServiceSlideCard1 data={item} />
-                      ) : (
-                        <PopularServiceCard1 data={item} />
-                      )}
+                      <ProductCard data={item} />
                     </div>
                   ))}
                 <div className="col-lg-12">
@@ -87,7 +84,7 @@ export default function PopularService1() {
                           ? "btn-white2 double-border"
                           : "btn-light-thm"
                       }`}
-                      href="/service"
+                      href="/products"
                     >
                       All Services
                       <i className="fal fa-arrow-right-long" />
@@ -101,4 +98,7 @@ export default function PopularService1() {
       </section>
     </>
   );
+}
+{
+  /* <PopularServiceCard1 data={item} /> */
 }

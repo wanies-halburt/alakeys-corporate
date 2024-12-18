@@ -149,7 +149,8 @@ export default function Footer15() {
           <div className="col-sm-6">
             <div className="text-center text-lg-start">
               <p className="copyright-text mb-2 mb-md-0 text-white ff-heading">
-                © Alakeys. 2024 CreativeLayers. All rights reserved.
+                © Alakeys. {new Date().getFullYear()} CreativeLayers. All rights
+                reserved.
               </p>
             </div>
           </div>

@@ -53,8 +53,24 @@ const HeroSlider = () => {
     swiperRef.current.slideTo(index);
   };
 
+  const handleMouseEnter = () => {
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.stop();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.start();
+    }
+  };
+
   return (
-    <div className="hero-slider">
+    <div
+      className="hero-slider"
+      onMouseEnter={handleMouseEnter} // Pause autoplay on hover
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Image Slider */}
       <Swiper
         onSlideChange={handleSlideChange}
@@ -110,14 +126,14 @@ const HeroSlider = () => {
 
         .slide-text {
           position: absolute;
-          left: 20px;
+          left: 40px;
           align-self: center;
           top: 0;
           bottom: 0;
           color: white;
-          width: 95%;
+          width: 90%;
           z-index: 10;
-          max-width: 500px;
+          max-width: 800px;
           font-weight: 600;
           font-size: 2.375rem;
         }

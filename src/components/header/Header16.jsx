@@ -70,7 +70,7 @@ export default function Header16() {
                       }`}
                       style={{ color: "rgb(3, 45, 96)" }}
                     >
-                      Contact Us
+                      Call us
                     </p>{" "}
                     {/* Underline using Bootstrap */}
                     <a
@@ -103,7 +103,7 @@ export default function Header16() {
                     className="ud-btn btn-dark add-joining bdrs12 text-white"
                     href="/register"
                   >
-                    Try for free
+                    Register
                   </Link>
                 </div>
               </div>

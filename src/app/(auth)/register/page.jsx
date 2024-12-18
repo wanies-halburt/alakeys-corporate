@@ -4,19 +4,19 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useAuthStore } from "../../../store/authStore";
+// import { useAuthStore } from "../../../store/authStore";
 import { useDebounce } from "@/hook/useDebounce";
 
 export default function Page() {
   const router = useRouter();
-  const {
-    register,
-    loading,
-    error,
-    verifyUsername,
-    getUsernameSuggestion,
-    usernameSuggestions,
-  } = useAuthStore();
+  // const {
+  //   register,
+  //   loading,
+  //   error,
+  //   verifyUsername,
+  //   getUsernameSuggestion,
+  //   usernameSuggestions,
+  // } = useAuthStore();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,21 +29,21 @@ export default function Page() {
   const debouncedEmail = useDebounce(email, 1000);
   const debouncedDisplayName = useDebounce(displayName, 1000);
 
-  useEffect(() => {
-    const checkUsername = async () => {
-      const val = await verifyUsername(debouncedUsername);
-      setIsAvailable(val);
-    };
+  // useEffect(() => {
+  //   const checkUsername = async () => {
+  //     const val = await verifyUsername(debouncedUsername);
+  //     setIsAvailable(val);
+  //   };
 
-    checkUsername();
-  }, [verifyUsername, debouncedUsername]);
+  //   checkUsername();
+  // }, [verifyUsername, debouncedUsername]);
 
-  useEffect(() => {
-    const getSuggestions = async () =>
-      await getUsernameSuggestion(debouncedDisplayName, debouncedEmail);
+  // useEffect(() => {
+  //   const getSuggestions = async () =>
+  //     await getUsernameSuggestion(debouncedDisplayName, debouncedEmail);
 
-    getSuggestions();
-  }, [debouncedDisplayName, debouncedEmail, getUsernameSuggestion]);
+  //   getSuggestions();
+  // }, [debouncedDisplayName, debouncedEmail, getUsernameSuggestion]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -109,29 +109,6 @@ export default function Page() {
                     className="form-control"
                     placeholder="alitf"
                   />
-                  {debouncedUsername.length ? (
-                    isAvailable ? (
-                      <p className=" text-success">
-                        <span className="fw-bold">"{username}"</span> is
-                        available.
-                      </p>
-                    ) : (
-                      <p className=" text-danger">
-                        <span className="fw-bold">"{username}"</span> already
-                        taken
-                      </p>
-                    )
-                  ) : null}
-                  {usernameSuggestions.length ? (
-                    <p>
-                      Here are some other recommendations:{" "}
-                      {usernameSuggestions.map((val) => (
-                        <span key={val} className="text-success">
-                          {val},{" "}
-                        </span>
-                      ))}
-                    </p>
-                  ) : null}
                 </div>
                 <div className="mb25">
                   <label className="form-label fw500 dark-color">Email</label>
@@ -177,9 +154,10 @@ export default function Page() {
                     className="ud-btn btn-thm default-box-shadow2"
                     type="button"
                     onClick={handleSubmit}
-                    disabled={loading}
+                    // disabled={loading}
                   >
-                    {loading ? "Creating..." : "Create Account"}{" "}
+                    Create Account
+                    {/* {loading ? "Creating..." : "Create Account"}{" "} */}
                     <i className="fal fa-arrow-right-long" />
                   </button>
                 </div>

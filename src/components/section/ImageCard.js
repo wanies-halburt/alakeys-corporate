@@ -16,7 +16,9 @@ const Card = ({ image, title, link }) => (
       className="card-body d-flex flex-column justify-content-between"
       style={{ height: "50%" }}
     >
-      <h5 className="card-title primary-text-color fw-bold fs-3">{title}</h5>
+      <h5 className="card-title primary-text-color text-center fw-bold fs-3">
+        {title}
+      </h5>
       <Link
         href={link}
         passHref

@@ -8769,14 +8769,14 @@ li.mm-listitem:focus {
   -moz-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
   -o-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
   box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-  height: 493px;
+  height: 100%;
   opacity: 0;
   visibility: hidden;
   padding: 30px;
   position: absolute;
   top: -1px;
   left: 316px;
-  width: 650px;
+  width: 100%;
   z-index: -1;
   transform: translateX(-1%);
   -webkit-transition: all 0.3s ease;

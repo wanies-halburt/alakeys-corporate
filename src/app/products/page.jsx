@@ -28,6 +28,13 @@ const Products = () => {
       item.title.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+  const customizedService = {
+    id: "001",
+    img: "/images/customized.jpg",
+    category: "Customized Service",
+    title: "Request for any service of your choice",
+    tag: "Customized Service",
+  };
   return (
     <div>
       <Breadcumb7
@@ -105,11 +112,9 @@ const Products = () => {
                 </div>
               ))
             ) : (
-              <div className="col-12">
-                <div className="card text-center p-4 border-danger">
-                  <h5 className="text-danger">
-                    No results for "{searchTerm || getCategory.value}"
-                  </h5>
+              <div className=" d-flex justify-content-center">
+                <div className="text-center p-4 col-4">
+                  <ProductCard data={customizedService} />
                 </div>
               </div>
             )}

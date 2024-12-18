@@ -60,7 +60,7 @@ export default function Page() {
                   <p className="text">
                     Don't have an account?{" "}
                     <Link href="/register" className="text-thm">
-                      Sign Up!
+                      Register!
                     </Link>
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export default function Page() {
                     <input type="checkbox" defaultChecked="checked" />
                     <span className="checkmark" />
                   </label>
-                  <a className="fz14 ff-heading">Lost your password?</a>
+                  <a className="fz14 ff-heading">Forgotten password?</a>
                 </div>
                 <div className="d-grid mb20">
                   <button

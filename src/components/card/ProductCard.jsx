@@ -32,7 +32,7 @@ export default function PopularServiceCard1({
           <p className="list-text body-color fz14 mb-1">{data.category}</p>
           <h5 className="list-title">
             <Link href={`/service-single/${data.id}`}>
-              {data.title.slice(0, 40) + "..."}
+              {data.title.slice(0, 40)}
             </Link>
           </h5>
           <hr className="my-2" />

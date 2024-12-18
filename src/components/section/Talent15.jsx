@@ -19,16 +19,13 @@ export default function Talent15() {
                 million CVs
               </p>
               <Link
-                href="/job-1"
+                href="#"
                 className="ud-btn btn-dark default-box-shadow1 bdrs16 mr20"
               >
-                Find Work <i className="fal fa-arrow-right-long"></i>
-              </Link>
-              <Link
-                href="/freelancer-1"
-                className="ud-btn btn-transparent bdrs16"
-              >
                 Find Talent <i className="fal fa-arrow-right-long"></i>
+              </Link>
+              <Link href="#" className="ud-btn btn-transparent bdrs16">
+                Talent Pool<i className="fal fa-arrow-right-long"></i>
               </Link>
             </div>
           </div>
