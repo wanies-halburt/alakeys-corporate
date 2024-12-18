@@ -30,7 +30,7 @@ export default function NeedSomething2() {
             <div className="col-lg-12">
               <div className="main-title">
                 <h2 className="primary-text-color d-flex align-content-center fs-1 justify-content-center">
-                  Simplified access to services by Alakeys
+                  Access to essential services made simply by Alakeys
                 </h2>
               </div>
             </div>

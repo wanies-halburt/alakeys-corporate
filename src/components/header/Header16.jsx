@@ -70,7 +70,7 @@ export default function Header16() {
                       }`}
                       style={{ color: "rgb(3, 45, 96)" }}
                     >
-                      Call us
+                      Call
                     </p>{" "}
                     {/* Underline using Bootstrap */}
                     <a

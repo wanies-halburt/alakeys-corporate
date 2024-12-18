@@ -65,7 +65,6 @@ export default function PopularService1() {
             <div className="col-lg-12">
               <div className="row">
                 {product1
-                  .slice(0, 8)
                   .filter((item) =>
                     getCurrentCategory === "All"
                       ? item

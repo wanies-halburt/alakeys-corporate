@@ -74,28 +74,24 @@ const Products = () => {
                   value: "All",
                 },
                 {
-                  option: "Development & IT",
-                  value: "Development & IT",
+                  option: "CAC Services",
+                  value: "CAC Services",
                 },
                 {
-                  option: "Design & Creative",
-                  value: "Design & Creative",
+                  option: "Tax",
+                  value: "Tax",
                 },
                 {
-                  option: "Digital Marketing",
-                  value: "Digital Marketing",
+                  option: "Financial Accounting",
+                  value: "Financial Accounting",
                 },
                 {
-                  option: "Music & Audio",
-                  value: "Music & Audio",
+                  option: "Auditing",
+                  value: "Auditing",
                 },
                 {
-                  option: "Programming & Tech",
-                  value: "programming-tech",
-                },
-                {
-                  option: "Video & Animation",
-                  value: "Video & Animation",
+                  option: "Website Design & Development",
+                  value: "Website Design & Development",
                 },
               ]}
             />

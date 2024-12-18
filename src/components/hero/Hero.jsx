@@ -15,28 +15,28 @@ const HeroSlider = () => {
       id: 1,
       url: "/images/home/hero1.jpg",
       urlMobile: "/images/home/hero_mobile1.jpg",
-      text: "Our goal is to simplify CAC filing processes and ensure your business remains compliant throughout its growth.",
+      text: `Incorporation of company made easy <br /> We will help you launch your business swiftly `,
       bottomText: "CAC Services",
     },
     {
       id: 2,
       url: "/images/home/hero2.jpg",
       urlMobile: "/images/home/hero_mobile2.jpg",
-      text: "We provide innovative and flexible Recruitment Solutions to help businesses find the right talent quickly and efficiently",
+      text: "Building a strong workforce together <br />Your partner for finding the best talent",
       bottomText: "Recruitment ",
     },
     {
       id: 3,
       url: "/images/home/hero3.jpg",
       urlMobile: "/images/home/hero_mobile3.jpg",
-      text: "We are dedicated to equipping professionals and businesses with the skills and knowledge they need to excel in Business Analysis",
+      text: "Transform your workforce into inspiring and motivating team <br/> Alakeys is your people enabler",
       bottomText: "Training & Development",
     },
     {
       id: 4,
       url: "/images/home/hero4.jpg",
       urlMobile: "/images/home/hero_mobile4.jpg",
-      text: "Our goal is to provide expert financial accounting services, ensuring businesses achieve financial health and regulatory compliance.",
+      text: "We do the numbers <br /> Take control of your business financial future effortlessly",
       bottomText: "Accounting Services",
     },
   ];
@@ -88,7 +88,10 @@ const HeroSlider = () => {
                 <img src={image.url} alt={`Slide ${image.id}`} />
               </picture>
               {/* <img src={image.url} alt={`Slide ${image.id}`} /> */}
-              <p className="slide-text">{image.text}</p>
+              <p
+                className="slide-text"
+                dangerouslySetInnerHTML={{ __html: image.text }}
+              />
             </div>
           </SwiperSlide>
         ))}
