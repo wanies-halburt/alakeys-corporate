@@ -22,7 +22,6 @@ export default function Footer15() {
     reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(registerSchema) });
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const onSubmit = async (formValues) => {
     setIsRouting(true);
