@@ -1,11 +1,44 @@
 import { about, category, support } from "@/data/footer";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { yupResolver } from "@hookform/resolvers/yup";
 import FooterSelect2 from "./FooterSelect2";
 import FooterSocial5 from "./FooterSocial5";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import toaster from "react-hot-toast";
+
+const registerSchema = yup.object({
+  email: yup.string().email().required(" Email is required"),
+});
 
 export default function Footer15() {
+  const [isRouting, setIsRouting] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(registerSchema) });
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  const onSubmit = async (formValues) => {
+    setIsRouting(true);
+    try {
+      const response = await axios.post(`/api/newsletter`, formValues);
+      reset();
+      console.log(response);
+      toaster.success(response?.data?.message || "Successful");
+      setIsRouting(false);
+    } catch (err) {
+      console.log(err);
+      // @ts-ignore
+      toaster.error(err?.response?.data?.message || "An error occured");
+      setIsRouting(false);
+    }
+  };
   return (
     <section className="footer-style1 at-home15 pt60 pb-0 mx30">
       <div className="container">
@@ -14,14 +47,18 @@ export default function Footer15() {
             <div className="footer-widget mb-4 mb-lg-5">
               <div className="mailchimp-widget mb90">
                 <h6 className="title text-white mb20">Subscribe</h6>
-                <div className="mailchimp-style1 at-home15 bdrs12 overflow-hidden">
+                <form
+                  className="mailchimp-style1 at-home15 bdrs12 overflow-hidden"
+                  onSubmit={handleSubmit(onSubmit)}
+                >
                   <input
                     type="email"
+                    {...register("email")}
                     className="form-control"
                     placeholder="Your email address"
                   />
-                  <button type="submit">Send</button>
-                </div>
+                  <button disabled={isRouting}>Send</button>
+                </form>
               </div>
               <div className="row justify-content-between">
                 <div className="col-auto">
@@ -94,7 +131,7 @@ export default function Footer15() {
                     </p>
                     <h5 className="info-mail">
                       <a className="text-white" href="mailto:info@alakeys.com">
-                        info@alakeyes.com
+                        info@alakeys.com
                       </a>
                     </h5>
                   </div>
