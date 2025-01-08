@@ -38,13 +38,13 @@ export default function PopularServiceCard1({
           <hr className="my-2" />
           <div className="list-meta d-flex justify-content-end align-items-center mt15">
             <div className="budget">
-              <p className="mb-0 body-color">
+              <Link href="/login" className="mb-0 body-color">
                 Login to view price
                 {/* Starting at
                 <span className="fz17 fw500 dark-color ms-1">
                   ${data.price}
                 </span> */}
-              </p>
+              </Link>
             </div>
           </div>
         </div>

@@ -6,21 +6,9 @@ const View = () => {
     <>
       <section className="container pt-5">
         <h2 className="text-start mb-2" id="cac-section">
-          CAC Services
+          Find Services that interest you
         </h2>
-        <p className=" fs-5">
-          We are committed to providing a full range of CAC (Corporate Affairs
-          Commission) Services to help businesses navigate the complexities of
-          corporate compliance and legal regulations in Nigeria. With a team of
-          experienced professionals, we ensure that your business meets all
-          statutory requirements efficiently and with minimal hassle, allowing
-          you to focus on what matters most—growing your business. From company
-          incorporation to regulatory filings, we offer tailored solutions that
-          address the unique needs of each client, whether you’re a startup, an
-          established business, or a nonprofit organization. Our goal is to
-          simplify the processes associated with CAC filings and ensure your
-          business remains compliant at every stage of its development.
-        </p>
+        {/* <p className=" fs-5">Browse trending and frequently searched topics</p> */}
         <div className="row pt-5">
           <div className=" col-lg-4 col-md-6 mb-4">
             <Card

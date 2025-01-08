@@ -15,28 +15,28 @@ const HeroSlider = () => {
       id: 1,
       url: "/images/home/hero1.jpg",
       urlMobile: "/images/home/hero_mobile1.jpg",
-      text: `Incorporation of company made easy <br /> We will help you launch your business swiftly `,
+      text: `<p>Incorporation of company made easy</p> We will help you launch your business swiftly `,
       bottomText: "CAC Services",
     },
     {
       id: 2,
       url: "/images/home/hero2.jpg",
       urlMobile: "/images/home/hero_mobile2.jpg",
-      text: "Building a strong workforce together <br />Your partner for finding the best talent",
+      text: "<p>Building a strong workforce together</p> Your partner for finding the best talent",
       bottomText: "Recruitment ",
     },
     {
       id: 3,
       url: "/images/home/hero3.jpg",
       urlMobile: "/images/home/hero_mobile3.jpg",
-      text: "Transform your workforce into inspiring and motivating team <br/> Alakeys is your people enabler",
+      text: "<p>Transform your workforce</p> into inspiring and motivating team <br/> Alakeys is your people enabler",
       bottomText: "Training & Development",
     },
     {
       id: 4,
       url: "/images/home/hero4.jpg",
       urlMobile: "/images/home/hero_mobile4.jpg",
-      text: "We do the numbers <br /> Take control of your business financial future effortlessly",
+      text: "<p>We do the numbers</p> Take control of your business financial future effortlessly",
       bottomText: "Accounting Services",
     },
   ];
@@ -88,7 +88,7 @@ const HeroSlider = () => {
                 <img src={image.url} alt={`Slide ${image.id}`} />
               </picture>
               {/* <img src={image.url} alt={`Slide ${image.id}`} /> */}
-              <p
+              <div
                 className="slide-text"
                 dangerouslySetInnerHTML={{ __html: image.text }}
               />
@@ -131,6 +131,9 @@ const HeroSlider = () => {
           position: absolute;
           left: 40px;
           align-self: center;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
           top: 0;
           bottom: 0;
           color: white;
@@ -138,7 +141,13 @@ const HeroSlider = () => {
           z-index: 10;
           max-width: 800px;
           font-weight: 600;
-          font-size: 2.375rem;
+          font-size: 2rem;
+          p {
+            font-size: 16px;
+            color: white;
+            align-self: center;
+            max-width: 400px;
+          }
         }
         .options-container {
           position: absolute;

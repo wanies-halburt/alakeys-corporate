@@ -31,7 +31,7 @@ const Products = () => {
   const customizedService = {
     id: "001",
     img: "/images/customized.jpg",
-    category: "Customized Service",
+    category: "If you can't find what you are looking for",
     title: "Request for any service of your choice",
     tag: "Customized Service",
   };

@@ -45,10 +45,10 @@ export default function Page() {
             >
               <div className="main-title text-center">
                 <h2 className="title">Log In</h2>
-                <p className="paragraph">
+                {/* <p className="paragraph">
                   Give your visitor a smooth online experience with a solid UX
                   design
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

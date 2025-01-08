@@ -37,6 +37,7 @@ export default function Page() {
       const response = await axios.post(`/api/register`, formValues);
       reset();
       toaster.success(response?.data?.message || "Successful");
+      router.push("/verify-otp");
       setIsRouting(false);
     } catch (err) {
       // @ts-ignore
