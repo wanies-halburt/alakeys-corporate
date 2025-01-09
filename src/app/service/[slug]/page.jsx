@@ -12,11 +12,11 @@ const ServiceDetails = ({ params }) => {
     <div>
       <Breadcumb7 />
       <div
-        className="container py-5"
+        className="container pt-5"
         dangerouslySetInnerHTML={{ __html: category.body }}
       />
       {slug === "recruitment" ? (
-        <div className="container d-flex justify-content-center p-4">
+        <div className="container d-flex justify-content-center py-4">
           <div className="card" style={{ width: "18rem" }}>
             <img
               src="https://askkayodemicah.com.ng/wp-content/uploads/2018/08/Find_Jobs.jpg"

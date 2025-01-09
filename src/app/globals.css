@@ -380,3 +380,12 @@ color: #0D9DDA;
 .pt-60 {
   padding-top: 6rem;
 }
+.otp-input {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 10px;
+}
