@@ -17,7 +17,7 @@ const ServiceDetails = ({ params }) => {
       />
       {slug === "recruitment" ? (
         <div className="container d-flex justify-content-center py-4">
-          <div className="card" style={{ width: "18rem" }}>
+          <div className="card" style={{ width: "25rem" }}>
             <img
               src="https://askkayodemicah.com.ng/wp-content/uploads/2018/08/Find_Jobs.jpg"
               className="card-img-top"
@@ -28,9 +28,12 @@ const ServiceDetails = ({ params }) => {
               <p className="card-text">
                 Discover your dream job and start your career today!
               </p>
-              <a href="#" className="btn">
-                Get Started
-              </a>
+              <div className=" d-flex justify-content-between">
+                <button className="ud-btn rounded-3">Talent Pool</button>
+                <button className="ud-btn btn-thm rounded-3">
+                  DIY Recruitment
+                </button>
+              </div>
             </div>
           </div>
         </div>

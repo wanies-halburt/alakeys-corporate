@@ -1,34 +1,65 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useAuthStore } from "@/store/authStore";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter();
+  const { verifyOtp, loading, user, loadFromStorage } = useAuthStore();
 
-  const [otp, setOtp] = useState(["", "", "", ""]);
+  useEffect(() => {
+    if (loadFromStorage) {
+      loadFromStorage();
+    }
+  }, []);
+  console.log("user", user);
+  const length = 4;
+  const [otp, setOtp] = useState(new Array(length).fill(""));
+  const inputRefs = useRef([]);
 
-  const handleChange = (e, index) => {
-    const value = e.target.value;
-    if (isNaN(value) || value.length > 1) return;
+  const handleInputChange = (e, index) => {
     const newOtp = [...otp];
-    newOtp[index] = value;
+    newOtp[index] = e.target.value[e.target.value.length - 1] || "";
     setOtp(newOtp);
+
+    if (e.target.value && inputRefs.current[index + 1]) {
+      inputRefs.current[index + 1].focus();
+    }
   };
 
   const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace" && index > 0) {
-      const newOtp = [...otp];
-      newOtp[index] = "";
-      newOtp[index - 1] = "";
-      setOtp(newOtp);
+    if (
+      e.key === "Backspace" &&
+      otp[index] === "" &&
+      inputRefs.current[index - 1]
+    ) {
+      inputRefs.current[index - 1].focus();
     }
+  };
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData("text/plain");
+    const pastedValues = pastedData.slice(0, length).split("");
+
+    const newOtp = [...otp];
+    for (let i = 0; i < length; i++) {
+      if (pastedValues[i]) {
+        newOtp[i] = pastedValues[i];
+      }
+    }
+    setOtp(newOtp);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const isLoggedIn = await login(email, password);
+    const formattedOtp = otp.join("");
+    const otpToNumber = parseInt(formattedOtp, 10);
+    if (!user) {
+      router.push("/register");
+    }
+    const isLoggedIn = await verifyOtp({ email: user.email, otp: otpToNumber });
     if (isLoggedIn) {
       router.push("/dashboard");
     }
@@ -58,16 +89,25 @@ export default function Page() {
                       key={index}
                       type="text"
                       className="form-control otp-input"
-                      value={digit}
-                      onChange={(e) => handleChange(e, index)}
-                      onKeyDown={(e) => handleKeyDown(e, index)}
                       maxLength={1}
+                      disabled={loading}
+                      value={digit}
+                      onChange={(e) => handleInputChange(e, index)}
+                      onKeyDown={(e) => handleKeyDown(e, index)}
+                      onPaste={handlePaste}
+                      ref={(input) => {
+                        if (input) inputRefs.current[index] = input;
+                      }}
                     />
                   ))}
                 </div>
 
                 <div className="my-2 justify-content-center align-content-center d-flex  ">
-                  <button className="ud-btn btn-thm w-50  align-items-center">
+                  <button
+                    className="ud-btn btn-thm w-50  align-items-center"
+                    disabled={loading}
+                    onClick={handleSubmit}
+                  >
                     Verify
                     {/* {loading ? "Verifying..." : "Verify"}{" "} */}
                     <i className="fal fa-arrow-right-long" />

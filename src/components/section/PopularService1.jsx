@@ -70,6 +70,7 @@ export default function PopularService1() {
                       ? item
                       : item.tag === getCurrentCategory && item
                   )
+                  .slice(0, 8)
                   .map((item, i) => (
                     <div key={i} className="col-sm-6 col-xl-3">
                       <ProductCard data={item} />

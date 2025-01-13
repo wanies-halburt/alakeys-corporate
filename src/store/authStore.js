@@ -1,7 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { create } from "zustand";
-import { BASE_URL } from "@/utils";
 import toast from "react-hot-toast";
 
 export const useAuthStore = create((set) => ({
@@ -12,18 +11,23 @@ export const useAuthStore = create((set) => ({
   error: null,
 
   // Register API
-  register: async (email, password, displayName, username) => {
+  signUp: async ({ email, password, userName, fullName, confirmPassword }) => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.post(`${BASE_URL}/public/signup/basic-signup`, {
+      const res = await axios.post(`/api/register`, {
         email,
         password,
-        displayName,
-        username,
+        userName,
+        fullName,
+        confirmPassword,
       });
-      localStorage.setItem("tla-token", res?.data?.data.token);
-      localStorage.setItem("tla-user", JSON.stringify(res?.data?.data.user));
-      Cookies.set("tla-token", res?.data?.data.token, {
+      console.log("res", res);
+      localStorage.setItem("alakeys-token", res?.data?.data.token);
+      localStorage.setItem(
+        "alakeys-user",
+        JSON.stringify(res?.data?.data.user)
+      );
+      Cookies.set("alakeys-token", res?.data?.data.token, {
         expires: 7,
         sameSite: "Strict",
       });
@@ -33,13 +37,15 @@ export const useAuthStore = create((set) => ({
         token: res?.data?.data.token,
       });
       toast.success(
-        "Registeration successful, please check your email to complete signup"
+        res?.data?.message ??
+          "Registeration successful, please check your email to complete signup"
       );
       return true;
     } catch (err) {
-      toast.error("Failed to register user");
+      console.log("err", err);
+      toast.error(err.response.data?.message ?? "Failed to register user");
       set({
-        error: err.response?.data?.message || "Registration failed",
+        error: err.response.data?.message || "Registration failed",
         loading: false,
       });
       return false;
@@ -47,17 +53,17 @@ export const useAuthStore = create((set) => ({
   },
 
   // Login API
-  login: async (email, password) => {
+  login: async ({ email, password }) => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.post(`${BASE_URL}/public/login/basic-login`, {
+      const res = await axios.post(`/api/login`, {
         email,
         password,
       });
       console.log("res", res.data);
-      localStorage.setItem("tla-token", res.data.data.token);
-      localStorage.setItem("tla-user", JSON.stringify(res.data.data.user));
-      Cookies.set("tla-token", res?.data?.data.token, {
+      localStorage.setItem("alakeys-token", res.data.data.token);
+      localStorage.setItem("alakeys-user", JSON.stringify(res.data.data.user));
+      Cookies.set("alakeys-token", res?.data?.data.token, {
         expires: 7,
         sameSite: "Strict",
       });
@@ -71,37 +77,45 @@ export const useAuthStore = create((set) => ({
     } catch (err) {
       toast.error("Login Failed");
       set({
-        error: err.response?.data?.message || "Login failed",
+        error: err?.data?.message || "Login failed",
         loading: false,
       });
       return false;
     }
   },
-  verifyUsername: async (username) => {
+  verifyOtp: async ({ email, otp }) => {
     try {
-      const res = await axios.get(
-        `${BASE_URL}/public/utils/verify-username?username=${username}`
-      );
-      console.log("res", res.data.data?.isAvailable);
-      return res?.data?.data?.isAvailable;
+      const res = await axios.post(`/api/verify-otp`, {
+        email,
+        otp,
+      });
+      console.log("res", res);
+      localStorage.setItem("alakeys-token", res.data.data.token);
+      localStorage.setItem("alakeys-user", JSON.stringify(res.data.data.user));
+      Cookies.set("alakeys-token", res?.data?.data.token, {
+        expires: 7,
+        sameSite: "Strict",
+      });
+      set({
+        user: res.data.data.user,
+        loading: false,
+        token: res.data.data.token,
+      });
+      toast.success(res.data.message ?? "Account verified");
+      return true;
     } catch (err) {
-      console.error(err);
-    }
-  },
-  getUsernameSuggestion: async (displayName, email) => {
-    try {
-      const res = await axios.get(
-        `${BASE_URL}/public/utils/usernames?displayName=${displayName}&email=${email}`
-      );
-      set({ usernameSuggestions: res?.data?.data });
-    } catch (err) {
-      console.error(err);
+      toast.error(err.response.data?.message ?? "verify otp failed");
+      set({
+        error: err.response.data?.message || "otp verification failed",
+        loading: false,
+      });
+      return false;
     }
   },
 
   loadFromStorage: () => {
-    const token = localStorage.getItem("tla-token");
-    const user = localStorage.getItem("tla-user");
+    const token = localStorage.getItem("alakeys-token");
+    const user = localStorage.getItem("alakeys-user");
 
     if (token && user) {
       set({ token, user: JSON.parse(user) });
@@ -109,9 +123,9 @@ export const useAuthStore = create((set) => ({
   },
   // Logout
   logout: () => {
-    localStorage.removeItem("tla-token");
-    localStorage.removeItem("tla-user");
-    Cookies.set("tla-token", res?.data?.data.token, {
+    localStorage.removeItem("alakeys-token");
+    localStorage.removeItem("alakeys-user");
+    Cookies.set("alakeys-token", res?.data?.data.token, {
       expires: 7,
       sameSite: "Strict",
     });
@@ -123,7 +137,7 @@ export const useAuthStore = create((set) => ({
     set({ loading: true, error: null });
     const token = localStorage.getItem("tla-token");
     try {
-      const res = await axios.get(`${BASE_URL}/protected/user/profile`, {
+      const res = await axios.get(`/protected/user/profile`, {
         headers: {
           Authorization: `${token}`, // Assuming you're using a Bearer token
         },
@@ -143,7 +157,7 @@ export const useAuthStore = create((set) => ({
     const token = localStorage.getItem("tla-token");
     try {
       const res = await axios.patch(
-        `${BASE_URL}/protected/user/verify-account`,
+        `/protected/user/verify-account`,
         { signature },
         {
           headers: {

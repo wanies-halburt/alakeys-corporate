@@ -15,6 +15,12 @@ export const registerAutoRespEmailBody = ({ firstname, otp }) => {
       variable: "FOS_OTP",
       value: otp ?? "",
     },
+    {
+      variable: "OTP_LINK",
+      value:
+        `${process.env.BASE_SITE_URL}/verify-otp` ??
+        "https://alakeys-corporate.vercel.app/verify-otp",
+    },
   ];
   const filePath = path.join(
     process.cwd(),

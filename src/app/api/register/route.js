@@ -86,7 +86,6 @@ export async function POST(req) {
     let userWithoutPassword;
     const otp = generateOtp();
     const loggedResteredUser = await newRegisterEntry.save();
-    debugConsole({ loggedResteredUser });
 
     const mailOptions = {
       from: process.env.FOS_SEND_MAIL_FROM,

@@ -87,7 +87,7 @@ const HeroSlider = () => {
                 <source srcSet={image.urlMobile} media="(max-width: 768px)" />
                 <img src={image.url} alt={`Slide ${image.id}`} />
               </picture>
-              {/* <img src={image.url} alt={`Slide ${image.id}`} /> */}
+              <div className="overlay"></div>
               <div
                 className="slide-text"
                 dangerouslySetInnerHTML={{ __html: image.text }}
@@ -114,7 +114,17 @@ const HeroSlider = () => {
         .hero-slider {
           position: relative;
           width: 100%;
-          height: 90vh;
+          height: 95vh;
+        }
+        .slide::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.2);
+          z-index: 1;
         }
 
         .slide {
@@ -123,10 +133,18 @@ const HeroSlider = () => {
 
         .slide img {
           width: 100%;
-          height: 90vh;
+          height: 95vh;
           object-fit: cover;
         }
-
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.2);
+          z-index: 1;
+        }
         .slide-text {
           position: absolute;
           left: 40px;
@@ -143,8 +161,10 @@ const HeroSlider = () => {
           font-weight: 600;
           font-size: 2rem;
           p {
-            font-size: 16px;
+            font-size: 20px;
+            font-weight: 500;
             color: white;
+            width: 100%;
             align-self: center;
             max-width: 400px;
           }

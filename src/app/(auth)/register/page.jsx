@@ -3,12 +3,11 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import axios from "axios";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useAuthStore } from "@/store/authStore";
 import * as yup from "yup";
-import toaster from "react-hot-toast";
 
 const registerSchema = yup.object({
   fullName: yup.string().required(" Full name is required"),
@@ -20,8 +19,8 @@ const registerSchema = yup.object({
 
 export default function Page() {
   const router = useRouter();
+  const { signUp, loading } = useAuthStore();
 
-  const [isRouting, setIsRouting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -32,17 +31,11 @@ export default function Page() {
   } = useForm({ resolver: yupResolver(registerSchema) });
 
   const onSubmit = async (formValues) => {
-    setIsRouting(true);
-    try {
-      const response = await axios.post(`/api/register`, formValues);
+    const response = await signUp(formValues);
+    console.log("response", response);
+    if (response) {
       reset();
-      toaster.success(response?.data?.message || "Successful");
       router.push("/verify-otp");
-      setIsRouting(false);
-    } catch (err) {
-      // @ts-ignore
-      toaster.error(err?.response?.data?.message || "An error occured");
-      setIsRouting(false);
     }
   };
 
@@ -172,9 +165,9 @@ export default function Page() {
                 <div className="d-grid mb20">
                   <button
                     className="ud-btn btn-thm default-box-shadow2"
-                    disabled={isRouting}
+                    disabled={loading}
                   >
-                    {isRouting ? "Creating..." : "Create Account"}{" "}
+                    {loading ? "Creating..." : "Create Account"}{" "}
                     <i className="fal fa-arrow-right-long" />
                   </button>
                 </div>
