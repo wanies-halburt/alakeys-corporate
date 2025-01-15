@@ -116,6 +116,7 @@ export async function POST(req) {
     token = await loggedResteredUser.generateAuthToken();
     userWithoutPassword = {
       _id: loggedResteredUser._id,
+      id: user._id,
       fullName: loggedResteredUser.fullName,
       email: loggedResteredUser.email,
       userName: loggedResteredUser.userName,

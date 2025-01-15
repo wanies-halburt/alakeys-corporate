@@ -3,37 +3,41 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useAuthStore } from "../../../store/authStore";
 import { useRouter } from "next/navigation";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useAuthStore } from "@/store/authStore";
+import * as yup from "yup";
+
+const loginSchema = yup.object({
+  email: yup.string().email().required(" Email is required"),
+  password: yup.string().required("Password is required"),
+});
 
 export default function Page() {
-  const { login, loading, getUserProfile } = useAuthStore();
+  const { login, loading } = useAuthStore();
   const router = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const isLoggedIn = await login(email, password);
-    if (isLoggedIn) {
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(loginSchema) });
+
+  const onSubmit = async (formValues) => {
+    const response = await login(formValues);
+    console.log("response", response);
+    if (response) {
+      reset();
       router.push("/dashboard");
     }
   };
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-  useEffect(() => {
-    const checkUserprofile = async () => {
-      const res = await getUserProfile();
-      console.log("ress", res);
-      // if (res?.email) {
-      //   router.push("/dashboard");
-      // }
-    };
-    checkUserprofile();
-  }, [getUserProfile, router]);
   return (
     <>
       <section className="our-login">
@@ -54,7 +58,10 @@ export default function Page() {
           </div>
           <div className="row wow fadeInRight" data-wow-delay="300ms">
             <div className="col-xl-6 mx-auto">
-              <div className="log-reg-form search-modal form-style1 bgc-white p50 p30-sm default-box-shadow1 bdrs12">
+              <form
+                className="log-reg-form search-modal form-style1 bgc-white p50 p30-sm default-box-shadow1 bdrs12"
+                onSubmit={handleSubmit(onSubmit)}
+              >
                 <div className="mb30">
                   <h4>We're glad to see you again!</h4>
                   <p className="text">
@@ -69,11 +76,10 @@ export default function Page() {
                     Email Address
                   </label>
                   <input
-                    value={email}
                     type="email"
+                    {...register("email")}
                     className="form-control"
                     placeholder="alitfn58@gmail.com"
-                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="mb15">
@@ -86,8 +92,7 @@ export default function Page() {
                   >
                     <input
                       type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      {...register("password")}
                       className="form-control"
                       placeholder="*******"
                     />
@@ -116,36 +121,14 @@ export default function Page() {
                 <div className="d-grid mb20">
                   <button
                     className="ud-btn btn-thm"
-                    type="button"
+                    type="submit"
                     disabled={loading}
-                    onClick={handleSubmit}
                   >
                     {loading ? "Logging in..." : "Log In"}{" "}
                     <i className="fal fa-arrow-right-long" />
                   </button>
                 </div>
-                {/* <div className="hr_content mb20">
-                  <hr />
-                  <span className="hr_top_text">OR</span>
-                </div>
-                <div className="d-md-flex justify-content-between">
-                  <button
-                    className="ud-btn btn-fb fz14 fw400 mb-2 mb-md-0"
-                    type="button"
-                  >
-                    <i className="fab fa-facebook-f pr10" /> Continue Facebook
-                  </button>
-                  <button
-                    className="ud-btn btn-google fz14 fw400 mb-2 mb-md-0"
-                    type="button"
-                  >
-                    <i className="fab fa-google" /> Continue Google
-                  </button>
-                  <button className="ud-btn btn-apple fz14 fw400" type="button">
-                    <i className="fab fa-apple" /> Continue Apple
-                  </button>
-                </div> */}
-              </div>
+              </form>
             </div>
           </div>
         </div>

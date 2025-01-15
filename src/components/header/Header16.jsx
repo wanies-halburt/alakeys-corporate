@@ -56,13 +56,6 @@ export default function Header16() {
               </div>
               <div className="col-auto pe-0 pe-xl-3">
                 <div className="d-flex align-items-center gap-3">
-                  <Image
-                    src="https://a.sfdcstatic.com/shared/images/c360-nav/icons.svg#search-blue"
-                    alt="search icon"
-                    width={18}
-                    height={18}
-                    style={{ cursor: "pointer" }}
-                  />
                   <div className="d-flex flex-column align-items-center">
                     <p
                       className={`text-decoration-underline m-0 ${

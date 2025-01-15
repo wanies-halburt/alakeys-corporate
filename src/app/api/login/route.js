@@ -1,9 +1,5 @@
 import connectMongoDB from "@/dbConfig/mongodb";
 import { throwUserResponse } from "@/utils";
-import debugConsole from "@/utils/debugger";
-import { NextRequest } from "next/server";
-import { addContactToMDsubscribeNewsletterGroup } from "../email/service/maildrip";
-import { limiter } from "../middleware/limiter";
 import requiredReqBodyCheck from "../middleware/requiredReqBodyCheck";
 import Client from "../register/register.model";
 
@@ -13,26 +9,24 @@ export async function POST(req) {
   try {
     const reqBody = await req.json();
 
-    const reqBodyCheck = requiredReqBodyCheck(reqBody, ["email", "otp"]);
+    const reqBodyCheck = requiredReqBodyCheck(reqBody, ["email", "password"]);
 
     if (reqBodyCheck.status !== 200) {
       return reqBodyCheck;
     }
 
-    const user = await Client.findOne({
-      email: reqBody.email,
-      otp: reqBody.otp,
-    });
+    const user = await Client.findByCredentials(
+      reqBody.email,
+      reqBody.password
+    );
     if (!user) {
       return throwUserResponse({
         status: 400,
         success: false,
-        message: "Invalid OTP or email",
+        message: "Login failed! Check authenthication credentails",
       });
     }
     let userWithoutPassword;
-    user.isVerified = true;
-    user.otp = undefined;
     await user.save();
     const token = await user.generateAuthToken();
 
@@ -47,7 +41,7 @@ export async function POST(req) {
     return throwUserResponse({
       status: 200,
       success: true,
-      message: "Account verified successfully",
+      message: "Login success",
       data: {
         token: token,
         user: userWithoutPassword,
