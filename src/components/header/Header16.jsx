@@ -5,11 +5,14 @@ import MobileNavigation6 from "./MobileNavigation6";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuthStore } from "@/store/authStore";
 
 export default function Header16() {
   const [scrolled, setScrolled] = useState(false);
+  const { user, loadFromStorage } = useAuthStore();
   const path = usePathname();
   useEffect(() => {
+    loadFromStorage();
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setScrolled(true);
@@ -76,28 +79,38 @@ export default function Header16() {
                       08088844023
                     </a>
                   </div>
-
-                  <Link
-                    className={`d-flex align-items-center fs-6 fw-bold gap-1 ${
-                      path === "/" && !scrolled ? "text-white" : ""
-                    }`}
-                    href="/login"
-                    style={{ color: "rgb(1, 118, 211)" }}
-                  >
-                    <Image
-                      src="https://a.sfdcstatic.com/shared/images/c360-nav/icons.svg#user-blue"
-                      width={18}
-                      height={18}
-                      alt="icon"
-                    />
-                    Login
-                  </Link>
-                  <Link
-                    className="ud-btn btn-dark add-joining bdrs12 text-white"
-                    href="/register"
-                  >
-                    Register
-                  </Link>
+                  {user ? (
+                    <Link
+                      className="ud-btn btn-dark add-joining bdrs12 text-white"
+                      href="/dashboard"
+                    >
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <>
+                      <Link
+                        className={`d-flex align-items-center fs-6 fw-bold gap-1 ${
+                          path === "/" && !scrolled ? "text-white" : ""
+                        }`}
+                        href="/login"
+                        style={{ color: "rgb(1, 118, 211)" }}
+                      >
+                        <Image
+                          src="https://a.sfdcstatic.com/shared/images/c360-nav/icons.svg#user-blue"
+                          width={18}
+                          height={18}
+                          alt="icon"
+                        />
+                        Login
+                      </Link>
+                      <Link
+                        className="ud-btn btn-dark add-joining bdrs12 text-white"
+                        href="/register"
+                      >
+                        Register
+                      </Link>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
