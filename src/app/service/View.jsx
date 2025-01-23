@@ -10,7 +10,8 @@ const View = () => {
         </h2>
         <p className=" fs-5">
           We are simplifying access to essential business services and
-          solutions. Alakeys redefining the ways of doing business in Nigeria.
+          solutions. <b>Alakeys</b> redefining the ways of doing business in
+          Nigeria.
         </p>
         <div className="row pt-5">
           <div className=" col-lg-4 col-md-6 mb-4">

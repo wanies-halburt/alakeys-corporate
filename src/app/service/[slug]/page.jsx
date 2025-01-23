@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Breadcumb7 from "@/components/breadcumb/Breadcumb7";
 import { categories } from "./data";
 import Card from "../Card";
@@ -12,15 +13,25 @@ const ServiceDetails = ({ params }) => {
     <div>
       <Breadcumb7 />
       <div
-        className="container pt-5"
+        className="pt-5 pb-5 list_bullet"
+        style={{
+          maxWidth: "1000px",
+          width: "100%",
+          alignItems: "center",
+          justifyItems: "center",
+          justifyContent: "center",
+          margin: "0px auto",
+        }}
         dangerouslySetInnerHTML={{ __html: category.body }}
       />
       {slug === "recruitment" ? (
         <div className="container d-flex justify-content-center py-4">
           <div className="card" style={{ width: "25rem" }}>
-            <img
+            <Image
               src="https://askkayodemicah.com.ng/wp-content/uploads/2018/08/Find_Jobs.jpg"
               className="card-img-top"
+              width={250}
+              height={200}
               alt="..."
             />
             <div className="card-body">

@@ -77,9 +77,9 @@ export default function Footer15() {
                     <h6 className="text-white h3 mb25">Categories</h6>
                     <ul className="ps-0">
                       {category.map((item, i) => (
-                        <li key={i}>
-                          <Link href={item.path}>{item.name}</Link>
-                        </li>
+                        <Link href={item.path} key={i}>
+                          {item.name}
+                        </Link>
                       ))}
                     </ul>
                   </div>
@@ -89,9 +89,9 @@ export default function Footer15() {
                     <h6 className="text-white h3 mb25">Support</h6>
                     <ul className="ps-0">
                       {support.map((item, i) => (
-                        <li key={i}>
-                          <Link href={item.path}>{item.name}</Link>
-                        </li>
+                        <Link href={item.path} key={i}>
+                          {item.name}
+                        </Link>
                       ))}
                     </ul>
                   </div>

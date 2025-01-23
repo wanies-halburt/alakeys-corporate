@@ -33,9 +33,7 @@ export default function PopularServiceCard1({
         <div className={`list-content ${isContentExpanded ? "px-0" : ""}`}>
           <p className="list-text body-color fz14 mb-1">{data.category}</p>
           <h5 className="list-title">
-            <Link href={`/service-single/${data.id}`}>
-              {data.title.slice(0, 40)}
-            </Link>
+            <Link href={`/products/${data.id}`}>{data.title.slice(0, 40)}</Link>
           </h5>
           <hr className="my-2" />
           <div className="list-meta d-flex justify-content-end align-items-center mt15">

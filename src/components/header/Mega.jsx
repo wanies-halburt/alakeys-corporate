@@ -48,50 +48,31 @@ export default function Mega({ staticMenuClass }) {
             <div className="drop-menu d-flex justify-content-between">
               <div className="">
                 <div className="h6 cat-title">Web &amp; App Development</div>
-                <ul className="ps-0 mb40">
+                <ul className="ps-0">
                   <li>
                     <Link href="/service/web">Website Development</Link>
                   </li>
                   <li>
-                    <Link href="/service/web">App Development</Link>
+                    <Link href="/service/web#app">App Development</Link>
                   </li>
                   <li>
-                    <Link href="/service/web">UX/UI Development</Link>
+                    <Link href="/service/web#ui-ux">UX/UI Development</Link>
                   </li>
                   <li>
-                    <Link href="/service/web">Custom Software Development</Link>
+                    <Link href="/service/web#software">
+                      Custom Software Development
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/service/web">E-Commerce Development</Link>
+                    <Link href="/service/web#e-commerce">
+                      E-Commerce Development
+                    </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/service/web">Web Application Development</Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
-              {/* <div>
-                <div className="h6 cat-title">IT Support &amp; Services</div>
-                <ul className="ps-0 mb-0">
-                  <li>
-                    <Link href="/">Network Solutions</Link>
-                  </li>
-                  <li>
-                    <Link href="/">IT Consultation</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Cloud Computing</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Database Management</Link>
-                  </li>
-                  <li>
-                    <Link href="/">IT Infrastructure Management</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Cybersecurity Services</Link>
-                  </li>
-                </ul>
-              </div> */}
             </div>
           </li>
           <li>
@@ -108,7 +89,9 @@ export default function Mega({ staticMenuClass }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/service/cac">Company Annual Returns</Link>
+                    <Link href="/service/cac#annual_returns">
+                      Company Annual Returns
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -121,14 +104,9 @@ export default function Mega({ staticMenuClass }) {
             </a>
             <div className="drop-menu d-flex justify-content-between">
               <div className="one-third">
-                <ul className="ps-0 mb40">
+                <ul className="ps-0">
                   <li>
                     <Link href="/service/tax">Tax Registration Services</Link>
-                  </li>
-                  <li>
-                    <Link href="/service/tax">
-                      Preparation and Filing of Tax Returns
-                    </Link>
                   </li>
                 </ul>
               </div>
@@ -141,10 +119,7 @@ export default function Mega({ staticMenuClass }) {
             </a>
             <div className="drop-menu d-flex justify-content-between">
               <div className="one-third">
-                <ul className="ps-0 mb40">
-                  <li>
-                    <Link href="/service/accounting">Bookkeeping</Link>
-                  </li>
+                <ul className="ps-0">
                   <li>
                     <Link href="/service/accounting">Financial Reporting</Link>
                   </li>
@@ -159,7 +134,7 @@ export default function Mega({ staticMenuClass }) {
             </a>
             <div className="drop-menu d-flex justify-content-between">
               <div className="one-third">
-                <ul className="ps-0 mb40">
+                <ul className="ps-0">
                   <li>
                     <Link href="/service/auditing">
                       Financial Statement Audits
@@ -176,25 +151,10 @@ export default function Mega({ staticMenuClass }) {
             </a>
             <div className="drop-menu d-flex justify-content-between">
               <div className="one-third">
-                <ul className="ps-0 mb40">
+                <ul className="ps-0">
                   <li>
                     <Link href="/service/recruitment">
-                      DIY Recruitment Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service/recruitment">
-                      Talent Pool Recruitment
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service/recruitment">
-                      Job Advertising and Screening
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service/recruitment">
-                      Consulting and Advisory
+                      Recruitment Services
                     </Link>
                   </li>
                 </ul>
@@ -208,24 +168,11 @@ export default function Mega({ staticMenuClass }) {
             </a>
             <div className="drop-menu d-flex justify-content-between">
               <div className="one-third">
-                <ul className="ps-0 mb40">
+                <ul className="ps-0 ">
                   <li>
                     <Link href="/service/training">
-                      Fundamentals of Business Analysis Training
+                      Professional and Corporate Training
                     </Link>
-                  </li>
-                  <li>
-                    <Link href="/service/training">
-                      Advanced Business Analysis Training
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service/training">
-                      Corporate Training Solutions
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/service/training">Workshops and Seminars</Link>
                   </li>
                 </ul>
               </div>

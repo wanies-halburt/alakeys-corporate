@@ -2,7 +2,7 @@ export const categories = {
   cac: {
     body: `  <div>
     <ol>
-      <li>
+      <li id="registeration_companies">
         <h3 className=" primary-text-color">
           Registration & Formation of Companies:
         </h3>
@@ -54,7 +54,7 @@ export const categories = {
           </li>
         </ul>
       </li>
-      <li>
+      <li id="annual_returns">
         <h3 className=" primary-text-color">Company Annual Returns:</h3>
         <p>
           We specialize in simplifying the process of filing Company Annual
@@ -111,7 +111,9 @@ export const categories = {
   </div>`,
   },
   tax: {
-    body: `<h2 className="text-start mt30" id="taxation-section">
+    body: `
+    <div>
+    <h2 className="text-start mt30" id="taxation-section">
     Tax
   </h2>
   <p>
@@ -167,10 +169,13 @@ export const categories = {
         and favorably.
       </p>
     </li>
-  </ul>`,
+  </ul>
+  </div>
+  `,
   },
   auditing: {
-    body: `<h2 className="text-start mt30" id="auditing-section">
+    body: `
+    <div><h2 className="text-start mt30" id="auditing-section">
     Auditing
   </h2>
   <p>
@@ -237,10 +242,12 @@ export const categories = {
       </p>
     </li>
   </ul>
+  </div>
 `,
   },
   recruitment: {
     body: `
+    <div>
     <h2 className="text-start mt30" id="recruitment-section">
     Recruitment
   </h2>
@@ -297,10 +304,12 @@ export const categories = {
         and improve candidate retention.
       </p>
     </li>
-  </ul>`,
+  </ul>
+  </div>`,
   },
   training: {
-    body: ` <h2 className="text-start mt30" id="training-section">
+    body: `
+    <div> <h2 className="text-start mt30" id="training-section">
     Training & Development
   </h2>
   <p>
@@ -357,11 +366,13 @@ export const categories = {
         roles.
       </p>
     </li>
-  </ul>`,
+  </ul>
+  </div>`,
   },
   web: {
     body: `
-    <h2 className="text-start mt30" id="web-section">
+    <div>
+    <h2 className=" mt30" id="web-section">
     Website Design & Development
   </h2>
   <p>
@@ -378,53 +389,387 @@ export const categories = {
   <p className=" fw-bold">Our Services:</p>
   <ul>
     <li>
-      <h4 className="card-title">Corporate Website Design:</h4>
-      <p>
+      <b className="card-title">Corporate Website Design:</b>
+      
         We design professional and visually appealing corporate websites that
         reflect your brand's identity and meet your business goals. Our designs
         are modern, clean, and fully responsive, ensuring optimal performance on
         desktop, tablet, and mobile devices.
-      </p>
+      
     </li>
     <li>
-      <h4 className="card-title">e-Commerce Website Design:</h4>
-      <p>
+      <b className="card-title">e-Commerce Website Design:</b>
+      
         Our e-Commerce website solutions are tailored to help online retailers
         succeed. From product listings to checkout processes, we design
         intuitive, user-friendly e-Commerce platforms that enhance the customer
         experience and drive conversions.
-      </p>
+      
     </li>
     <li>
-      <h4 className="card-title">Custom Web Development:</h4>
-      <p>
+      <b className="card-title">Custom Web Development:</b>
+      
         We provide customized web development solutions, ensuring that your
         website is built with the right functionality and features to meet your
         business needs—whether it's content management systems, user portals, or
         advanced integrations.
-      </p>
+      
     </li>
     <li>
-      <h4 className="card-title">SEO and Performance Optimization:</h4>
-      <p>
+      <b className="card-title">SEO and Performance Optimization:</b>
+      
         Beyond design, we ensure your website is optimized for search engines
         and performance, helping you rank higher in search results and provide
         faster loading times for your users.
-      </p>
+      
     </li>
     <li>
-      <h4 className="card-title">Maintenance and Support:</h4>
-      <p>
+      <b className="card-title">Maintenance and Support:</b>
+      
         We offer ongoing website maintenance and support services, ensuring your
         website remains up-to-date, secure, and fully functional as your
         business grows.
-      </p>
+      
     </li>
   </ul>
+  </div>
+      <br />
+    <br />
+  <div id="ui-ux">
+  <h2 className="text-start">UI/UX Development</h2>
+    <p>
+    Deliver exceptional user experiences with cutting-edge design and seamless functionality. 
+    At Alakeys, we specialize in crafting intuitive, user-centric interfaces that elevate your brand and keep users coming back for more.
+  </p>
+    <p className=" fw-bold">Our UX/UI Services:</p>
+    <ul>
+    <li>
+    <b>User Research and Analysis:</b>
+    Understanding your audience is the foundation of great design.
+     We conduct in-depth research to identify user needs, behaviors, and preferences.
+    </li>
+    <li>
+        <b>Wire-framing and Prototyping:</b>
+        Visualize your ideas with interactive prototypes and detailed wireframes before development begins.
+    </li>
+    <li>
+        <b>Custom UI Design:</b>
+        Bring your brand to life with visually stunning, pixel-perfect designs tailored to your identity.
+    </li>
+    <li>
+        <b>User Experience Design (UX): </b>
+        Create seamless, intuitive experiences that guide users effortlessly through your digital product.
+    </li>
+    <li>
+        <b>Responsive Design: </b>
+        Ensure flawless performance across all devices—desktop, tablet, or mobile.
+    </li>
+    <li>
+        <b>Accessibility and Usability Testing: </b>
+      We prioritize inclusivity by designing for all users, including those with disabilities, and conducting usability tests to optimize the experience.
+    </li>
+    </ul>
+    <div>
+    <h3>Why Choose Our UX/UI Services?</h3>
+    <ul>
+    <li>
+        <b>Human-Centered Approach: </b>
+        We design with your users at the core, ensuring functionality meets aesthetic appeal.
+    </li>
+    <li>
+        <b>Expert Team: </b>
+        Our designers are skilled in the latest trends, tools, and technologies.
+    </li>
+    <li>
+        <b>Business-Focused Solutions: </b>
+        We align design strategies with your business goals to drive growth and engagement.
+    </li>
+    <li>
+        <b>Collaborative Process:</b>
+        Your feedback is essential, and we work closely with you throughout the design journey.
+    </li>
+    </ul>
+    </div>
+    <div>
+    <b>Elevate Your Digital Presence:</b>
+    A well-designed interface is key to a memorable user experience. 
+    Let us transform your ideas into visually engaging, high-performing designs.
+    </div>
+    <br />
+    <br />
+    <div id="e-commerce">
+      <h2 className="text-start mt30">Create an Exceptional Online Shopping Experience</h2>
+      <p>At Alakeys, we specialize in building powerful, user-friendly e-commerce platforms tailored to your business needs.
+       Whether you’re launching a new online store or enhancing an existing one,
+        our team is here to help you thrive in the competitive digital marketplace.</p>
+        <h4 className="primary-text-color">Why Choose Our E-Commerce Development Services?</h4>
+        <ul>
+        <li>
+          <b>Custom Solutions:</b>
+        From small startups to large enterprises, we design e-commerce platforms that align with your business goals and scale as you grow.
+        </li>
+        <li>
+          <b>Modern Technology:</b>
+        We leverage cutting-edge technologies to create fast, secure, and feature-rich online stores.
+        </li>
+        <li>
+          <b>Seamless User Experience:</b>
+        Our designs focus on intuitive navigation and streamlined shopping experiences to increase customer satisfaction.
+        </li>
+        <li>
+          <b>Secure Transactions:</b>
+        We implement advanced security protocols to protect your customers’ data and ensure safe transactions.
+        </li>
+        <li>
+          <b>Mobile-Friendly Stores:</b>
+        All our e-commerce sites are fully optimized for mobile devices, ensuring a seamless shopping experience on any screen.
+        </li>
+        </ul>
+         <br />
+        <h3>Our E-Commerce Development Process</h3>
+        <ol>
+        <li>
+         <h5>Discovery & Planning:</h5>
+         <span>Understand your business, audience, and goals.</span>  
+         <br />   
+         <span>Define platform features, structure, and design preferences.</span>        
+        </li>
+        <br /> 
+        <li>
+         <h5>Design & Development:</h5>
+         <span>Create visually appealing and user-centric designs.</span>  
+         <br />   
+         <span>Develop robust, scalable, and secure platforms.</span>        
+        </li>
+        <br /> 
+        <li>
+         <h5>Testing & Launch:</h5>
+         <span>Conduct thorough testing for functionality, performance, and security.</span>  
+         <br />   
+         <span>Deploy the website or app with full compliance to industry standards.</span>        
+        </li>
+         <br /> 
+        <li>
+         <h5>Optimization & Growth:</h5>
+         <span>Implement SEO and marketing strategies to drive traffic and conversions.</span>  
+         <br />   
+         <span>Provide ongoing support for updates and improvements.</span>        
+        </li>
+        </ol>
+                 <br />
+        <h3>Features We Deliver:</h3>
+        <ul>
+         <li>
+         <b>Product Management: </b>
+<span> Easy-to-manage product listings with advanced categorization and filtering.</span>    
+        </li>
+         <li>
+         <b>Personalized Shopping: </b>
+<span> AI-powered recommendations to boost user engagement and sales.</span>    
+        </li>
+         <li>
+         <b>Multi-Currency & Multi-Language Support:</b><span> Expand globally with tailored localization options.</span>    
+        </li>
+         <li>
+         <b>Analytics & Reporting:</b>
+        <span> Gain actionable insights into sales, customer behavior, and performance metrics.
+      </span>    
+        </li>
+        </ul>
+           <br />
+        <h3>Industries We Serve</h3>
+        <p>We develop e-commerce platforms for a wide range of industries, including:</p>
+        <ul>
+        <li>
+        <b>Retail & Fashion: </b>
+        <span> Stylish online stores with dynamic catalog management.</span>    
+        </li>
+        <li>
+        <b>Food & Beverage:</b>
+        <span>Feature-rich platforms for restaurants, grocers, and food delivery.</span>    
+        </li>
+        <li>
+        <b>Healthcare:</b>
+        <span> Secure platforms for selling medical supplies and services.
+        </span>    
+        </li>
+        <li>
+        <b>Electronics & Technology:</b>
+       <span> Scalable stores with advanced filtering and comparison features.</span>    
+       </li>
+        </ul>
+        <br />
+        <h4>Why E-Commerce is Essential for Your Business:</h4>
+        <p>With the rapid shift towards online shopping, having a robust e-commerce platform is critical to staying competitive. 
+        Our expertise ensures your store is:</p>
+        <ul>
+        <li>Accessible 24/7 to a global audience.</li>
+        <li>Optimized for conversions with intuitive design and fast loading speeds.</li>
+        <li>Scalable to meet your growing business needs.</li>
+        </ul>
+        <p><b>Get Started Today:</b>
+          Ready to take your online business to the next level? Let Alakeys be your partner in e-commerce success.
+        <a href="/contact-us">Contact us</a> now to schedule a consultation and discover how we can build the perfect online store for your brand.</p>
+    </div>
+    <br />
+    <br />
+    <div id="software">
+      <h2 className="text-start mt30">Custom Software Development</h2>
+      <p>Empower your business with tailored software solutions designed to meet your unique needs.
+       At Alakeys, we specialize in developing innovative, scalable,
+       and efficient software that drives growth and streamlines operations.</p>
+        <h3 className="primary-text-color">What We Offer:</h3>
+        <ol>
+         <li>
+        <b>Custom Application Development:</b> Build software tailored to your business requirements with features that address your specific challenges.
+        </li>
+         <li>
+        <b>Enterprise Software Solutions:</b> Optimize workflows and boost efficiency with robust, scalable enterprise systems.
+        </li>
+         <li>
+        <b> Cloud-Based Solutions:</b> Leverage the power of cloud computing for flexible, secure, and accessible software solutions.
+        </li>
+         <li>
+        <b>API Development and Integration:</b>  Seamlessly connect your systems with custom APIs for smooth data flow and interoperability.
+        </li>
+         <li>
+        <b>Legacy Software Modernization: </b>  Upgrade outdated systems to modern, efficient platforms without disrupting your operations.
+        </li>
+         <li>
+        <b>Software Maintenance and Support:</b> Keep your software up-to-date, secure, and running at peak performance with ongoing support.
+        </li>
+        </ol>
+        <h4>Why Choose Us?</h4>
+        <ul>
+               <li>
+        <b>Tailored Solutions:</b> We design and develop software to fit your unique business needs, not the other way around.
+        </li>
+               <li>
+        <b>Expert Team:</b> Our experienced developers use the latest technologies and best practices.
+        </li>
+               <li>
+        <b>Scalable and Secure:</b> We deliver solutions that grow with your business and prioritize data security.
+        </li>
+               <li>
+        <b>Agile Development:</b> We use agile methodologies to ensure flexibility, faster delivery, and collaboration throughout the process.
+        </li>
+        </ul>
+        <h4>Our Process:</h4>
+
+        <ol>
+        <li>
+        <b> Discovery and Planning:</b> We analyze your needs, challenges, and goals to craft the perfect solution.
+        </li>
+         <li>
+        <b>Design and Prototyping:</b>  Visualize your software through user-friendly interfaces and functional prototypes.
+        </li>
+          <li>
+        <b> Development and Testing:</b>  Our team builds, tests, and refines your software to ensure optimal performance.
+        </li>
+           <li>
+        <b>Deployment and Support:</b> Launch your solution with confidence and benefit from ongoing maintenance.
+        </li>
+        </ol>
+        <h5>Let’s Build the Future Together:</h5>
+        <p>Custom software is the key to unlocking your business’s full potential. Whether you need a simple application or a complex enterprise solution,
+         we’re here to help you every step of the way.</p>
+    </div>
+    <br />
+    <br />
+    <div id="app">
+          <h3 className="text-start mt30">App Development Services: Turning Ideas into Powerful Digital Solutions</h3>
+      <p>Innovative Mobile App Development for Your Business:
+      <br />
+      At Alakeys, we specialize in creating innovative, user-friendly mobile applications tailored to your business needs. Whether you’re looking to enhance customer engagement, streamline operations, or launch the next big app, our team of experienced developers is here to bring your vision to life.
+      </p>
+        <h3 className="primary-text-color">Why Choose Our App Development Services?</h3>
+        <ul>
+        <li>
+        <b> Custom Solutions:</b> We understand that every business is unique. That’s why we design apps that align with your goals, audience, and brand identity.
+        </li>
+        <li>
+        <b>  Expert Team:</b> Our developers, designers, and strategists are skilled in the latest technologies, ensuring cutting-edge solutions.
+        </li>
+        <li>
+        <b>End-to-End Service:</b> From initial concept to app store launch and beyond, we handle the entire development process.
+        </li>
+        <li>
+        <b>Cross-Platform Expertise:</b> Whether it’s iOS, Android, or hybrid apps, we deliver seamless functionality across platforms.
+
+        </li>
+        <li>
+        <b>User-Centric Design:</b> We prioritize intuitive, engaging user experiences to maximize customer satisfaction.
+        </li>
+        </ul>
+        <h4>Our App Development Process:</h4>
+        <ol>
+          <li>
+        <b>Discovery and Planning:</b>
+        <ul>
+        <li>Understand your goals, audience, and requirements.</li>
+        <li>Define app features, functionality, and platform preferences.</li>
+        </ul>
+        </li>
+          <li>
+        <b>Design and Prototyping:</b>
+        <ul>
+        <li>Create wireframes and prototypes to visualize the app.</li>
+        <li>Develop user-friendly interfaces aligned with your brand.</li>
+        </ul>
+        </li>
+          <li>
+        <b>Development:</b>
+        <ul>
+        <li>Build scalable, robust applications using the latest technologies.</li>
+        <li>Ensure seamless performance with rigorous coding practices.
+        </li>
+        </ul>
+        </li>
+          <li>
+        <b>Testing and QA:</b>
+        <ul>
+        <li>Conduct extensive testing to eliminate bugs and ensure optimal functionality.</li>
+        <li>Validate compatibility across devices and platforms.</li>
+        </ul>
+        </li>
+          <li>
+        <b>Launch and Support:</b>
+        <ul>
+        <li>Deploy the app to app stores with full compliance.
+</li>
+        <li>Provide ongoing support, updates, and maintenance to keep your app performing at its best.</li>
+        </ul>
+        </li>
+        </ol>
+        <h5>Industries We Serve:</h5>
+        <p>We create apps for a variety of industries, including:</p>
+        <ul>
+        <li><b>E-commerce:</b> Boost sales with intuitive shopping apps.</li>
+        <li><b> Healthcare:</b> Enable patient care with secure medical applications.
+</li>
+        <li><b>Education:</b> Deliver interactive e-learning platforms.</li>
+        <li><b>Entertainment:</b> Engage audiences with media streaming and gaming apps.</li>
+        </ul>
+        <br />
+        <h4>Technologies We Use:</h4>
+        <p>Our expertise spans across:</p>
+        <ul>
+                <li><b> Languages:</b> Swift, Kotlin, Java, React Native, Flutter.</li>
+                <li><b> Backend:</b>  Node.js, Python, PHP, Ruby on Rails.</li>
+                <li><b>  Databases:</b> Firebase, MongoDB, MySQL, PostgreSQL.</li>
+                <li><b> Cloud:</b> AWS, Google Cloud, Microsoft Azure.</li>
+        </ul>
+        <h5>Get Started Today</h5>
+        <p>Ready to bring your app idea to life? Let Alakeys be your trusted partner in app development.
+<a href="/contact-us">Contact us</a> today to schedule a consultation and turn your vision into reality.
+</p>
+    </div>
+  </div>
     `,
   },
   accounting: {
     body: `
+    <div>
   <h2 className="text-start mt30" id="accounting-section">
     Financial Accounting Services
   </h2>
@@ -474,6 +819,7 @@ export const categories = {
         decisions.
       </p>
     </li>
-  </ul>`,
+  </ul>
+  </div>`,
   },
 };

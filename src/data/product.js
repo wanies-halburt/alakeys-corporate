@@ -1,8 +1,7 @@
 export const product1 = [
   {
     id: 1,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShoa3fTQVLjpRKBF8M7MlF7i6EdtHq2xupDQ&s",
-    img2: "https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png",
+    img: "/images/home/cac_registeration.jpg",
     category: "CAC Services",
     title: "Company Registration",
     rating: 4.82,
@@ -25,17 +24,11 @@ export const product1 = [
   },
   {
     id: 2,
-    img: "https://www.searchenginejournal.com/wp-content/uploads/2020/01/which-web-design-platform-is-right-for-you-5e4d59fb941b9.png",
-    img2: "https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png",
+    img: "/images/home/business_registeration.jpg",
     category: "CAC Services",
     title: "Business Name Registration",
     rating: 4.82,
     review: 94,
-    gallery: [
-      "https://www.searchenginejournal.com/wp-content/uploads/2020/01/which-web-design-platform-is-right-for-you-5e4d59fb941b9.png",
-      "https://www.searchenginejournal.com/wp-content/uploads/2020/01/which-web-design-platform-is-right-for-you-5e4d59fb941b9.png",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShoa3fTQVLjpRKBF8M7MlF7i6EdtHq2xupDQ&s",
-    ],
     author: {
       img: "https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png",
       name: "Niyi",
@@ -54,8 +47,7 @@ export const product1 = [
   },
   {
     id: 3,
-    img: "https://www.searchenginejournal.com/wp-content/uploads/2020/01/which-web-design-platform-is-right-for-you-5e4d59fb941b9.png",
-    img2: "/images/listings/g-19.jpg",
+    img: "/images/home/annual_returns.jpg",
     category: "CAC Services",
     title: "Annual Returns",
     rating: 4.82,
@@ -78,8 +70,7 @@ export const product1 = [
   },
   {
     id: 4,
-    img: "https://business.adobe.com/blog/basics/media_1132acbaaf72680b84753f2d51880603efeae51b7.png?width=750&format=png&optimize=medium",
-    img2: "/images/listings/g-20.jpg",
+    img: "/images/home/incorporated_trustees.jpg",
     category: "CAC Services",
     title: "Incorporated Trustees",
     rating: 4.82,
@@ -102,8 +93,7 @@ export const product1 = [
   },
   {
     id: 5,
-    img: "https://huemordev.b-cdn.net/wp-content/uploads/2022/08/2022.11.14.The-15-Best-Agency-Website-Designs-768x650.jpg",
-    img2: "/images/listings/g-21.jpg",
+    img: "/images/home/tax_registeration.png",
     category: "Tax",
     title: "Tax registeration",
     rating: 4.82,
@@ -126,8 +116,7 @@ export const product1 = [
   },
   {
     id: 6,
-    img: "https://i1.wp.com/www.instantshift.com/assets/uploads/2018/10/tips-for-creative-web-designer.jpg",
-    img2: "/images/listings/g-22.jpg",
+    img: "/images/home/financial_reporting.jpg",
     category: "Financial Accounting",
     title: "Financial Reporting",
     rating: 4.82,
@@ -150,8 +139,7 @@ export const product1 = [
   },
   {
     id: 7,
-    img: "https://i1.wp.com/www.instantshift.com/assets/uploads/2018/10/tips-for-creative-web-designer.jpg",
-    img2: "/images/listings/g-17.jpg",
+    img: "/images/home/financial_auditing.png",
     category: "Auditing",
     title: "Financial auditing",
     rating: 4.82,
@@ -172,8 +160,7 @@ export const product1 = [
   },
   {
     id: 9,
-    img: "https://www.arkonwebsolutions.com/blog/wp-content/uploads/2019/07/web-design.jpg",
-    img2: "/images/listings/g-17.jpg",
+    img: "/images/home/e_commerce.png",
     category: "Website Design & Development",
     title: "E-commerce website design",
     rating: 4.82,
