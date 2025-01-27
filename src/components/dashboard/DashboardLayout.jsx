@@ -3,7 +3,6 @@
 import toggleStore from "@/store/toggleStore";
 import DashboardHeader from "./header/DashboardHeader";
 import DashboardSidebar from "./sidebar/DashboardSidebar";
-import DashboardFooter from "./footer/DashboardFooter";
 
 export default function DashboardLayout({ children }) {
   const isActive = toggleStore((state) => state.isDasboardSidebarActive);
@@ -18,10 +17,7 @@ export default function DashboardLayout({ children }) {
           }`}
         >
           <DashboardSidebar />
-          <div className="dashboard__main pl0-md">
-            {children}
-            <DashboardFooter />
-          </div>
+          <div className="dashboard__main pl0-md">{children}</div>
         </div>
       </div>
     </>

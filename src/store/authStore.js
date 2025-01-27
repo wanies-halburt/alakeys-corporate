@@ -125,17 +125,13 @@ export const useAuthStore = create((set) => ({
   logout: () => {
     localStorage.removeItem("alakeys-token");
     localStorage.removeItem("alakeys-user");
-    Cookies.set("alakeys-token", res?.data?.data.token, {
-      expires: 7,
-      sameSite: "Strict",
-    });
     set({ user: null, token: null });
   },
   setUserData: (data) => set({ user: data }),
 
   getUserProfile: async () => {
     set({ loading: true, error: null });
-    const token = localStorage.getItem("tla-token");
+    const token = localStorage.getItem("alakeys-token");
     try {
       const res = await axios.get(`/protected/user/profile`, {
         headers: {
@@ -146,7 +142,7 @@ export const useAuthStore = create((set) => ({
         user: res.data.data,
         loading: false,
       });
-      localStorage.setItem("tla-user", JSON.stringify(res.data.data));
+      localStorage.setItem("alakeys-user", JSON.stringify(res.data.data));
       return res.data.data;
     } catch (err) {
       console.error(err);
@@ -154,7 +150,7 @@ export const useAuthStore = create((set) => ({
   },
   verifyUserAccount: async (signature) => {
     set({ loading: true, error: null });
-    const token = localStorage.getItem("tla-token");
+    const token = localStorage.getItem("alakeys-token");
     try {
       const res = await axios.patch(
         `/protected/user/verify-account`,

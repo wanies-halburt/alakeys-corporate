@@ -79,7 +79,6 @@ export default function Page() {
                     type="email"
                     {...register("email")}
                     className="form-control"
-                    placeholder="alitfn58@gmail.com"
                   />
                 </div>
                 <div className="mb15">
@@ -94,7 +93,6 @@ export default function Page() {
                       type={showPassword ? "text" : "password"}
                       {...register("password")}
                       className="form-control"
-                      placeholder="*******"
                     />
                     <span
                       onClick={togglePasswordVisibility}

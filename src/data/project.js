@@ -97,7 +97,7 @@ export const browserCategory = [
   },
 ];
 
-export const learnFreeio1 = [
+export const learnAlakeys = [
   {
     id: 1,
     title: "Great Work",

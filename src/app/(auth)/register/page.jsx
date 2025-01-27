@@ -82,7 +82,6 @@ export default function Page() {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Mark Yusuf"
                     {...register("fullName")}
                   />
                 </div>
@@ -94,7 +93,6 @@ export default function Page() {
                     type="text"
                     {...register("userName")}
                     className="form-control"
-                    placeholder="alitf"
                   />
                 </div>
                 <div className="mb25">
@@ -103,7 +101,6 @@ export default function Page() {
                     type="email"
                     {...register("email")}
                     className="form-control"
-                    placeholder="alitfn58@gmail.com"
                   />
                 </div>
                 <div className="mb15">
@@ -118,7 +115,6 @@ export default function Page() {
                       type={showPassword ? "text" : "password"}
                       {...register("password")}
                       className="form-control"
-                      placeholder="*******"
                     />
                     <span
                       onClick={togglePasswordVisibility}
@@ -146,7 +142,6 @@ export default function Page() {
                       type={showPassword ? "text" : "password"}
                       {...register("confirmPassword")}
                       className="form-control"
-                      placeholder="*******"
                     />
                     <span
                       onClick={togglePasswordVisibility}

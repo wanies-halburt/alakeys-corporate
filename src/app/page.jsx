@@ -1,4 +1,4 @@
-// import LearnFreeio1 from "@/components/section/LearnFreeio1";
+// import LearnWithAlakeys from "@/components/section/LearnWithAlakeys";
 import OurFaq1 from "@/components/section/OurFaq1";
 import Testimonial1 from "@/components/section/Testimonial1";
 import PopularService1 from "@/components/section/PopularService1";
@@ -22,7 +22,7 @@ export default function page() {
         <NeedSomething2 />
         <Talent15 />
         <PopularService1 />
-        {/* <LearnFreeio1 /> */}
+        {/* <LearnWithAlakeys /> */}
         {/* <TrendingService15 /> */}
         <Testimonial1 />
         {/* <InspiringService11 /> */}

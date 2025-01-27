@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 import axios from "axios";
 import { yupResolver } from "@hookform/resolvers/yup";
-import FooterSelect2 from "./FooterSelect2";
 import FooterSocial5 from "./FooterSocial5";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
@@ -188,11 +187,6 @@ export default function Footer15() {
                 Copyright © {new Date().getFullYear()} Alakeys. All Rights
                 Reserved.
               </p>
-            </div>
-          </div>
-          <div className="col-sm-6">
-            <div className="footer_bottom_right_btns at-home15 text-center text-lg-end">
-              <FooterSelect2 />
             </div>
           </div>
         </div>
