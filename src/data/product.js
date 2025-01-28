@@ -95,7 +95,7 @@ export const product1 = [
     id: 5,
     img: "/images/home/tax_registeration.png",
     category: "Tax",
-    title: "Tax registeration",
+    title: "Tax registration",
     rating: 4.82,
     review: 94,
     author: {
