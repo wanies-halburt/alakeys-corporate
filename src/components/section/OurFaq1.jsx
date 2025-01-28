@@ -13,9 +13,9 @@ export default function OurFaq1() {
             <div className="col-lg-6 m-auto">
               <div className="main-title text-center">
                 <h2 className="title">Frequently Asked Questions</h2>
-                <p className="paragraph mt10">
+                {/* <p className="paragraph mt10">
                   Lorem ipsum dolor sit amet, consectetur.
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
