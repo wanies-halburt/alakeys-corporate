@@ -7,7 +7,6 @@ import { Toaster } from "react-hot-toast";
 import BottomToTop from "@/components/button/BottomToTop";
 import { usePathname } from "next/navigation";
 import Header16 from "@/components/header/Header16";
-import { sidebarEnable } from "@/data/header";
 import toggleStore from "@/store/toggleStore";
 import { footer } from "@/data/footer";
 import "react-tooltip/dist/react-tooltip.css";
@@ -66,10 +65,6 @@ export default function RootLayout({ children }) {
         className={`${dmSans.className} ${
           path === "/register" || path === "/login"
             ? "bgc-thm4 mm-wrapper mm-wrapper--position-left-front"
-            : sidebarEnable.includes(path)
-            ? isListingActive
-              ? "menu-hidden-sidebar-content"
-              : ""
             : ""
         }`}
       >

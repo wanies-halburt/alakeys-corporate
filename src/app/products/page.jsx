@@ -1,25 +1,40 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Breadcumb7 from "@/components/breadcumb/Breadcumb7";
 import SelectInput from "@/components/dashboard/option/SelectInput";
-import { product1 } from "@/data/product";
 import ProductCard from "@/components/card/ProductCard";
+import axios from "axios";
+import { Loader } from "@/components/Loader";
 
 const Products = () => {
   const [getCategory, setCategory] = useState({
     option: "All",
     value: "All",
   });
+  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+
   const categoryHandler = (option) => {
     setCategory({
       option: option,
       value: option,
     });
   };
-  const filteredProducts = product1.filter((item) => {
+
+  useEffect(() => {
+    setIsLoading(true);
+    async function fetchProducts() {
+      const response = await axios.get("/api/fetch-products");
+      setProducts(response.data?.data);
+      setIsLoading(false);
+    }
+    fetchProducts();
+  }, []);
+
+  const filteredProducts = products?.filter((item) => {
     const matchesCategory =
       getCategory.value === "All" || item.tag === getCategory.value;
     const matchesSearch =
@@ -35,6 +50,7 @@ const Products = () => {
     title: "Request for any service of your choice",
     tag: "Customized Service",
   };
+  console.log("products", products);
   return (
     <div>
       <Breadcumb7
@@ -98,25 +114,29 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div className="row my-4 mx-3">
-        <div className="col-lg-12">
-          <div className="row">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((item, i) => (
-                <div key={i} className="col-sm-6 col-xl-3">
-                  <ProductCard data={item} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="row my-4 mx-3">
+          <div className="col-lg-12">
+            <div className="row">
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((item, i) => (
+                  <div key={i} className="col-sm-6 col-xl-3">
+                    <ProductCard data={item} />
+                  </div>
+                ))
+              ) : (
+                <div className=" d-flex justify-content-center">
+                  <div className="text-center p-4 col-4">
+                    <ProductCard data={customizedService} />
+                  </div>
                 </div>
-              ))
-            ) : (
-              <div className=" d-flex justify-content-center">
-                <div className="text-center p-4 col-4">
-                  <ProductCard data={customizedService} />
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

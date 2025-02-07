@@ -33,6 +33,16 @@ const RegisterSchema = new mongoose.Schema(
         },
       },
     ],
+    productsPurchased: [
+      {
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+        purchasedAt: { type: Date, default: Date.now },
+      },
+    ],
   },
   { timestamps: true }
 );

@@ -13,7 +13,6 @@ import TextArea1 from "../ui-elements/textareas/TextArea1";
 import Radio1 from "../ui-elements/radios/Radio1";
 import CheckBox1 from "../ui-elements/checkboxs/CheckBox1";
 import Switch1 from "../ui-elements/switches/Switch1";
-import BudgetOption2 from "../option/BudgetOption2";
 import Tooltop1 from "../ui-elements/tooltips/Tooltop1";
 import Progress1 from "../ui-elements/progress/Progress1";
 import HeroSearch1 from "../element/HeroSearch1";
@@ -171,16 +170,6 @@ export default function UiElement() {
             </div>
             <div className="col-lg-6">
               <Progress1 />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="ui-content">
-                <h5 className="title">Range Slider</h5>
-                <div className="range-slider-style1 mb-4 mb-lg-5">
-                  <BudgetOption2 />
-                </div>
-              </div>
             </div>
           </div>
           <div className="row">

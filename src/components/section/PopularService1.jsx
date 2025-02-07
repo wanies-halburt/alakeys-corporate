@@ -1,12 +1,13 @@
 "use client";
 
-import { product1 } from "@/data/product";
 import PopularServiceCard1 from "../card/PopularServiceCard1";
 import PopularServiceSlideCard1 from "../card/PopularServiceSlideCard1";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ProductCard from "@/components/card/ProductCard";
+import axios from "axios";
+import { Loader } from "@/components/Loader";
 
 const categories = [
   "All",
@@ -19,6 +20,8 @@ const categories = [
 
 export default function PopularService1() {
   const [getCurrentCategory, setCurrentCategory] = useState("All");
+  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState(null);
 
   // tab handler
   const tabHandler = (select) => {
@@ -26,6 +29,16 @@ export default function PopularService1() {
   };
 
   const path = usePathname();
+
+  useEffect(() => {
+    setIsLoading(true);
+    async function fetchProducts() {
+      const response = await axios.get("/api/fetch-products");
+      setProducts(response.data?.data);
+      setIsLoading(false);
+    }
+    fetchProducts();
+  }, []);
 
   return (
     <>
@@ -65,18 +78,19 @@ export default function PopularService1() {
           <div className="row">
             <div className="col-lg-12">
               <div className="row">
-                {product1
-                  .filter((item) =>
-                    getCurrentCategory === "All"
-                      ? item
-                      : item.tag === getCurrentCategory && item
-                  )
-                  .slice(0, 8)
-                  .map((item, i) => (
-                    <div key={i} className="col-sm-6 col-xl-3">
-                      <ProductCard data={item} />
-                    </div>
-                  ))}
+                {!isLoading &&
+                  products
+                    .filter((item) =>
+                      getCurrentCategory === "All"
+                        ? item
+                        : item.tag === getCurrentCategory && item
+                    )
+                    .slice(0, 8)
+                    .map((item, i) => (
+                      <div key={i} className="col-sm-6 col-xl-3">
+                        <ProductCard data={item} />
+                      </div>
+                    ))}
                 <div className="col-lg-12">
                   <div className="text-center mt30">
                     <Link

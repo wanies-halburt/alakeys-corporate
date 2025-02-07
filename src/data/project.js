@@ -1,5 +1,3 @@
-
-
 export const testimonial = [
   {
     id: 1,
@@ -25,8 +23,7 @@ export const testimonial = [
       "The financial audit conducted by Alakeys was thorough and insightful. Their detailed report not only met regulatory requirements but also helped us identify areas for improvement in our operations.",
     name: "",
     company: "",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSLmnW-lo-v4ztV1dMdqWaCEdl-8u83ABGqw&s",
+    image: "/images/testimonials/testimonial_avatar.jpg",
   },
   {
     id: 4,
@@ -51,7 +48,6 @@ export const testimonial = [
       "The level of professionalism and attention to detail at Alakeys is unmatched. They’ve handled multiple projects for us, from tax registration to web development, and we’ve been impressed every single time",
     name: "",
     company: "",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSLmnW-lo-v4ztV1dMdqWaCEdl-8u83ABGqw&s",
+    image: "/images/testimonials/testimonial_avatar.jpg",
   },
 ];

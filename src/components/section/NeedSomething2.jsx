@@ -3,20 +3,17 @@ import Card from "./ImageCard";
 export default function NeedSomething2() {
   const cardsData = [
     {
-      image:
-        "https://wp.sfdcdigital.com/en-gb/wp-content/uploads/sites/16/2024/10/OG-Image-Agentforce-Teaser-Page-1.webp?w=1024",
+      image: "/images/cac_service.jpg",
       title: "CAC Service",
       link: "/service/cac",
     },
     {
-      image:
-        "https://wp.sfdcdigital.com/en-gb/wp-content/uploads/sites/16/2024/09/n-up-sales-report.webp?w=1024",
+      image: "/images/Recruitment.jpg",
       title: "Recruitment",
       link: "/service/recruitment",
     },
     {
-      image:
-        "https://wp.sfdcdigital.com/en-gb/wp-content/uploads/sites/16/2024/09/n-up-salesforce-starter-suite.webp?w=1024",
+      image: "/images/financial_accounting.png",
       title: "Financial Accounting",
       link: "/service/accounting",
     },

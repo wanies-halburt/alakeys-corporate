@@ -1,6 +1,7 @@
 export const about = [
   { id: 1, name: "About Us", path: "/about-us" },
   { id: 2, name: "Products", path: "/products" },
+  { id: 3, name: "FAQ", path: "/faq" },
 ];
 
 export const category = [
