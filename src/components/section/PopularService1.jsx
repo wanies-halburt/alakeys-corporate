@@ -1,6 +1,5 @@
 "use client";
 
-import PopularServiceCard1 from "../card/PopularServiceCard1";
 import PopularServiceSlideCard1 from "../card/PopularServiceSlideCard1";
 import { useState, useEffect } from "react";
 import Link from "next/link";

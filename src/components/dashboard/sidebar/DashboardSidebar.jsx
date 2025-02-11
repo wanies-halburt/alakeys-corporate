@@ -12,7 +12,7 @@ export default function DashboardSidebar() {
   };
   return (
     <>
-      <div className="dashboard__sidebar border-1 border">
+      <div className="dashboard__sidebar border">
         <div className="dashboard_sidebar_list">
           {dasboardNavigation.map((item, i) => (
             <div

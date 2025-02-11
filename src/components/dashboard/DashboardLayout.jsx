@@ -3,11 +3,17 @@
 import toggleStore from "@/store/toggleStore";
 import DashboardHeader from "./header/DashboardHeader";
 import DashboardSidebar from "./sidebar/DashboardSidebar";
+import { useAuth } from "@/hook/useAuth";
+import { Loader } from "@/components/Loader";
 
 export default function DashboardLayout({ children }) {
   const isActive = toggleStore((state) => state.isDasboardSidebarActive);
+  const auth = useAuth();
+  const { isAuthenticating, userData } = auth;
 
-  return (
+  return isAuthenticating ? (
+    <Loader />
+  ) : (
     <>
       <DashboardHeader />
       <div className="dashboard_content_wrapper">
@@ -22,4 +28,5 @@ export default function DashboardLayout({ children }) {
       </div>
     </>
   );
+  console.log("authenticating", isAuthenticating);
 }

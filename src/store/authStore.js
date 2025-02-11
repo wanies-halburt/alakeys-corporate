@@ -21,7 +21,6 @@ export const useAuthStore = create((set) => ({
         fullName,
         confirmPassword,
       });
-      console.log("res", res);
       localStorage.setItem("alakeys-token", res?.data?.data.token);
       localStorage.setItem(
         "alakeys-user",
@@ -42,7 +41,6 @@ export const useAuthStore = create((set) => ({
       );
       return true;
     } catch (err) {
-      console.log("err", err);
       toast.error(err.response.data?.message ?? "Failed to register user");
       set({
         error: err.response.data?.message || "Registration failed",
@@ -60,7 +58,6 @@ export const useAuthStore = create((set) => ({
         email,
         password,
       });
-      console.log("res", res.data);
       localStorage.setItem("alakeys-token", res.data.data.token);
       localStorage.setItem("alakeys-user", JSON.stringify(res.data.data.user));
       Cookies.set("alakeys-token", res?.data?.data.token, {
@@ -89,7 +86,6 @@ export const useAuthStore = create((set) => ({
         email,
         otp,
       });
-      console.log("res", res);
       localStorage.setItem("alakeys-token", res.data.data.token);
       localStorage.setItem("alakeys-user", JSON.stringify(res.data.data.user));
       Cookies.set("alakeys-token", res?.data?.data.token, {
@@ -123,9 +119,11 @@ export const useAuthStore = create((set) => ({
   },
   // Logout
   logout: () => {
-    localStorage.removeItem("alakeys-token");
     localStorage.removeItem("alakeys-user");
+    Cookies.remove("alakeys-token");
+    localStorage.removeItem("alakeys-token");
     set({ user: null, token: null });
+    window.location.replace("/login");
   },
   setUserData: (data) => set({ user: data }),
 
@@ -133,9 +131,9 @@ export const useAuthStore = create((set) => ({
     set({ loading: true, error: null });
     const token = localStorage.getItem("alakeys-token");
     try {
-      const res = await axios.get(`/protected/user/profile`, {
+      const res = await axios.get(`/api/get-user`, {
         headers: {
-          Authorization: `${token}`, // Assuming you're using a Bearer token
+          authorization: `${token}`, // Assuming you're using a Bearer token
         },
       });
       set({
@@ -144,24 +142,6 @@ export const useAuthStore = create((set) => ({
       });
       localStorage.setItem("alakeys-user", JSON.stringify(res.data.data));
       return res.data.data;
-    } catch (err) {
-      console.error(err);
-    }
-  },
-  verifyUserAccount: async (signature) => {
-    set({ loading: true, error: null });
-    const token = localStorage.getItem("alakeys-token");
-    try {
-      const res = await axios.patch(
-        `/protected/user/verify-account`,
-        { signature },
-        {
-          headers: {
-            Authorization: `${token}`, // Assuming you're using a Bearer token
-          },
-        }
-      );
-      return res?.data?.data;
     } catch (err) {
       console.error(err);
     }

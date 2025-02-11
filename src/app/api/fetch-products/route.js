@@ -11,8 +11,8 @@ export async function GET(req) {
 
   try {
     if (id) {
-      const product = await Product.findById(id);
-      if (!product) {
+      const existingProduct = await Product.findById(id);
+      if (!existingProduct) {
         return throwUserResponse({
           status: 404,
           success: false,
@@ -23,7 +23,7 @@ export async function GET(req) {
           status: 200,
           success: true,
           message: "Successful",
-          data: product,
+          data: existingProduct,
         });
       }
     } else {
@@ -31,7 +31,7 @@ export async function GET(req) {
       return throwUserResponse({
         status: 200,
         success: true,
-        message: "Registration successful",
+        message: "successful",
         data: products,
       });
     }

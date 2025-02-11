@@ -14,7 +14,7 @@ export default function Page() {
       loadFromStorage();
     }
   }, []);
-  console.log("user", user);
+
   const length = 4;
   const [otp, setOtp] = useState(new Array(length).fill(""));
   const inputRefs = useRef([]);

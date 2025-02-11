@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-const RegisterSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
@@ -37,10 +37,16 @@ const RegisterSchema = new mongoose.Schema(
       {
         product: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Product",
+          ref: "products",
           required: true,
         },
         purchasedAt: { type: Date, default: Date.now },
+      },
+    ],
+    favourites: [
+      {
+        product: { type: mongoose.Schema.Types.ObjectId, ref: "products" },
+        addedAt: { type: Date, default: Date.now },
       },
     ],
   },
@@ -49,7 +55,7 @@ const RegisterSchema = new mongoose.Schema(
 
 const MAX_TOKENS = 3;
 
-RegisterSchema.pre("save", async function (next) {
+UserSchema.pre("save", async function (next) {
   try {
     const user = this;
     if (user.isModified("password")) {
@@ -61,7 +67,7 @@ RegisterSchema.pre("save", async function (next) {
   }
 });
 
-RegisterSchema.methods.generateAuthToken = async function () {
+UserSchema.methods.generateAuthToken = async function () {
   const user = this;
   let options = {};
 
@@ -90,7 +96,7 @@ RegisterSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-RegisterSchema.statics.findByCredentials = async (email, password) => {
+UserSchema.statics.findByCredentials = async (email, password) => {
   const user = await Client.findOne({ email });
 
   if (!user) {
@@ -103,7 +109,6 @@ RegisterSchema.statics.findByCredentials = async (email, password) => {
   }
   return user;
 };
-const Client =
-  mongoose.models.clients || mongoose.model("clients", RegisterSchema);
+const Client = mongoose.models.clients || mongoose.model("clients", UserSchema);
 
 export default Client;

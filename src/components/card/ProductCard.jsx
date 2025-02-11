@@ -1,8 +1,11 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useAuthStore } from "@/store/authStore";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 export default function PopularServiceCard1({
   data,
@@ -11,6 +14,23 @@ export default function PopularServiceCard1({
 }) {
   const [isFavActive, setFavActive] = useState(false);
   const { user } = useAuthStore();
+
+  const handleFavoriteClick = async () => {
+    if (!user) {
+      toast.error("You need to be logged in to add a product as favourite!!");
+    } else {
+      setFavActive(!isFavActive);
+      const token = localStorage.getItem("alakeys-token");
+      const payload = { productId: data._id };
+      const res = await axios.post(`/api/add-favorite`, payload, {
+        headers: {
+          authorization: `${token}`, // Assuming you're using a Bearer token
+        },
+      });
+      toast.success(res.data?.message || "Product added");
+      console.log("res", res);
+    }
+  };
 
   return (
     <>
@@ -24,7 +44,7 @@ export default function PopularServiceCard1({
             alt="thumbnail"
           />
           <a
-            onClick={() => setFavActive(!isFavActive)}
+            onClick={handleFavoriteClick}
             className={`listing-fav fz12 ${isFavActive ? "ui-fav-active" : ""}`}
           >
             <span className="far fa-heart" />
