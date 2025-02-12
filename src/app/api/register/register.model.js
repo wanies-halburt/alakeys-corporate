@@ -49,6 +49,12 @@ const UserSchema = new mongoose.Schema(
         addedAt: { type: Date, default: Date.now },
       },
     ],
+    cart: [
+      {
+        product: { type: mongoose.Schema.Types.ObjectId, ref: "products" },
+        addedAt: { type: Date, default: Date.now },
+      },
+    ],
   },
   { timestamps: true }
 );

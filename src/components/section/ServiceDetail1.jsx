@@ -14,7 +14,7 @@ export default function ServiceDetail1({ img, title, description }) {
         <section className="pt10 pb90 pb30-md">
           <div className="container">
             <div className="row wrap">
-              <div className="col-lg-8">
+              <div className="col-lg-12">
                 <div className="column">
                   <h2>{title}</h2>
                   {/* <ServiceDetailSlider1 /> */}
@@ -25,6 +25,12 @@ export default function ServiceDetail1({ img, title, description }) {
                     alt={title}
                     className=" w-full shadow rounded"
                   />
+                  <div className="mt40 w-fit max-w-[140px] cursor-pointer">
+                    <button className="ud-btn btn-thm cursor-pointer">
+                      Add to Cart
+                      <i className="fal fa-arrow-right-long" />
+                    </button>
+                  </div>
                   <div className="service-about">
                     <div
                       className="pt-5 pb-5 list_bullet"

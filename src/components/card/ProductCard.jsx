@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthStore } from "@/store/authStore";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -14,6 +14,7 @@ export default function PopularServiceCard1({
 }) {
   const [isFavActive, setFavActive] = useState(false);
   const { user } = useAuthStore();
+  const [favouriteProducts, setFavouriteProducts] = useState([]);
 
   const handleFavoriteClick = async () => {
     if (!user) {
@@ -31,6 +32,38 @@ export default function PopularServiceCard1({
       console.log("res", res);
     }
   };
+
+  const fetchFavs = async () => {
+    try {
+      const token = localStorage.getItem("alakeys-token");
+      const res = await axios.get(`/api/favorite`, {
+        headers: {
+          authorization: `${token}`,
+        },
+      });
+      setFavouriteProducts(res?.data?.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const checkIfProductIsFavourite = () => {
+    if (data && favouriteProducts) {
+      const hasMatchingId = favouriteProducts.some(
+        (item) => item.product._id === data._id
+      );
+      setFavActive(hasMatchingId);
+    }
+  };
+
+  useEffect(() => {
+    fetchFavs();
+  }, []);
+
+  useEffect(() => {
+    checkIfProductIsFavourite();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, favouriteProducts]);
 
   return (
     <>

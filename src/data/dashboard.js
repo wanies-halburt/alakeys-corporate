@@ -6,10 +6,16 @@ export const dasboardNavigation = [
     path: "/dashboard",
   },
   {
-    id: 3,
+    id: 2,
     name: "Favorites",
     icon: "flaticon-like",
     path: "/favorites",
+  },
+  {
+    id: 3,
+    name: "Checkout",
+    icon: "flaticon-money",
+    path: "/checkout",
   },
   {
     id: 14,
