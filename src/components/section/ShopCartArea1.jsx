@@ -1,11 +1,31 @@
 "use client";
-import shopStore from "@/store/shopStore";
+
 import ShopCartInfo from "../element/ShopCartInfo";
 import CartList1 from "../element/CartList1";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function ShopCartArea1() {
-  const products = shopStore((state) => state.products);
+  const [allProducts, setAllProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    const fetchCart = async () => {
+      const token = localStorage.getItem("alakeys-token");
+      const res = await axios.get(`/api/get-cart`, {
+        headers: {
+          authorization: `${token}`, // Assuming you're using a Bearer token
+        },
+      });
+      console.log("res", res);
+      setAllProducts(res.data?.data);
+    };
+    fetchCart();
+  }, [isLoading]);
+
+  const handleReload = () => {
+    setIsLoading(true);
+  };
 
   return (
     <>
@@ -33,12 +53,16 @@ export default function ShopCartArea1() {
                     </tr>
                   </thead>
                   <tbody className="table_body">
-                    {products.map((item, i) => (
-                      <CartList1 key={i} data={item} />
+                    {allProducts.map((item, i) => (
+                      <CartList1
+                        key={i}
+                        data={item.product}
+                        reload={handleReload}
+                      />
                     ))}
                   </tbody>
                 </table>
-                {products?.length !== 0 ? (
+                {allProducts?.length !== 0 ? (
                   <div className="coupon-form mt30 mb30-md">
                     <div className="d-md-flex align-items-center justify-content-between">
                       <div className="d-md-flex justify-content-between">
@@ -71,7 +95,7 @@ export default function ShopCartArea1() {
               </div>
             </div>
             <div className="col-lg-4">
-              <ShopCartInfo />
+              <ShopCartInfo data={allProducts} />
             </div>
           </div>
         </div>

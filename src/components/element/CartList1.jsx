@@ -1,42 +1,30 @@
 "use client";
-import shopStore from "@/store/shopStore";
+
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import axios from "axios";
 
-export default function CartList1({ data }) {
-  const [qty, setQty] = useState(data.qty);
-
-  const deleteProduct = shopStore((state) => state.deleteProduct);
-  const updateQty = shopStore((state) => state.updateQty);
-
-  // handler
-  const qtyHandler = (q) => {
-    setQty(q);
+export default function CartList1({ data, reload }) {
+  const deleteHandler = async (id) => {
+    const token = localStorage.getItem("alakeys-token");
+    const payload = { productId: id };
+    const res = await axios.post(`/api/add-cart`, payload, {
+      headers: {
+        authorization: `${token}`, // Assuming you're using a Bearer token
+      },
+    });
+    reload();
+    toast.success(res.data?.message || "Product has been removed");
   };
-
-  const incHandler = () => {
-    setQty(Number(qty) + 1);
-  };
-
-  const decHandler = () => {
-    qty > 1 && setQty(Number(qty) - 1);
-  };
-
-  const deleteHandler = (id) => deleteProduct(id);
-
-  useEffect(() => {
-    updateQty(data.id, qty);
-  }, [data.id, qty, updateQty]);
-
   return (
     <>
       <tr>
         <td className="pl30 ">
           <div className="cart_list d-flex align-items-center">
             <div className="cart-img">
-              <Image height={74} width={60} src={data.img} alt="cart-1.png" />
+              <Image height={60} width={60} src={data.img} alt="cart-1.png" />
             </div>
-            <h5 className="mb-0">{data.title.substring(0, 40) + "..."}</h5>
+            <h5 className="mb-0">{data.title.substring(0, 30) + "..."}</h5>
           </div>
         </td>
         <td>
@@ -44,28 +32,15 @@ export default function CartList1({ data }) {
         </td>
         <td>
           <div className="cart-quantity">
-            <div className="quantity-block">
-              <button onClick={decHandler} className="quantity-arrow-minus">
-                <span className="fa fa-minus" />
-              </button>
-              <input
-                className="quantity-num"
-                type="number"
-                value={qty}
-                onChange={(e) => qtyHandler(e.target.value)}
-              />
-              <button onClick={incHandler} className="quantity-arrow-plus">
-                <span className="fas fa-plus" />
-              </button>
-            </div>
+            <p className=" text-center">1</p>
           </div>
         </td>
         <td>
-          <div className="cart-subtotal pl5">${data.qty * data.price}</div>
+          <div className="cart-subtotal pl5">${1 * parseInt(data.price)}</div>
         </td>
         <td>
           <a
-            onClick={() => deleteHandler(data.id)}
+            onClick={() => deleteHandler(data._id)}
             className="cart-delete d-inline-block"
           >
             <span className="flaticon-delete" />

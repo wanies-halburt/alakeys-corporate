@@ -14,7 +14,7 @@ export default function ServiceDetail1({ img, title, description, _id }) {
 
   const handleAddToCart = async () => {
     if (!user) {
-      toast.error("You need to be logged in to add a product as favourite!!");
+      toast.error("You need to be logged in to add to cart!!!");
     } else {
       const token = localStorage.getItem("alakeys-token");
       const payload = { productId: _id };
