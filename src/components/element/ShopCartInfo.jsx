@@ -4,10 +4,12 @@ import Link from "next/link";
 
 export default function ShopCartInfo({ data }) {
   let total = 0;
-  data.forEach((item) => {
-    const price = 1 * parseInt(item.product.price);
-    total = total + price;
-  });
+  data
+    ? data.forEach((item) => {
+        const price = 1 * parseInt(item.product.price);
+        total = total + price;
+      })
+    : null;
 
   return (
     <>

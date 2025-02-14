@@ -50,7 +50,6 @@ const Products = () => {
     title: "Request for any service of your choice",
     tag: "Customized Service",
   };
-  console.log("products", products);
   return (
     <div>
       <Breadcumb7
