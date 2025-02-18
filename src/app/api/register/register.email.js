@@ -9,7 +9,7 @@ export const registerAutoRespEmailBody = ({ firstname, otp }) => {
     },
     {
       variable: "FOS_EMAIL",
-      value: process.env.FOS_SEND_MAIL_FROM,
+      value: process.env.FOS_SALES_MAIL,
     },
     {
       variable: "FOS_OTP",

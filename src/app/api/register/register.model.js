@@ -20,6 +20,9 @@ const UserSchema = new mongoose.Schema(
     otp: {
       type: String,
     },
+    phone: {
+      type: String,
+    },
     password: {
       type: String,
       required: [true, "Please Include your password"],

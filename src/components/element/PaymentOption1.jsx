@@ -18,9 +18,10 @@ export default function PaymentOption1() {
           </div>
           <div className="pw-details">
             <p className="fz13 mb30">
-              Make your payment directly into our bank account. Please use your
-              Order ID as the payment reference.Your order will not be shipped
-              until the funds have cleared in our account.
+              Make your payment directly into our bank account
+              <b>(Ecobank 1234567890 Alakeys Corporate Service).</b> Please use
+              your Email address as the payment reference.Your order will not be
+              shipped until the funds have cleared in our account.
             </p>
           </div>
           <div className="form-check d-flex align-items-center mb15">
@@ -29,6 +30,7 @@ export default function PaymentOption1() {
               type="radio"
               name="flexRadioDefault"
               id="flexRadioDefault2"
+              disabled
             />
             <label className="form-check-label" htmlFor="flexRadioDefault2">
               Check payments
@@ -40,6 +42,7 @@ export default function PaymentOption1() {
               type="radio"
               name="flexRadioDefault"
               id="flexRadioDefault3"
+              disabled
             />
             <label className="form-check-label" htmlFor="flexRadioDefault3">
               Cash on delivery
@@ -51,9 +54,10 @@ export default function PaymentOption1() {
               type="radio"
               name="flexRadioDefault"
               id="flexRadioDefault4"
+              disabled
             />
             <label className="form-check-label" htmlFor="flexRadioDefault4">
-              PayPal
+              PayPal/ATM
             </label>
           </div>
         </div>
