@@ -1,4 +1,4 @@
-export default function Breadcumb3({ path }) {
+export default function Breadcumb3({ path, link }) {
   return (
     <>
       <section className="breadcumb-section">
@@ -7,9 +7,8 @@ export default function Breadcumb3({ path }) {
             <div className="col-lg-12">
               <div className="breadcumb-style1">
                 <div className="breadcumb-list">
-                  {path?.map((item, i) => (
-                    <a key={i}>{item}</a>
-                  ))}
+                  <a href={`/${path[0]}`}>{path[0]}</a>
+                  <a href={link ?? "/products"}>{path[1]}</a>
                 </div>
               </div>
             </div>

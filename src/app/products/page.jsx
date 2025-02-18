@@ -114,7 +114,9 @@ const Products = () => {
         </div>
       </div>
       {isLoading ? (
-        <Loader />
+        <div>
+          <Loader />
+        </div>
       ) : (
         <div className="row my-4 mx-3">
           <div className="col-lg-12">
@@ -128,7 +130,7 @@ const Products = () => {
               ) : (
                 <div className=" d-flex justify-content-center">
                   <div className="text-center p-4 col-4">
-                    <ProductCard data={customizedService} />
+                    <ProductCard data={customizedService} customized />
                   </div>
                 </div>
               )}

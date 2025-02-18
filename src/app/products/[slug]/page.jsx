@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import Breadcumb3 from "@/components/breadcumb/Breadcumb3";
 import ServiceDetail1 from "@/components/section/ServiceDetail1";
 import axios from "axios";
-import { Loader } from "@/components/Loader";
 import { useParams } from "next/navigation";
+import { Loader } from "@/components/Loader";
 
 export default function Page() {
   const params = useParams();
@@ -23,14 +23,18 @@ export default function Page() {
     fetchProducts();
   }, [params]);
 
-  console.log("product", product);
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <div>
+          <Loader />
+        </div>
       ) : (
         <div className=" pt-60">
-          <Breadcumb3 path={["Products", `${product?.tag}`]} />
+          <Breadcumb3
+            path={["products", `${product?.tag}`]}
+            link={`/products/${product?._id}`}
+          />
           <ServiceDetail1 {...product} />
         </div>
       )}

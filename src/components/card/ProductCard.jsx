@@ -11,6 +11,7 @@ export default function PopularServiceCard1({
   data,
   style = "",
   isContentExpanded = false,
+  customized = false,
 }) {
   const [isFavActive, setFavActive] = useState(false);
   const { user } = useAuthStore();
@@ -57,13 +58,17 @@ export default function PopularServiceCard1({
   };
 
   useEffect(() => {
-    fetchFavs();
-  }, []);
+    if (user) {
+      fetchFavs();
+    }
+  }, [user]);
 
   useEffect(() => {
-    checkIfProductIsFavourite();
+    if (user) {
+      checkIfProductIsFavourite();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, favouriteProducts]);
+  }, [data, favouriteProducts, user]);
 
   return (
     <>
@@ -86,7 +91,7 @@ export default function PopularServiceCard1({
         <div className={`list-content ${isContentExpanded ? "px-0" : ""}`}>
           <p className="list-text body-color fz14 mb-1">{data.category}</p>
           <h5 className="list-title">
-            <Link href={`/products/${data._id}`}>
+            <Link href={customized ? "/contact-us" : `/products/${data._id}`}>
               {data.title.slice(0, 40)}
             </Link>
           </h5>
@@ -94,12 +99,16 @@ export default function PopularServiceCard1({
           <div className="list-meta d-flex justify-content-end align-items-center mt15">
             <div className="budget">
               {user ? (
-                <p className="mb-0 body-color">
-                  Starting at
-                  <span className="fz17 fw500 dark-color ms-1">
-                    ₦{data.price}
-                  </span>
-                </p>
+                <>
+                  {!customized ? (
+                    <p className="mb-0 body-color">
+                      Starting at
+                      <span className="fz17 fw500 dark-color ms-1">
+                        ₦{data.price}
+                      </span>
+                    </p>
+                  ) : null}
+                </>
               ) : (
                 <Link href="/login" className="mb-0 body-color">
                   Login to view price
