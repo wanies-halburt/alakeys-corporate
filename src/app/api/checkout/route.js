@@ -69,7 +69,7 @@ export async function POST(req) {
     // Update user's productsPurchased
     user.phone = reqBody.phone;
     user.productsPurchased.push(...checkout.products);
-    user.cart = []; // Clear cart
+    // user.cart = []; // Clear cart
     await user.save();
 
     const customerFirstName = user.fullName.split(" ")[0];
