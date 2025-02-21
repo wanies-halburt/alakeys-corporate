@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AboutImage from "../../../public/images/about/about-us.webp";
 
 export const metadata = {
   title: "Alakeys - Learn all about alakeyes",
@@ -10,7 +11,7 @@ const Page = () => {
       <header className="position-relative">
         <div className="w-100" style={{ height: "70vh", overflow: "hidden" }}>
           <Image
-            src="/images/about/about-us.webp"
+            src={AboutImage}
             layout="fill"
             objectFit="cover"
             alt="about us header"

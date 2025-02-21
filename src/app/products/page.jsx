@@ -7,6 +7,7 @@ import SelectInput from "@/components/dashboard/option/SelectInput";
 import ProductCard from "@/components/card/ProductCard";
 import axios from "axios";
 import { Loader } from "@/components/Loader";
+import customizedImage from "../../../public/images/customized.jpg";
 
 const Products = () => {
   const [getCategory, setCategory] = useState({
@@ -27,9 +28,15 @@ const Products = () => {
   useEffect(() => {
     setIsLoading(true);
     async function fetchProducts() {
-      const response = await axios.get("/api/fetch-products");
-      setProducts(response.data?.data);
-      setIsLoading(false);
+      try {
+        const response = await axios.get("/api/fetch-products");
+        setProducts(response.data?.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        // You can also display an error message to the user here
+      } finally {
+        setIsLoading(false);
+      }
     }
     fetchProducts();
   }, []);
@@ -45,7 +52,7 @@ const Products = () => {
   });
   const customizedService = {
     id: "001",
-    img: "/images/customized.jpg",
+    img: customizedImage,
     category: "If you can't find what you are looking for",
     title: "Request for any service of your choice",
     tag: "Customized Service",
@@ -121,7 +128,7 @@ const Products = () => {
         <div className="row my-4 mx-3">
           <div className="col-lg-12">
             <div className="row">
-              {filteredProducts.length > 0 ? (
+              {filteredProducts?.length > 0 ? (
                 filteredProducts.map((item, i) => (
                   <div key={i} className="col-sm-6 col-xl-3">
                     <ProductCard data={item} />
