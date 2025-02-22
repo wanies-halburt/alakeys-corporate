@@ -5,6 +5,8 @@ import { categories } from "./data";
 import Card from "../Card";
 import { notFound } from "next/navigation";
 
+export const dynamicParams = true;
+
 const ServiceDetails = ({ params }) => {
   const { slug } = params;
   const category = categories[slug];

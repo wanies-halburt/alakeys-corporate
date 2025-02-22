@@ -72,6 +72,4 @@ export async function PATCH(req) {
   }
 }
 
-export const config = {
-  type: "experimental-background",
-};
+export const dynamic = "force-dynamic";

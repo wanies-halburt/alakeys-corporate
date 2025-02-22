@@ -77,6 +77,4 @@ export async function POST(req) {
   }
 }
 
-export const config = {
-  type: "experimental-background",
-};
+export const dynamic = "force-dynamic";

@@ -7,6 +7,8 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import { Loader } from "@/components/Loader";
 
+export const dynamicParams = true;
+
 export default function Page() {
   const params = useParams();
 
