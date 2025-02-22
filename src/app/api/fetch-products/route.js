@@ -44,3 +44,7 @@ export async function GET(req) {
     });
   }
 }
+
+export const config = {
+  type: "experimental-background",
+};

@@ -56,3 +56,7 @@ export async function POST(req) {
     });
   }
 }
+
+export const config = {
+  type: "experimental-background",
+};

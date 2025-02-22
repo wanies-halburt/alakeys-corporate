@@ -71,3 +71,7 @@ export async function PATCH(req) {
     });
   }
 }
+
+export const config = {
+  type: "experimental-background",
+};
