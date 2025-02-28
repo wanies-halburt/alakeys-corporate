@@ -19,9 +19,16 @@ export default function PaymentOption1() {
           <div className="pw-details">
             <p className="fz13 mb30">
               Make your payment directly into our bank account
-              <b>(Ecobank 1234567890 Alakeys Corporate Service).</b> Please use
-              your Email address as the payment reference.Your order will not be
-              shipped until the funds have cleared in our account.
+              <b>
+                <br />
+                Providus Bank
+                <br /> Acc No: 1305399677
+                <br />
+                Account Name: Alakeys LTD.
+              </b>{" "}
+              <br />
+              Please use your Email address as the payment reference.Your order
+              will not be shipped until the funds have cleared in our account.
             </p>
           </div>
           <div className="form-check d-flex align-items-center mb15">

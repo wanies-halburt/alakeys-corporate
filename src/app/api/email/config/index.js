@@ -2,30 +2,30 @@ import nodemailer from "nodemailer";
 
 export const IS_ADMIN_CONFIG = !!process.env.IS_ADMIN;
 
-export const NODE_MAILDER_CONFIG_OPTIONS_ADMIN = {
-  host: process.env.FOS_SEND_MAIL_HOST,
-  port: process.env.FOS_SEND_MAIL_PORT,
-  secure: true, // use TLS
-  auth: {
-    user: process.env.FOS_SEND_MAIL_FROM,
-    pass: process.env.FOS_SEND_MAIL_PASS,
-  },
-  tls: {
-    rejectUnauthorized: true,
-    minVersion: "TLSv1.2",
-  },
-  dkim: {
-    domainName: process.env.FOS_DOMAIN_NAME,
-    keySelector: "2023",
-    privateKey: process.env.FOS_DKIM_PRIVATE_KEY,
-  },
-  logger: true,
-  debugger: process.env.NODE_ENV !== "production",
-};
+// export const NODE_MAILDER_CONFIG_OPTIONS_ADMIN = {
+//   host: process.env.FOS_SEND_MAIL_HOST,
+//   port: process.env.FOS_SEND_MAIL_PORT,
+//   secure: true, // use TLS
+//   auth: {
+//     user: process.env.FOS_SEND_MAIL_FROM,
+//     pass: process.env.FOS_SEND_MAIL_PASS,
+//   },
+//   tls: {
+//     rejectUnauthorized: true,
+//     minVersion: "TLSv1.2",
+//   },
+//   dkim: {
+//     domainName: process.env.FOS_DOMAIN_NAME,
+//     keySelector: "2023",
+//     privateKey: process.env.FOS_DKIM_PRIVATE_KEY,
+//   },
+//   logger: true,
+//   debugger: process.env.NODE_ENV !== "production",
+// };
 
 export const NODE_MAILDER_CONFIG_OPTIONS = {
-  service: "gmail",
-  host: "smtp.gmail.com",
+  service: "custom",
+  host: "mail.alakeys.com",
   port: 587,
   secure: false,
   auth: {

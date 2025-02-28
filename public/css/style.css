@@ -8577,7 +8577,8 @@ li.mm-listitem:focus {
   visibility: hidden;
   padding: 30px;
   position: absolute;
-  top: -1px;
+  top: auto;
+  margin-top: -60px;
   left: 316px;
   width: 100%;
   z-index: -1;

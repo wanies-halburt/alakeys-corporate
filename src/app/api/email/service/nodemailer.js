@@ -1,16 +1,17 @@
 import debugConsole from "@/utils/debugger";
 import nodemailer from "nodemailer";
 import {
-  IS_ADMIN_CONFIG,
+  // IS_ADMIN_CONFIG,
   NODE_MAILDER_CONFIG_OPTIONS,
-  NODE_MAILDER_CONFIG_OPTIONS_ADMIN,
+  // NODE_MAILDER_CONFIG_OPTIONS_ADMIN,
 } from "../config";
 
-const transporter = nodemailer.createTransport(
-  IS_ADMIN_CONFIG
-    ? NODE_MAILDER_CONFIG_OPTIONS_ADMIN
-    : NODE_MAILDER_CONFIG_OPTIONS
-);
+// const transporter = nodemailer.createTransport(
+//   IS_ADMIN_CONFIG
+//     ? NODE_MAILDER_CONFIG_OPTIONS_ADMIN
+//     : NODE_MAILDER_CONFIG_OPTIONS
+// );
+const transporter = nodemailer.createTransport(NODE_MAILDER_CONFIG_OPTIONS);
 
 transporter.verify(function (error, _success) {
   if (error) {
