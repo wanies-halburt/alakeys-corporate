@@ -10,7 +10,7 @@ const SubscribeNewsletterSchema = new mongoose.Schema(
   { timestamps: true }
 );
 const SubscribeNewsletterModel =
-  mongoose.models.contact_us ||
-  mongoose.model("contact_us", SubscribeNewsletterSchema);
+  mongoose.models.newsletter ||
+  mongoose.model("newsletter", SubscribeNewsletterSchema);
 
 export default SubscribeNewsletterModel;

@@ -78,13 +78,13 @@ export async function POST(req) {
       }
     }
 
-    const newRegisterEntry = new Client({
-      ...reqBody,
-    });
-
     let token;
     let userWithoutPassword;
     const otp = generateOtp();
+    const newRegisterEntry = new Client({
+      ...reqBody,
+      otp: otp,
+    });
     const loggedResteredUser = await newRegisterEntry.save();
 
     const mailOptions = {
