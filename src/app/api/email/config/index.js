@@ -24,13 +24,17 @@ export const IS_ADMIN_CONFIG = !!process.env.IS_ADMIN;
 // };
 
 export const NODE_MAILDER_CONFIG_OPTIONS = {
-  service: "custom",
-  host: "mail.alakeys.com",
-  port: 587,
-  secure: false,
+  name: "hostgator",
+  host: "my.hostgator.com",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.FOS_SEND_MAIL_FROM,
     pass: process.env.FOS_SEND_MAIL_PASS,
+  },
+  tls: {
+    // do not fail on invalid certs
+    rejectUnauthorized: false,
   },
 };
 

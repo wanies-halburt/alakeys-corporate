@@ -12,6 +12,7 @@ import {
 //     : NODE_MAILDER_CONFIG_OPTIONS
 // );
 const transporter = nodemailer.createTransport(NODE_MAILDER_CONFIG_OPTIONS);
+console.log("transporter", transporter);
 
 transporter.verify(function (error, _success) {
   if (error) {
