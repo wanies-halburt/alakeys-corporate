@@ -1,5 +1,6 @@
 import debugConsole from "@/utils/debugger";
 import nodemailer from "nodemailer";
+import smtpTransport from "nodemailer-smtp-transport";
 import {
   // IS_ADMIN_CONFIG,
   NODE_MAILDER_CONFIG_OPTIONS,
@@ -11,7 +12,9 @@ import {
 //     ? NODE_MAILDER_CONFIG_OPTIONS_ADMIN
 //     : NODE_MAILDER_CONFIG_OPTIONS
 // );
-const transporter = nodemailer.createTransport(NODE_MAILDER_CONFIG_OPTIONS);
+const transporter = nodemailer.createTransport(
+  smtpTransport(NODE_MAILDER_CONFIG_OPTIONS)
+);
 console.log("transporter", transporter);
 
 transporter.verify(function (error, _success) {
