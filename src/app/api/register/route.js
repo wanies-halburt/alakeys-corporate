@@ -73,7 +73,7 @@ export async function POST(req) {
         return throwUserResponse({
           status: 400,
           success: true,
-          message: "You already registered",
+          message: "You are already registered, please log in to proceed",
         });
       }
     }
