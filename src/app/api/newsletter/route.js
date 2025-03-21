@@ -48,15 +48,15 @@ export async function POST(req) {
 
     const loggedSubscriber = await newSubscriberEntry.save();
     debugConsole({ loggedSubscriber });
-    const customerFirstName = reqBody.email.split("@")[0];
+    // const customerFirstName = reqBody.email.split("@")[0];
 
-    const mdAddContact = await addContactToMDsubscribeNewsletterGroup({
-      firstName: customerFirstName,
-      email: reqBody.email,
-    });
-    if (!mdAddContact?.ok) {
-      return mdAddContact;
-    }
+    // const mdAddContact = await addContactToMDsubscribeNewsletterGroup({
+    //   firstName: customerFirstName,
+    //   email: reqBody.email,
+    // });
+    // if (!mdAddContact?.ok) {
+    //   return mdAddContact;
+    // }
 
     return throwUserResponse({
       status: 200,

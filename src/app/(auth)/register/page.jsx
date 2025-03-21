@@ -35,7 +35,7 @@ export default function Page() {
     console.log("response", response);
     if (response) {
       reset();
-      router.push("/verify-otp");
+      router.push("/dashboard");
     }
   };
 

@@ -42,35 +42,35 @@ export async function POST(req) {
 
     const customerFirstName = customerName.split(" ")[0];
     const customerLastName = customerName.split(" ")[1];
-    const mailOptions = {
-      from: process.env.FOS_SEND_MAIL_FROM,
-      to: email,
-      subject: `Thank You for Contacting Us ${customerFirstName}🌟`,
-      bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
-      html: contactUsAutoRespEmailBody({
-        firstname: customerFirstName,
-        ...reqBody,
-      }),
-      dsn: {
-        id: `${customerName}-${loggedCustomerEnquiry?._id}`,
-        return: "headers",
-        notify: ["failure", "delay"],
-        recipient: process.env.FOS_SEND_MAIL_FROM,
-      },
-    };
+    // const mailOptions = {
+    //   from: process.env.FOS_SEND_MAIL_FROM,
+    //   to: email,
+    //   subject: `Thank You for Contacting Us ${customerFirstName}🌟`,
+    //   bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
+    //   html: contactUsAutoRespEmailBody({
+    //     firstname: customerFirstName,
+    //     ...reqBody,
+    //   }),
+    //   dsn: {
+    //     id: `${customerName}-${loggedCustomerEnquiry?._id}`,
+    //     return: "headers",
+    //     notify: ["failure", "delay"],
+    //     recipient: process.env.FOS_SEND_MAIL_FROM,
+    //   },
+    // };
 
-    await sendMailWithNM(mailOptions);
+    // await sendMailWithNM(mailOptions);
 
-    if (!customerExists) {
-      const mdAddContact = await addContactToMDcontactsGroup({
-        firstName: customerFirstName,
-        lastName: customerLastName,
-        email: reqBody.email,
-      });
-      if (!mdAddContact?.ok) {
-        return mdAddContact;
-      }
-    }
+    // if (!customerExists) {
+    //   const mdAddContact = await addContactToMDcontactsGroup({
+    //     firstName: customerFirstName,
+    //     lastName: customerLastName,
+    //     email: reqBody.email,
+    //   });
+    //   if (!mdAddContact?.ok) {
+    //     return mdAddContact;
+    //   }
+    // }
 
     return throwUserResponse({
       status: 200,

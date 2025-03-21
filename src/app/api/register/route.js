@@ -35,48 +35,48 @@ export async function POST(req) {
       });
     }
 
-    const customerExists = await Client.findOne({
-      email: reqBody.email,
-    });
-    const customerFirstName = reqBody.fullName.split(" ")[0];
-    const customerLastName = reqBody.fullName.split(" ")[1];
-    if (customerExists) {
-      if (!customerExists.isVerified) {
-        const otp = generateOtp();
-        customerExists.otp = otp;
-        const mailOptions = {
-          from: process.env.FOS_SEND_MAIL_FROM,
-          to: reqBody.email,
-          subject: `Thank You for Registering on Alakeys`,
-          bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
-          html: registerAutoRespEmailBody({
-            firstname: customerFirstName,
-            otp: otp,
-          }),
-          dsn: {
-            id: `${reqBody.fullName}-${reqBody.email}`,
-            return: "headers",
-            notify: ["failure", "delay"],
-            recipient: process.env.FOS_SEND_MAIL_FROM,
-          },
-        };
-        await sendMailWithNM(mailOptions);
-        await customerExists.save();
-        return throwUserResponse({
-          status: 400,
-          success: true,
-          message:
-            "User is already registered but not verified. A new OTP has been sent to your email.",
-        });
-      }
-      if (customerExists.email === reqBody.email) {
-        return throwUserResponse({
-          status: 400,
-          success: true,
-          message: "You already registered",
-        });
-      }
-    }
+    // const customerExists = await Client.findOne({
+    //   email: reqBody.email,
+    // });
+    // const customerFirstName = reqBody.fullName.split(" ")[0];
+    // const customerLastName = reqBody.fullName.split(" ")[1];
+    // if (customerExists) {
+    //   if (!customerExists.isVerified) {
+    //     const otp = generateOtp();
+    //     customerExists.otp = otp;
+    //     const mailOptions = {
+    //       from: process.env.FOS_SEND_MAIL_FROM,
+    //       to: reqBody.email,
+    //       subject: `Thank You for Registering on Alakeys`,
+    //       bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
+    //       html: registerAutoRespEmailBody({
+    //         firstname: customerFirstName,
+    //         otp: otp,
+    //       }),
+    //       dsn: {
+    //         id: `${reqBody.fullName}-${reqBody.email}`,
+    //         return: "headers",
+    //         notify: ["failure", "delay"],
+    //         recipient: process.env.FOS_SEND_MAIL_FROM,
+    //       },
+    //     };
+    //     await sendMailWithNM(mailOptions);
+    //     await customerExists.save();
+    //     return throwUserResponse({
+    //       status: 400,
+    //       success: true,
+    //       message:
+    //         "User is already registered but not verified. A new OTP has been sent to your email.",
+    //     });
+    //   }
+    //   if (customerExists.email === reqBody.email) {
+    //     return throwUserResponse({
+    //       status: 400,
+    //       success: true,
+    //       message: "You already registered",
+    //     });
+    //   }
+    // }
 
     let token;
     let userWithoutPassword;
@@ -87,32 +87,32 @@ export async function POST(req) {
     });
     const loggedResteredUser = await newRegisterEntry.save();
 
-    const mailOptions = {
-      from: process.env.FOS_SEND_MAIL_FROM,
-      to: reqBody.email,
-      subject: `Thank You for Registering on Alakeys`,
-      bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
-      html: registerAutoRespEmailBody({
-        firstname: customerFirstName,
-        otp: otp,
-      }),
-      dsn: {
-        id: `${reqBody.fullName}-${loggedResteredUser?._id}`,
-        return: "headers",
-        notify: ["failure", "delay"],
-        recipient: process.env.FOS_SEND_MAIL_FROM,
-      },
-    };
-    await sendMailWithNM(mailOptions);
-    const mdAddContact = await addContactToMDregisterToAttendGroup({
-      firstName: customerFirstName,
-      lastName: customerLastName,
-      email: reqBody.email,
-    });
+    // const mailOptions = {
+    //   from: process.env.FOS_SEND_MAIL_FROM,
+    //   to: reqBody.email,
+    //   subject: `Thank You for Registering on Alakeys`,
+    //   bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
+    //   html: registerAutoRespEmailBody({
+    //     firstname: customerFirstName,
+    //     otp: otp,
+    //   }),
+    //   dsn: {
+    //     id: `${reqBody.fullName}-${loggedResteredUser?._id}`,
+    //     return: "headers",
+    //     notify: ["failure", "delay"],
+    //     recipient: process.env.FOS_SEND_MAIL_FROM,
+    //   },
+    // };
+    // await sendMailWithNM(mailOptions);
+    // const mdAddContact = await addContactToMDregisterToAttendGroup({
+    //   firstName: customerFirstName,
+    //   lastName: customerLastName,
+    //   email: reqBody.email,
+    // });
 
-    if (!mdAddContact?.ok) {
-      return mdAddContact;
-    }
+    // if (!mdAddContact?.ok) {
+    //   return mdAddContact;
+    // }
     token = await loggedResteredUser.generateAuthToken();
     userWithoutPassword = {
       _id: loggedResteredUser._id,
