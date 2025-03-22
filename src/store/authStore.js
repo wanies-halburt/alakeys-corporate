@@ -81,6 +81,7 @@ export const useAuthStore = create((set) => ({
     }
   },
   verifyOtp: async ({ email, otp }) => {
+    set({ loading: true, error: null });
     try {
       const res = await axios.post(`/api/verify-otp`, {
         email,
@@ -103,6 +104,49 @@ export const useAuthStore = create((set) => ({
       toast.error(err.response.data?.message ?? "verify otp failed");
       set({
         error: err.response.data?.message || "otp verification failed",
+        loading: false,
+      });
+      return false;
+    }
+  },
+  forgetPassword: async ({ email }) => {
+    set({ loading: true, error: null });
+    try {
+      const res = await axios.post(`/api/forget-password`, {
+        email,
+      });
+      set({
+        loading: false,
+      });
+      toast.success(res.data.message ?? "OTP has been sent to your email");
+      return true;
+    } catch (err) {
+      toast.error(err.response.data?.message ?? "an error occured");
+      set({
+        error: err.response.data?.message || "email verification failed",
+        loading: false,
+      });
+      return false;
+    }
+  },
+  resetPassword: async ({ email, otp, password, confirmPassword }) => {
+    set({ loading: true, error: null });
+    try {
+      const res = await axios.post(`/api/reset-password`, {
+        email,
+        otp,
+        password,
+        confirmPassword,
+      });
+      set({
+        loading: false,
+      });
+      toast.success(res.data.message ?? "Password has been reset");
+      return true;
+    } catch (err) {
+      toast.error(err.response.data?.message ?? "an error occured");
+      set({
+        error: err.response.data?.message || "An error occurred",
         loading: false,
       });
       return false;

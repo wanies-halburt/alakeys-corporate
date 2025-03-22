@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please Include your password"],
     },
-    isVerified: { type: Boolean, default: true },
+    isVerified: { type: Boolean, default: false },
     tokens: [
       {
         token: {

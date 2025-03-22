@@ -25,7 +25,7 @@ export const IS_ADMIN_CONFIG = !!process.env.IS_ADMIN;
 
 export const NODE_MAILDER_CONFIG_OPTIONS = {
   name: "hostgator",
-  host: "my.hostgator.com",
+  host: "mail.alakeys.com",
   port: 465,
   secure: true,
   auth: {
