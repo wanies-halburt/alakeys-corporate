@@ -101,12 +101,18 @@ export default function PopularServiceCard1({
               {user ? (
                 <>
                   {!customized ? (
-                    <p className="mb-0 body-color">
-                      Starting at
-                      <span className="fz17 fw500 dark-color ms-1">
-                        ₦{data.price}
-                      </span>
-                    </p>
+                    data.price ? (
+                      <p className="mb-0 body-color">
+                        Starting at
+                        <span className="fz17 fw500 dark-color ms-1">
+                          ₦{parseInt(data.price, 10).toLocaleString()}
+                        </span>
+                      </p>
+                    ) : (
+                      <Link href="/contact-us" className="mb-0 body-color">
+                        <p>Contact us for price</p>
+                      </Link>
+                    )
                   ) : null}
                 </>
               ) : (

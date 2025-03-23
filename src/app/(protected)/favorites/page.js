@@ -28,13 +28,19 @@ const Favorites = () => {
       <div className="row">
         <div className="col-lg-12">
           <div className="row">
-            {!isLoading &&
-              products &&
+            {!isLoading && products?.length ? (
               products.map((item, i) => (
                 <div key={i} className="col-sm-6 col-xl-3">
                   <ProductCard data={item.product} />
                 </div>
-              ))}
+              ))
+            ) : (
+              <div className="col-lg-12">
+                <h3 className="text-center mt30">
+                  No Service has been marked as favourite!!!
+                </h3>
+              </div>
+            )}
             <div className="col-lg-12">
               <div className="text-center mt30">
                 <Link
