@@ -114,7 +114,9 @@ export default function Page() {
                     <input type="checkbox" defaultChecked="checked" />
                     <span className="checkmark" />
                   </label>
-                  <a className="fz14 ff-heading">Forgotten password?</a>
+                  <Link href="/forgot-password" className="fz14 ff-heading">
+                    Forgotten password?
+                  </Link>
                 </div>
                 <div className="d-grid mb20">
                   <button
