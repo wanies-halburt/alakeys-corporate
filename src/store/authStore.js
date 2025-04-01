@@ -42,6 +42,9 @@ export const useAuthStore = create((set) => ({
       return true;
     } catch (err) {
       toast.error(err.response.data?.message ?? "Failed to register user");
+      if (err.status === 400) {
+        window.location.href = "/verify-otp";
+      }
       set({
         error: err.response.data?.message || "Registration failed",
         loading: false,

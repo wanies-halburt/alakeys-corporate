@@ -103,15 +103,7 @@ export async function POST(req) {
       },
     };
     await sendMailWithNM(mailOptions);
-    // const mdAddContact = await addContactToMDregisterToAttendGroup({
-    //   firstName: customerFirstName,
-    //   lastName: customerLastName,
-    //   email: reqBody.email,
-    // });
 
-    if (!mdAddContact?.ok) {
-      return mdAddContact;
-    }
     token = await loggedResteredUser.generateAuthToken();
     userWithoutPassword = {
       _id: loggedResteredUser._id,
