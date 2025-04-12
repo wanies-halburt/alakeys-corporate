@@ -43,10 +43,10 @@ export default function ContactInfo1() {
               <div className="position-relative mt40">
                 <div className="main-title">
                   <h4 className="form-title mb25">Keep In Touch With Us.</h4>
-                  <p className="text">
+                  {/* <p className="text">
                     Neque convallis a cras semper auctor. Libero id faucibus
                     nisl tincidunt egetnvallis.
-                  </p>
+                  </p> */}
                 </div>
                 <div className="iconbox-style1 contact-style d-flex align-items-start mb30">
                   <div className="icon flex-shrink-0">
