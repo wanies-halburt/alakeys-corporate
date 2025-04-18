@@ -9207,11 +9207,16 @@ input.amount, input.amount2, input.amount3, input.amount4 {
 input::placeholder {
   color: var(--headings-color);
 }
-input:focus-visible {
+/* input:focus-visible {
   border: none;
   outline: none;
+} */
+input {
+  border: 1px solid #28a745 !important;
 }
-
+textarea {
+  border: 1px solid #28a745 !important;
+}
 #slider-range-value1,
 #slider-range-value2 {
   color: var(--headings-color);

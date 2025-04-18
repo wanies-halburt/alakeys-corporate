@@ -101,7 +101,9 @@ export default function Page() {
                     />
                   ))}
                 </div>
-
+                <div className="d-flex justify-content-end mx-auto text-end">
+                  <p className="cursor-pointer btn text-end">Resend Otp</p>
+                </div>
                 <div className="my-2 justify-content-center align-content-center d-flex  ">
                   <button
                     className="ud-btn btn-thm w-50  align-items-center"
