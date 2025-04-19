@@ -27,8 +27,9 @@ export default function PaymentOption1() {
                 Account Name: Alakeys LTD.
               </b>{" "}
               <br />
-              Please use your Email address as the payment reference.Your order
-              will not be shipped until the funds have cleared in our account.
+              Please use the order number (sent to your email) as the payment
+              reference.Your order will not be processed until the funds have
+              cleared in our account.
             </p>
           </div>
           <div className="form-check d-flex align-items-center mb15">

@@ -4,13 +4,17 @@ import { isActiveNavigation } from "@/utils/isActiveNavigation";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { useAuthStore } from "@/store/authStore";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
 export default function NavSidebar() {
   const path = usePathname();
+  const { user, loadFromStorage } = useAuthStore();
   const crossRef = useRef(null);
-
+  useEffect(() => {
+    loadFromStorage();
+  }, []);
   return (
     <>
       <div
@@ -106,6 +110,12 @@ export default function NavSidebar() {
             </Sidebar>
           </div>
         </div>
+        <Link
+          className="ud-btn btn-dark add-joining bdrs12 text-white mb-5"
+          href="/dashboard"
+        >
+          Dashboard
+        </Link>
       </div>
     </>
   );

@@ -11,6 +11,12 @@ const CheckoutSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    firstName: {
+      type: String,
+    },
+    lastName: {
+      type: String,
+    },
     message: {
       type: String,
     },

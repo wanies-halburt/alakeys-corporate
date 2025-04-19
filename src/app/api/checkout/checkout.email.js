@@ -1,11 +1,15 @@
 import path from "path";
 import { parseHtmlFile } from "../email/templates";
 
-export const checkoutAutoRespEmailBody = ({ firstname, price }) => {
+export const checkoutAutoRespEmailBody = ({ firstname, price, orderId }) => {
   const variable = [
     {
       variable: "FIRST_NAME",
       value: firstname,
+    },
+    {
+      variable: "ORDER_ID",
+      value: orderId,
     },
     {
       variable: "PRICE",
@@ -36,6 +40,7 @@ export const checkoutAdminAutoRespEmailBody = ({
   email,
   message,
   price,
+  orderId,
 }) => {
   const variable = [
     {
@@ -53,6 +58,10 @@ export const checkoutAdminAutoRespEmailBody = ({
     {
       variable: "CUS_MESSAGE",
       value: message,
+    },
+    {
+      variable: "ORDER_ID",
+      value: orderId,
     },
     {
       variable: "PRICE",

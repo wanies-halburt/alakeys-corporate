@@ -34,6 +34,8 @@ export async function POST(req) {
       "message",
       "totalPrice",
       "phone",
+      "firstName",
+      "lastName",
     ]);
 
     if (reqBodyCheck.status !== 200) {
@@ -41,7 +43,7 @@ export async function POST(req) {
     }
     const decoded = jwt.verify(token, "secret");
     const userId = decoded._id;
-    const user = await Client.findById(userId);
+    let user = await Client.findById(userId);
     if (!user) {
       return throwUserResponse({
         status: 404,
@@ -64,12 +66,20 @@ export async function POST(req) {
       address: reqBody.address,
       companyName: reqBody.companyName,
       message: reqBody.message,
+      firstName: reqBody.firstName,
+      lastName: reqBody.lastName,
+      phone: reqBody.phone,
     });
     await checkout.save();
     // Update user's productsPurchased
+
+    user = await Client.findByIdAndUpdate(
+      userId,
+      { $set: { cart: [] } },
+      { new: true }
+    );
     user.phone = reqBody.phone;
     user.productsPurchased.push(...checkout.products);
-    // user.cart = []; // Clear cart
     await user.save();
 
     const customerFirstName = user.fullName.split(" ")[0];
@@ -84,14 +94,15 @@ export async function POST(req) {
         : process.env.FOS_SALES_MAIL,
       html: checkoutAutoRespEmailBody({
         firstname: customerFirstName,
+        orderId: checkout._id,
         price: reqBody.totalPrice,
       }),
-      dsn: {
-        id: `${user.fullName}-${user?._id}`,
-        return: "headers",
-        notify: ["failure", "delay"],
-        recipient: process.env.FOS_SEND_MAIL_FROM,
-      },
+      // dsn: {
+      //   id: `${user.fullName}-${user?._id}`,
+      //   return: "headers",
+      //   notify: ["failure", "delay"],
+      //   recipient: process.env.FOS_SEND_MAIL_FROM,
+      // },
     };
     // mail sent to Admn
     const adminMailOptions = {
@@ -105,6 +116,7 @@ export async function POST(req) {
         customerName: user.fullName,
         address: clientAddress,
         email: user.email,
+        orderId: checkout._id,
         message: reqBody.message,
         price: reqBody.totalPrice,
       }),

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/authStore";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function ShopCheckoutArea1() {
   const [companyName, setCompanyName] = useState("");
@@ -13,19 +14,24 @@ export default function ShopCheckoutArea1() {
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [phone, setPhone] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
   const { user } = useAuthStore();
   const [isLoading, setIsLoading] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchCart = async () => {
       const token = localStorage.getItem("alakeys-token");
+
       const res = await axios.get(`/api/get-cart`, {
         headers: {
           authorization: `${token}`, // Assuming you're using a Bearer token
         },
       });
+      console.log("res", res);
       setAllProducts(res.data?.data);
     };
     fetchCart();
@@ -39,8 +45,8 @@ export default function ShopCheckoutArea1() {
       })
     : null;
 
-  const firstName = user?.fullName.split(" ")[0];
-  const lastName = user?.fullName.split(" ")[1];
+  // const firstName = user?.fullName.split(" ")[0];
+  // const lastName = user?.fullName.split(" ")[1];
 
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -53,15 +59,16 @@ export default function ShopCheckoutArea1() {
       country,
       message,
       phone,
-      totalPrice: total,
+      firstName,
+      lastName,
+      totalPrice: total * 1.075,
     };
     const res = await axios.post(`/api/checkout`, payload, {
       headers: {
-        authorization: `${token}`, // Assuming you're using a Bearer token
+        authorization: `${token}`,
       },
     });
     toast.success(res.data?.message || "Order has been made");
-    console.log("order response", res);
     setIsLoading(false);
     setAddress("");
     setCountry("");
@@ -69,6 +76,7 @@ export default function ShopCheckoutArea1() {
     setState("");
     setPhone("");
     setCompanyName("");
+    router.push("/order-history");
   };
 
   return (
@@ -89,7 +97,7 @@ export default function ShopCheckoutArea1() {
                             className="form-control"
                             type="text"
                             value={firstName}
-                            disabled
+                            onChange={(e) => setFirstName(e.target.value)}
                           />
                         </div>
                       </div>
@@ -99,7 +107,7 @@ export default function ShopCheckoutArea1() {
                           <input
                             className="form-control"
                             type="text"
-                            disabled
+                            onChange={(e) => setLastName(e.target.value)}
                             value={lastName}
                           />
                         </div>

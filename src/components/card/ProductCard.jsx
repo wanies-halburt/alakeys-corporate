@@ -91,7 +91,13 @@ export default function PopularServiceCard1({
         <div className={`list-content ${isContentExpanded ? "px-0" : ""}`}>
           <p className="list-text body-color fz14 mb-1">{data.category}</p>
           <h5 className="list-title">
-            <Link href={customized ? "/contact-us" : `/products/${data._id}`}>
+            <Link
+              href={
+                customized || !data.price
+                  ? "/contact-us"
+                  : `/products/${data._id}`
+              }
+            >
               {data.title.slice(0, 40)}
             </Link>
           </h5>

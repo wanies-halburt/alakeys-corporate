@@ -18,11 +18,11 @@ export default function ShopCartInfo({ data }) {
           <h4 className="title">Cart Totals</h4>
           <p className="text bdrb1 pb10">
             Subtotal
-            <span className="float-end">${total}</span>
+            <span className="float-end">₦{total.toLocaleString()}</span>
           </p>
           <p className="text">
             Total
-            <span className="float-end">${total}</span>
+            <span className="float-end">₦{total.toLocaleString()}</span>
           </p>
           <div className="d-grid mt40">
             <Link className="ud-btn btn-thm" href="/checkout">

@@ -24,4 +24,10 @@ export const momney = ["US$ USD", "Euro", "Pound"];
 export const lan = ["English"];
 // export const lan = ["English", "Frenc", "Italian", "Spanish", "Turkey"];
 
-export const footer = ["/dashboard", "/favorites", "/my-profile", "/checkout"];
+export const footer = [
+  "/dashboard",
+  "/favorites",
+  "/my-profile",
+  "/checkout",
+  "/order-history",
+];

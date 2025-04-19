@@ -1,7 +1,14 @@
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useAuthStore } from "@/store/authStore";
+import { FaCartPlus } from "react-icons/fa";
 
 export default function MobileNavigation6() {
+  const { user, loadFromStorage } = useAuthStore();
+  useEffect(() => {
+    loadFromStorage();
+  }, []);
   return (
     <>
       <div className="mobilie_header_nav stylehome1">
@@ -18,7 +25,16 @@ export default function MobileNavigation6() {
                   />
                 </Link>
                 <div className="right-side text-end">
-                  <Link href="/login">join</Link>
+                  {user ? (
+                    <Link href="/checkout">
+                      <span style={{ fontSize: "20px" }}>
+                        {" "}
+                        <FaCartPlus />
+                      </span>
+                    </Link>
+                  ) : (
+                    <Link href="/login">join</Link>
+                  )}
                   <a
                     className="menubar ml30"
                     data-bs-toggle="offcanvas"

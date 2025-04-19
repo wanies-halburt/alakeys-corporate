@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useAuthStore } from "@/store/authStore";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import toaster from "react-hot-toast";
 
 export default function Page() {
   const router = useRouter();
@@ -17,7 +19,22 @@ export default function Page() {
 
   const length = 4;
   const [otp, setOtp] = useState(new Array(length).fill(""));
+  const [countdown, setCountdown] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(false);
   const inputRefs = useRef([]);
+
+  useEffect(() => {
+    let interval = null;
+    if (countdown > 0) {
+      interval = setInterval(() => {
+        setCountdown((prev) => prev - 1);
+      }, 1000);
+    } else if (countdown === 0) {
+      setIsDisabled(false);
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [countdown]);
 
   const handleInputChange = (e, index) => {
     const newOtp = [...otp];
@@ -64,6 +81,21 @@ export default function Page() {
       router.push("/dashboard");
     }
   };
+  const handleResendOtp = async (e) => {
+    try {
+      const response = await axios.post(`/api/resend-otp`, {
+        email: user.email,
+      });
+      setIsDisabled(true);
+      setCountdown(30);
+      console.log(response);
+      toaster.success(response?.data?.message || "Otp has been sent");
+    } catch (err) {
+      console.log(err);
+      // @ts-ignore
+      toaster.error(err?.response?.data?.message || "An error occured");
+    }
+  };
   return (
     <>
       <section className="our-login">
@@ -102,7 +134,16 @@ export default function Page() {
                   ))}
                 </div>
                 <div className="d-flex justify-content-end mx-auto text-end">
-                  <p className="cursor-pointer btn text-end">Resend Otp</p>
+                  {isDisabled ? (
+                    `Resend OTP in ${countdown}s`
+                  ) : (
+                    <p
+                      className="cursor-pointer btn text-end"
+                      onClick={handleResendOtp}
+                    >
+                      Resend Otp
+                    </p>
+                  )}
                 </div>
                 <div className="my-2 justify-content-center align-content-center d-flex  ">
                   <button

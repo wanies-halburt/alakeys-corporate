@@ -51,7 +51,7 @@ const Profile = () => {
         <div className="row">
           <div className="col-sm-6">
             <div className="mb25">
-              <h6 className="mb15">First Name</h6>
+              <h6 className="mb15">Full name</h6>
               <input
                 className="form-control"
                 type="text"
@@ -73,7 +73,7 @@ const Profile = () => {
               />
             </div>
           </div>
-          <div className="col-sm-12">
+          <div className="col-sm-6">
             <div className="mb25">
               <h6 className="mb15">Phone Number</h6>
               <input
@@ -82,6 +82,18 @@ const Profile = () => {
                 name="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="col-sm-6">
+            <div className="mb25">
+              <h6 className="mb15">Email</h6>
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                value={user?.email}
+                disabled
               />
             </div>
           </div>

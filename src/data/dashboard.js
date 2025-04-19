@@ -18,6 +18,12 @@ export const dasboardNavigation = [
     path: "/checkout",
   },
   {
+    id: 5,
+    name: "Order History",
+    icon: "flaticon-money",
+    path: "/order-history",
+  },
+  {
     id: 14,
     name: "My Profile",
     icon: "flaticon-photo",

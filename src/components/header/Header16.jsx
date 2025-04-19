@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useAuthStore } from "@/store/authStore";
+import { FaCartPlus } from "react-icons/fa";
 
 export default function Header16() {
   const [scrolled, setScrolled] = useState(false);
@@ -80,12 +81,27 @@ export default function Header16() {
                     </a>
                   </div>
                   {user ? (
-                    <Link
-                      className="ud-btn btn-dark add-joining bdrs12 text-white"
-                      href="/dashboard"
-                    >
-                      Dashboard
-                    </Link>
+                    <div className="d-flex gap-3">
+                      <Link href="/checkout">
+                        <span
+                          style={{ fontSize: "30px" }}
+                          className={
+                            path === "/" && !scrolled
+                              ? "text-white"
+                              : "text-black"
+                          }
+                        >
+                          {" "}
+                          <FaCartPlus />
+                        </span>
+                      </Link>
+                      <Link
+                        className="ud-btn btn-dark add-joining bdrs12 text-white"
+                        href="/dashboard"
+                      >
+                        Dashboard
+                      </Link>
+                    </div>
                   ) : (
                     <>
                       <Link

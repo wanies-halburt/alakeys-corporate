@@ -25,10 +25,9 @@ export const IS_ADMIN_CONFIG = !!process.env.IS_ADMIN;
 
 export const NODE_MAILDER_CONFIG_OPTIONS = {
   name: "hostgator",
-  host: "mail.alakeys.com",
+  host: "alero.websitewelcome.com",
   port: 465,
   secure: true,
-  requireTLS: false,
   auth: {
     user: process.env.FOS_SEND_MAIL_FROM,
     pass: process.env.FOS_SEND_MAIL_PASS,
@@ -37,7 +36,7 @@ export const NODE_MAILDER_CONFIG_OPTIONS = {
     // do not fail on invalid certs
     rejectUnauthorized: false,
   },
-  from: process.env.FOS_SEND_MAIL_FROM,
+  // from: process.env.FOS_SEND_MAIL_FROM,
 };
 
 export const MAILDRIP_CONFIG = {

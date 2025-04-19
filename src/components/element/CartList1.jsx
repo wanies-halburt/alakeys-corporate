@@ -28,7 +28,9 @@ export default function CartList1({ data, reload }) {
           </div>
         </td>
         <td>
-          <div className="cart-price">${data.price}</div>
+          <div className="cart-price">
+            ₦{parseInt(data.price).toLocaleString()}
+          </div>
         </td>
         <td>
           <div className="cart-quantity">
@@ -36,7 +38,9 @@ export default function CartList1({ data, reload }) {
           </div>
         </td>
         <td>
-          <div className="cart-subtotal pl5">${1 * parseInt(data.price)}</div>
+          <div className="cart-subtotal pl5">
+            ₦{parseInt(data.price).toLocaleString()}
+          </div>
         </td>
         <td>
           <a

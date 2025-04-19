@@ -33,39 +33,39 @@ export default function ServiceDetail1({ img, title, description, _id }) {
         <section className="pt10 pb90 pb30-md">
           <div className="container">
             <div className="row wrap">
-              <div className="col-lg-12">
-                <div className="column">
-                  <h2>{title}</h2>
-                  {/* <ServiceDetailSlider1 /> */}
-                  <Image
-                    width={1000}
-                    height={600}
-                    src={img}
-                    alt={title}
-                    className=" w-full shadow rounded"
+              <div className="col-lg-6">
+                {/* <ServiceDetailSlider1 /> */}
+                <Image
+                  width={600}
+                  height={350}
+                  src={img}
+                  alt={title}
+                  className=" w-full shadow rounded"
+                />
+              </div>
+              <div className=" col-lg-6">
+                <h2>{title}</h2>
+                <div className="service-about">
+                  <div
+                    className="list_bullet"
+                    style={{
+                      width: "100%",
+                      alignItems: "center",
+                      justifyItems: "center",
+                      justifyContent: "center",
+                      margin: "0px auto",
+                    }}
+                    dangerouslySetInnerHTML={{ __html: description }}
                   />
-                  <div className="mt40 w-fit max-w-[140px] cursor-pointer">
-                    <button
-                      className="ud-btn btn-thm cursor-pointer"
-                      onClick={handleAddToCart}
-                    >
-                      Add to Cart
-                      <i className="fal fa-arrow-right-long" />
-                    </button>
-                  </div>
-                  <div className="service-about">
-                    <div
-                      className="pt-5 pb-5 list_bullet"
-                      style={{
-                        width: "100%",
-                        alignItems: "center",
-                        justifyItems: "center",
-                        justifyContent: "center",
-                        margin: "0px auto",
-                      }}
-                      dangerouslySetInnerHTML={{ __html: description }}
-                    />
-                  </div>
+                </div>
+                <div className="w-fit max-w-[140px] cursor-pointer">
+                  <button
+                    className="ud-btn btn-thm cursor-pointer"
+                    onClick={handleAddToCart}
+                  >
+                    Add to Cart
+                    <i className="fal fa-arrow-right-long" />
+                  </button>
                 </div>
               </div>
             </div>
