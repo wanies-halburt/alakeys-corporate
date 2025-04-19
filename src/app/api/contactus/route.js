@@ -51,12 +51,12 @@ export async function POST(req) {
         firstname: customerFirstName,
         ...reqBody,
       }),
-      dsn: {
-        id: `${customerName}-${loggedCustomerEnquiry?._id}`,
-        return: "headers",
-        notify: ["failure", "delay"],
-        recipient: process.env.FOS_SEND_MAIL_FROM,
-      },
+      // dsn: {
+      //   id: `${customerName}-${loggedCustomerEnquiry?._id}`,
+      //   return: "headers",
+      //   notify: ["failure", "delay"],
+      //   recipient: process.env.FOS_SEND_MAIL_FROM,
+      // },
     };
 
     await sendMailWithNM(mailOptions);

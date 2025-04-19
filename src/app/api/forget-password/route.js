@@ -43,12 +43,12 @@ export async function POST(req) {
         firstname: user.fullName,
         otp: otp,
       }),
-      dsn: {
-        id: `${user.fullName}`,
-        return: "headers",
-        notify: ["failure", "delay"],
-        recipient: process.env.FOS_SEND_MAIL_FROM,
-      },
+      // dsn: {
+      //   id: `${user.fullName}`,
+      //   return: "headers",
+      //   notify: ["failure", "delay"],
+      //   recipient: process.env.FOS_SEND_MAIL_FROM,
+      // },
     };
     await sendMailWithNM(mailOptions);
 

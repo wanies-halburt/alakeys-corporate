@@ -52,12 +52,12 @@ export async function POST(req) {
             firstname: customerFirstName,
             otp: otp,
           }),
-          dsn: {
-            id: `${reqBody.fullName}-${reqBody.email}`,
-            return: "headers",
-            notify: ["failure", "delay"],
-            recipient: process.env.FOS_SEND_MAIL_FROM,
-          },
+          // dsn: {
+          //   id: `${reqBody.fullName}-${reqBody.email}`,
+          //   return: "headers",
+          //   notify: ["failure", "delay"],
+          //   recipient: process.env.FOS_SEND_MAIL_FROM,
+          // },
         };
         await sendMailWithNM(mailOptions);
         await customerExists.save();
@@ -95,12 +95,12 @@ export async function POST(req) {
         firstname: customerFirstName,
         otp: otp,
       }),
-      dsn: {
-        id: `${reqBody.fullName}-${loggedResteredUser?._id}`,
-        return: "headers",
-        notify: ["failure", "delay"],
-        recipient: process.env.FOS_SEND_MAIL_FROM,
-      },
+      // dsn: {
+      //   id: `${reqBody.fullName}-${loggedResteredUser?._id}`,
+      //   return: "headers",
+      //   notify: ["failure", "delay"],
+      //   recipient: process.env.FOS_SEND_MAIL_FROM,
+      // },
     };
     await sendMailWithNM(mailOptions);
 

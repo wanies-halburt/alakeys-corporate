@@ -2,8 +2,6 @@ import connectMongoDB from "@/dbConfig/mongodb";
 import { throwUserResponse } from "@/utils";
 import debugConsole from "@/utils/debugger";
 import { NextRequest } from "next/server";
-import { addContactToMDsubscribeNewsletterGroup } from "../email/service/maildrip";
-import { limiter } from "../middleware/limiter";
 import requiredReqBodyCheck from "../middleware/requiredReqBodyCheck";
 import Client from "../register/register.model";
 
