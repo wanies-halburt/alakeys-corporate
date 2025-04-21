@@ -12,6 +12,7 @@ import { footer } from "@/data/footer";
 import "react-tooltip/dist/react-tooltip.css";
 import NavSidebar from "@/components/sidebar/NavSidebar";
 import Footer15 from "@/components/footer/Footer15";
+import { useInitializeProducts } from "@/hook/useInitializeProducts";
 
 if (typeof window !== "undefined") {
   import("bootstrap");
@@ -49,6 +50,7 @@ export const toastOptions = {
 export default function RootLayout({ children }) {
   const isListingActive = toggleStore((state) => state.isListingActive);
   const path = usePathname();
+  useInitializeProducts();
 
   // wow js
   useEffect(() => {

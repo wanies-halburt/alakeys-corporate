@@ -18,7 +18,11 @@ export default function OrderInfo1({ total, products }) {
               <p className="body-color">
                 {item?.product.title}
                 <span className="float-end">
-                  ₦{parseInt(item?.product.price).toLocaleString()}
+                  ₦
+                  {Number(item?.product.price).toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
                 </span>
               </p>
             </li>
@@ -26,7 +30,14 @@ export default function OrderInfo1({ total, products }) {
           <li className=" bdrb1 mb15">
             <h6>
               Subtotal
-              <span className="float-end">₦{total.toLocaleString()}</span>
+              <span className="float-end">
+                {" "}
+                ₦
+                {Number(total).toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </span>
             </h6>
           </li>
           <li className=" bdrb1 mb15">
@@ -43,7 +54,10 @@ export default function OrderInfo1({ total, products }) {
               <span className="float-end">
                 ₦
                 {products?.length !== 0
-                  ? parseInt(vat - total).toLocaleString()
+                  ? Number(vat - total).toLocaleString(undefined, {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })
                   : "0.00"}
               </span>
             </h6>
@@ -53,7 +67,12 @@ export default function OrderInfo1({ total, products }) {
               Total
               <span className="float-end">
                 ₦
-                {products?.length !== 0 ? Number(vat).toLocaleString() : "0.00"}
+                {products?.length !== 0
+                  ? Number(vat).toLocaleString(undefined, {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })
+                  : "0.00"}
               </span>
             </h6>
           </li>

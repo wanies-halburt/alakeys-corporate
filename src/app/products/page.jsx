@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import shopStore from "@/store/shopStore";
 import Breadcumb7 from "@/components/breadcumb/Breadcumb7";
 import SelectInput from "@/components/dashboard/option/SelectInput";
 import ProductCard from "@/components/card/ProductCard";
-import axios from "axios";
 import { Loader } from "@/components/Loader";
 import customizedImage from "../../../public/images/customized.jpg";
 
@@ -14,8 +14,8 @@ const Products = () => {
     option: "All",
     value: "All",
   });
-  const [isLoading, setIsLoading] = useState(true);
-  const [products, setProducts] = useState(null);
+  const products = shopStore((state) => state.products);
+  const isLoading = shopStore((state) => state.isLoading);
   const [searchTerm, setSearchTerm] = useState("");
 
   const categoryHandler = (option) => {
@@ -24,22 +24,6 @@ const Products = () => {
       value: option,
     });
   };
-
-  useEffect(() => {
-    setIsLoading(true);
-    async function fetchProducts() {
-      try {
-        const response = await axios.get("/api/fetch-products");
-        setProducts(response.data?.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-        // You can also display an error message to the user here
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchProducts();
-  }, []);
 
   const filteredProducts = products?.filter((item) => {
     const matchesCategory =

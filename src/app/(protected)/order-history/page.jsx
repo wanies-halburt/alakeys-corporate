@@ -19,49 +19,64 @@ const OrderHistory = () => {
     };
     fetchCart();
   }, []);
-  console.log("orderHistory", orderHistory);
   return (
-    <div className="ui-content">
+    <div className="shop-checkout pt-0">
       <h5 className="title text-center">Order History</h5>
-      <div className="table-style1 table-responsive mb-4 mb-lg-5">
-        <table className="table table-borderless">
-          <thead className="thead-light">
-            <tr>
-              <th className="fz15 fw500" scope="col">
-                Order Id
-              </th>
-              <th className="fz15 fw500" scope="col">
-                Services Ordered
-              </th>
-              <th className="fz15 fw500" scope="col">
-                Quantity
-              </th>
-              <th className="fz15 fw500" scope="col">
-                Price
-              </th>
-              <th className="fz15 fw500" scope="col">
-                Description
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {orderHistory.length
-              ? orderHistory.map((res) => (
-                  <tr key={res._id}>
-                    <td>{res._id}</td>
-                    <td className=" max-w-2/12">
-                      {res.products.map((val) => (
-                        <p key={val._id}>{val.product.title}, </p>
-                      ))}
-                    </td>
-                    <td>{res.products.length}</td>
-                    <td>₦{parseInt(res.totalPrice).toLocaleString()}</td>
-                    <td className=" max-w-4/12">{res.message}</td>
+      <div className="container">
+        <div className="row wow fadeInUp" data-wow-delay="300ms">
+          <div className="">
+            <div className=" shopping_cart_table table-responsive mb-4 mb-lg-5">
+              <table className="table table-borderless">
+                <thead>
+                  <tr>
+                    <th className="pl30  fw500" scope="col">
+                      Order Id
+                    </th>
+                    <th className="fz15 fw500" scope="col">
+                      Services Ordered
+                    </th>
+                    <th className="fz15 fw500" scope="col">
+                      Quantity
+                    </th>
+                    <th className="fz15 fw500" scope="col">
+                      Price
+                    </th>
+                    <th className="fz15 fw500" scope="col">
+                      Description
+                    </th>
                   </tr>
-                ))
-              : null}
-          </tbody>
-        </table>
+                </thead>
+                <tbody className="table_body">
+                  {orderHistory.length ? (
+                    orderHistory.map((res) => (
+                      <tr key={res._id}>
+                        <td className="pl30 ">{res._id}</td>
+                        <td className="max-w-3/12">
+                          {res.products.map((val) => (
+                            <p key={val._id}>{val.product.title}, </p>
+                          ))}
+                        </td>
+                        <td>{res.products.length}</td>
+                        <td>
+                          ₦
+                          {Number(res.totalPrice).toLocaleString(undefined, {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })}
+                        </td>
+                        <td className="max-w-3/12">{res.message}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <h2 className="text-center mx-auto mt-5">
+                      No Service has been ordered
+                    </h2>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

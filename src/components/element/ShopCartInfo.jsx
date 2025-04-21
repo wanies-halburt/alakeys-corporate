@@ -6,7 +6,7 @@ export default function ShopCartInfo({ data }) {
   let total = 0;
   data
     ? data.forEach((item) => {
-        const price = 1 * parseInt(item.product.price);
+        const price = item.quantity * parseInt(item.product.price);
         total = total + price;
       })
     : null;
@@ -18,11 +18,23 @@ export default function ShopCartInfo({ data }) {
           <h4 className="title">Cart Totals</h4>
           <p className="text bdrb1 pb10">
             Subtotal
-            <span className="float-end">₦{total.toLocaleString()}</span>
+            <span className="float-end">
+              ₦
+              {Number(total).toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </span>
           </p>
           <p className="text">
             Total
-            <span className="float-end">₦{total.toLocaleString()}</span>
+            <span className="float-end">
+              ₦
+              {Number(total).toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </span>
           </p>
           <div className="d-grid mt40">
             <Link className="ud-btn btn-thm" href="/checkout">

@@ -2,7 +2,8 @@
 
 import OrderInfo1 from "../element/OrderInfo1";
 import PaymentOption1 from "../element/PaymentOption1";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import shopStore from "@/store/shopStore";
 import { useAuthStore } from "@/store/authStore";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -19,28 +20,13 @@ export default function ShopCheckoutArea1() {
   const [message, setMessage] = useState("");
   const { user } = useAuthStore();
   const [isLoading, setIsLoading] = useState(false);
-  const [allProducts, setAllProducts] = useState([]);
+  const cart = shopStore((state) => state.cart);
   const router = useRouter();
 
-  useEffect(() => {
-    const fetchCart = async () => {
-      const token = localStorage.getItem("alakeys-token");
-
-      const res = await axios.get(`/api/get-cart`, {
-        headers: {
-          authorization: `${token}`, // Assuming you're using a Bearer token
-        },
-      });
-      console.log("res", res);
-      setAllProducts(res.data?.data);
-    };
-    fetchCart();
-  }, []);
-
   let total = 0;
-  allProducts
-    ? allProducts.forEach((item) => {
-        const price = 1 * parseInt(item.product.price);
+  cart
+    ? cart.forEach((item) => {
+        const price = item.quantity * parseInt(item.product.price);
         total = total + price;
       })
     : null;
@@ -200,7 +186,7 @@ export default function ShopCheckoutArea1() {
             </div>
             <div className="col-md-5 col-lg-4">
               <div className="shop-sidebar ms-md-auto">
-                <OrderInfo1 total={total} products={allProducts} />
+                <OrderInfo1 total={total} products={cart} />
                 <PaymentOption1 />
                 <div className="d-grid default-box-shadow2">
                   <button

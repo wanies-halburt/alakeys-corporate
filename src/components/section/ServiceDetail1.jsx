@@ -2,29 +2,21 @@
 
 // import ServiceDetailSlider1 from "../element/ServiceDetailSlider1";
 import { StickyContainer } from "react-sticky";
-import useScreen from "@/hook/useScreen";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useAuthStore } from "@/store/authStore";
+import shopStore from "@/store/shopStore";
 
 export default function ServiceDetail1({ img, title, description, _id }) {
-  const isMatchedScreen = useScreen(1216);
   const { user } = useAuthStore();
+  const addToCart = shopStore((state) => state.addToCart);
 
   const handleAddToCart = async () => {
     if (!user) {
       toast.error("You need to be logged in to add to cart!!!");
     } else {
-      const token = localStorage.getItem("alakeys-token");
-      const payload = { productId: _id };
-      const res = await axios.post(`/api/add-cart`, payload, {
-        headers: {
-          authorization: `${token}`, // Assuming you're using a Bearer token
-        },
-      });
-      toast.success(res.data?.message || "Product added to cart");
-      console.log("res", res);
+      addToCart(_id);
     }
   };
   return (

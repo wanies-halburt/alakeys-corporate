@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useAuthStore } from "@/store/authStore";
 import { FaCartPlus } from "react-icons/fa";
+import shopStore from "@/store/shopStore";
 
 export default function MobileNavigation6() {
   const { user, loadFromStorage } = useAuthStore();
+  const cart = shopStore((state) => state.cart);
   useEffect(() => {
     loadFromStorage();
   }, []);
@@ -26,10 +28,11 @@ export default function MobileNavigation6() {
                 </Link>
                 <div className="right-side text-end">
                   {user ? (
-                    <Link href="/checkout">
+                    <Link href="/dashboard">
                       <span style={{ fontSize: "20px" }}>
                         {" "}
                         <FaCartPlus />
+                        {cart?.length ? cart.length : null}
                       </span>
                     </Link>
                   ) : (

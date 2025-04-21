@@ -4,6 +4,7 @@ import Breadcumb7 from "@/components/breadcumb/Breadcumb7";
 import { categories } from "./data";
 import Card from "../Card";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 export const dynamicParams = true;
 
@@ -26,6 +27,28 @@ const ServiceDetails = ({ params }) => {
         }}
         dangerouslySetInnerHTML={{ __html: category.body }}
       />
+      <div
+        style={{
+          maxWidth: "1000px",
+          width: "100%",
+          alignItems: "center",
+          justifyItems: "center",
+          justifyContent: "center",
+          margin: "0px auto",
+        }}
+        className="mx-auto items-center align-content-center justify-center d-flex pb-5"
+      >
+        <Link
+          href={
+            slug === "recruitment" || slug === "training"
+              ? "/contact-us"
+              : `/products/${category.id}`
+          }
+          className="ud-btn btn-thm cursor-pointer"
+        >
+          Book Service
+        </Link>
+      </div>
       {slug === "recruitment" ? (
         <div className="container d-flex justify-content-center py-4">
           <div className="card" style={{ width: "25rem" }}>

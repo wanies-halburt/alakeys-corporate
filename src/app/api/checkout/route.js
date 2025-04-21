@@ -56,7 +56,7 @@ export async function POST(req) {
       user: userId,
       products: user.cart.map((product) => ({
         product: product.product,
-        quantity: 1,
+        quantity: product.quantity,
       })),
       totalPrice: reqBody.totalPrice,
       paymentStatus: "pending",

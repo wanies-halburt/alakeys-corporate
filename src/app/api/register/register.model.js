@@ -55,6 +55,8 @@ const UserSchema = new mongoose.Schema(
     cart: [
       {
         product: { type: mongoose.Schema.Types.ObjectId, ref: "products" },
+        quantity: { type: Number, default: 1 },
+        isPurchased: { type: Boolean, default: false },
         addedAt: { type: Date, default: Date.now },
       },
     ],

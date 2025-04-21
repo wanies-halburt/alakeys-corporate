@@ -1,5 +1,6 @@
 export const categories = {
   cac: {
+    id: "67c9f82a8b91e9150f80899b",
     body: `  <div>
     <ol>
       <li id="registeration_companies">
@@ -111,6 +112,7 @@ export const categories = {
   </div>`,
   },
   tax: {
+    id: "67c9f8298b91e9150f808983",
     body: `
     <div>
     <h2 className="text-start mt30" id="taxation-section">
@@ -174,6 +176,7 @@ export const categories = {
   `,
   },
   auditing: {
+    id: "67c9f82a8b91e9150f808991",
     body: `
     <div><h2 className="text-start mt30" id="auditing-section">
     Auditing
@@ -246,6 +249,7 @@ export const categories = {
 `,
   },
   recruitment: {
+    id: "",
     body: `
     <div>
     <h2 className="text-start mt30" id="recruitment-section">
@@ -308,6 +312,7 @@ export const categories = {
   </div>`,
   },
   training: {
+    id: "",
     body: `
     <div> <h2 className="text-start mt30" id="training-section">
     Training & Development
@@ -370,6 +375,7 @@ export const categories = {
   </div>`,
   },
   web: {
+    id: "67c9f82a8b91e9150f808995",
     body: `
     <div>
     <h2 className=" mt30" id="web-section">
@@ -768,6 +774,7 @@ export const categories = {
     `,
   },
   accounting: {
+    id: "67c9f8298b91e9150f808985",
     body: `
     <div>
   <h2 className="text-start mt30" id="accounting-section">

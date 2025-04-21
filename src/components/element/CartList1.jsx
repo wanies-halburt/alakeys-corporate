@@ -1,20 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import toast from "react-hot-toast";
-import axios from "axios";
+import shopStore from "@/store/shopStore";
 
-export default function CartList1({ data, reload }) {
+export default function CartList1({ data, quantity }) {
+  const isLoading = shopStore((state) => state.isLoading);
+  const deleteFromCart = shopStore((state) => state.deleteFromCart);
+  const increaseQty = shopStore((state) => state.increaseQty);
+  const decreaseQty = shopStore((state) => state.decreaseQty);
   const deleteHandler = async (id) => {
-    const token = localStorage.getItem("alakeys-token");
-    const payload = { productId: id };
-    const res = await axios.post(`/api/add-cart`, payload, {
-      headers: {
-        authorization: `${token}`, // Assuming you're using a Bearer token
-      },
-    });
-    reload();
-    toast.success(res.data?.message || "Product has been removed");
+    deleteFromCart(id);
   };
   return (
     <>
@@ -29,17 +24,31 @@ export default function CartList1({ data, reload }) {
         </td>
         <td>
           <div className="cart-price">
-            ₦{parseInt(data.price).toLocaleString()}
+            ₦
+            {Number(data.price).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
           </div>
         </td>
         <td>
-          <div className="cart-quantity">
-            <p className=" text-center">1</p>
+          <div className="cart-quantity d-flex align-items-center justify-items-center items-center gap-2 text-center">
+            <button onClick={() => decreaseQty(data._id)} disabled={isLoading}>
+              -
+            </button>
+            <span className="">{quantity}</span>
+            <button onClick={() => increaseQty(data._id)} disabled={isLoading}>
+              +
+            </button>
           </div>
         </td>
         <td>
           <div className="cart-subtotal pl5">
-            ₦{parseInt(data.price).toLocaleString()}
+            ₦
+            {Number(data.price * quantity).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
           </div>
         </td>
         <td>

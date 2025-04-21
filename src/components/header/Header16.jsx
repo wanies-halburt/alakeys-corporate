@@ -7,8 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useAuthStore } from "@/store/authStore";
 import { FaCartPlus } from "react-icons/fa";
+import shopStore from "@/store/shopStore";
 
 export default function Header16() {
+  const cart = shopStore((state) => state.cart);
   const [scrolled, setScrolled] = useState(false);
   const { user, loadFromStorage } = useAuthStore();
   const path = usePathname();
@@ -82,17 +84,23 @@ export default function Header16() {
                   </div>
                   {user ? (
                     <div className="d-flex gap-3">
-                      <Link href="/checkout">
+                      <Link href="/dashboard">
                         <span
                           style={{ fontSize: "30px" }}
                           className={
                             path === "/" && !scrolled
-                              ? "text-white"
-                              : "text-black"
+                              ? "text-white d-flex gap-1"
+                              : "text-black d-flex gap-1"
                           }
                         >
                           {" "}
-                          <FaCartPlus />
+                          <FaCartPlus />{" "}
+                          <span
+                            style={{ fontSize: "16px" }}
+                            className="text-success"
+                          >
+                            {cart?.length ? cart.length : null}
+                          </span>
                         </span>
                       </Link>
                       <Link

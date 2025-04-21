@@ -1,12 +1,10 @@
 "use client";
 
-import PopularServiceSlideCard1 from "../card/PopularServiceSlideCard1";
-import { useState, useEffect } from "react";
+import shopStore from "@/store/shopStore";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ProductCard from "@/components/card/ProductCard";
-import axios from "axios";
-import { Loader } from "@/components/Loader";
 
 const categories = [
   "All",
@@ -19,8 +17,8 @@ const categories = [
 
 export default function PopularService1() {
   const [getCurrentCategory, setCurrentCategory] = useState("All");
-  const [isLoading, setIsLoading] = useState(true);
-  const [products, setProducts] = useState(null);
+  const products = shopStore((state) => state.products);
+  const isLoading = shopStore((state) => state.isLoading);
 
   // tab handler
   const tabHandler = (select) => {
@@ -28,16 +26,6 @@ export default function PopularService1() {
   };
 
   const path = usePathname();
-
-  useEffect(() => {
-    setIsLoading(true);
-    async function fetchProducts() {
-      const response = await axios.get("/api/fetch-products");
-      setProducts(response.data?.data);
-      setIsLoading(false);
-    }
-    fetchProducts();
-  }, []);
 
   return (
     <>
