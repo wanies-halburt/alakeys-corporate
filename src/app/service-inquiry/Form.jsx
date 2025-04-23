@@ -11,6 +11,7 @@ const serviceInquirySchema = yup.object({
   customerName: yup.string().required(" Full name is required"),
   email: yup.string().email().required(" Email is required"),
   projectName: yup.string().required("Project name is required"),
+  phone: yup.string().required("Phone number is required"),
   message: yup.string().required("Message is required"),
 });
 
@@ -72,7 +73,18 @@ export default function ServiceInquiryForm() {
                         />
                       </div>
                     </div>
-                    <div className="col-md-12">
+                    <div className="col-md-6">
+                      <div className="mb20">
+                        <label className="heading-color ff-heading fw500 mb10">
+                          Phone
+                        </label>
+                        <input
+                          {...register("phone")}
+                          className="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
                       <div className="mb20">
                         <label className="heading-color ff-heading fw500 mb10">
                           Project Title

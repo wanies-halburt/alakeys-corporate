@@ -12,7 +12,9 @@ export default function DashboardLayout({ children }) {
   const { isAuthenticating, userData } = auth;
 
   return isAuthenticating ? (
-    <Loader />
+    <div className="loader-container">
+      <Loader />
+    </div>
   ) : (
     <>
       <DashboardHeader />

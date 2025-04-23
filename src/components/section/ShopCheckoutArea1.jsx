@@ -33,36 +33,39 @@ export default function ShopCheckoutArea1() {
 
   // const firstName = user?.fullName.split(" ")[0];
   // const lastName = user?.fullName.split(" ")[1];
-
   const handleSubmit = async () => {
     setIsLoading(true);
-    const token = localStorage.getItem("alakeys-token");
-
-    const payload = {
-      companyName,
-      address,
-      state,
-      country,
-      message,
-      phone,
-      firstName,
-      lastName,
-      totalPrice: total * 1.075,
-    };
-    const res = await axios.post(`/api/checkout`, payload, {
-      headers: {
-        authorization: `${token}`,
-      },
-    });
-    toast.success(res.data?.message || "Order has been made");
-    setIsLoading(false);
-    setAddress("");
-    setCountry("");
-    setMessage("");
-    setState("");
-    setPhone("");
-    setCompanyName("");
-    router.push("/order-history");
+    try {
+      const token = localStorage.getItem("alakeys-token");
+      const payload = {
+        companyName,
+        address,
+        state,
+        country,
+        message,
+        phone,
+        firstName,
+        lastName,
+        totalPrice: total * 1.075,
+      };
+      const res = await axios.post(`/api/checkout`, payload, {
+        headers: { authorization: `${token}` },
+      });
+      toast.success(res.data?.message || "Order has been made");
+      // Reset form fields
+      setAddress("");
+      setCountry("");
+      setMessage("");
+      setState("");
+      setPhone("");
+      setCompanyName("");
+      router.push("/order-history");
+    } catch (error) {
+      console.error(error);
+      toast.error(error.response?.data?.message || "An error occurred");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

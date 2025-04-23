@@ -28,7 +28,7 @@ export default function Page() {
   return (
     <>
       {isLoading ? (
-        <div>
+        <div className="loader-container">
           <Loader />
         </div>
       ) : (

@@ -105,7 +105,7 @@ const Products = () => {
         </div>
       </div>
       {isLoading ? (
-        <div>
+        <div className="loader-container">
           <Loader />
         </div>
       ) : (

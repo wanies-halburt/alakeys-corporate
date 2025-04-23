@@ -6,6 +6,7 @@ export const contactUsAutoRespEmailBody = ({
   customerName,
   email,
   message,
+  phone,
   projectName,
 }) => {
   const variable = [
@@ -28,6 +29,10 @@ export const contactUsAutoRespEmailBody = ({
     {
       variable: "PROJECT_NAME",
       value: projectName,
+    },
+    {
+      variable: "PHONE",
+      value: phone ?? "",
     },
   ];
   const filePath = path.join(
