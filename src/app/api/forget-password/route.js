@@ -38,7 +38,7 @@ export async function POST(req) {
       from: process.env.FOS_SEND_MAIL_FROM,
       to: reqBody.email,
       subject: `Reset Password`,
-      bcc: process.env.FOS_SEND_MAIL_FROM,
+      bcc: process.env.FOS_SALES_MAIL,
       html: forgetPasswordAutoRespEmailBody({
         firstname: user.fullName,
         otp: otp,

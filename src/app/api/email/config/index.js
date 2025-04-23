@@ -24,20 +24,30 @@ export const IS_ADMIN_CONFIG = !!process.env.IS_ADMIN;
 // };
 
 export const NODE_MAILDER_CONFIG_OPTIONS = {
-  name: "hostgator",
-  host: "alero.websitewelcome.com",
+  host: "smtp.gmail.com",
   port: 465,
   secure: true,
   auth: {
     user: process.env.FOS_SEND_MAIL_FROM,
     pass: process.env.FOS_SEND_MAIL_PASS,
   },
-  tls: {
-    // do not fail on invalid certs
-    rejectUnauthorized: false,
-  },
   // from: process.env.FOS_SEND_MAIL_FROM,
 };
+// export const NODE_MAILDER_CONFIG_OPTIONS = {
+//   name: "hostgator",
+//   host: "alero.websitewelcome.com",
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     user: process.env.FOS_SEND_MAIL_FROM,
+//     pass: process.env.FOS_SEND_MAIL_PASS,
+//   },
+//   tls: {
+//     // do not fail on invalid certs
+//     rejectUnauthorized: false,
+//   },
+//   // from: process.env.FOS_SEND_MAIL_FROM,
+// };
 
 export const MAILDRIP_CONFIG = {
   baseUri: process.env.MD_API_BASE_URI,

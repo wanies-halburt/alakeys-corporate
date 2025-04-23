@@ -46,7 +46,7 @@ export async function POST(req) {
       from: process.env.FOS_SEND_MAIL_FROM,
       to: email,
       subject: `Thank You for Contacting Us ${customerFirstName}🌟`,
-      bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
+      bcc: IS_ADMIN_CONFIG ? process.env.FOS_SALES_MAIL : undefined,
       html: contactUsAutoRespEmailBody({
         firstname: customerFirstName,
         ...reqBody,

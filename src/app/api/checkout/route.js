@@ -89,7 +89,7 @@ export async function POST(req) {
       from: process.env.FOS_SEND_MAIL_FROM,
       to: user.email,
       subject: `Thank You for purchasing a service on Alakeys`,
-      bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
+      bcc: IS_ADMIN_CONFIG ? process.env.FOS_SALES_MAIL : undefined,
       html: checkoutAutoRespEmailBody({
         firstname: customerFirstName,
         orderId: checkout._id,
@@ -108,7 +108,7 @@ export async function POST(req) {
       to: process.env.FOS_SALES_MAIL,
       subject: `Purchase made by ${user.fullName}`,
       bcc: IS_ADMIN_CONFIG
-        ? process.env.FOS_SEND_MAIL_FROM
+        ? process.env.FOS_SALES_MAIL
         : process.env.FOS_SALES_MAIL,
       html: checkoutAdminAutoRespEmailBody({
         customerName: user.fullName,

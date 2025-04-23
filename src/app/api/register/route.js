@@ -47,7 +47,7 @@ export async function POST(req) {
           from: process.env.FOS_SEND_MAIL_FROM,
           to: reqBody.email,
           subject: `Thank You for Registering on Alakeys`,
-          bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
+          bcc: IS_ADMIN_CONFIG ? process.env.FOS_SALES_MAIL : undefined,
           html: registerAutoRespEmailBody({
             firstname: customerFirstName,
             otp: otp,
@@ -90,7 +90,7 @@ export async function POST(req) {
       from: process.env.FOS_SEND_MAIL_FROM,
       to: reqBody.email,
       subject: `Thank You for Registering on Alakeys`,
-      bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
+      bcc: IS_ADMIN_CONFIG ? process.env.FOS_SALES_MAIL : undefined,
       html: registerAutoRespEmailBody({
         firstname: customerFirstName,
         otp: otp,

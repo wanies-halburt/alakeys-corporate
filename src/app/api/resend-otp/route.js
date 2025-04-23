@@ -28,7 +28,7 @@ export async function POST(req) {
           from: process.env.FOS_SEND_MAIL_FROM,
           to: reqBody.email,
           subject: `New OTP`,
-          bcc: IS_ADMIN_CONFIG ? process.env.FOS_SEND_MAIL_FROM : undefined,
+          bcc: IS_ADMIN_CONFIG ? process.env.FOS_SALES_MAIL : undefined,
           html: registerAutoRespEmailBody({
             firstname: customerExists.fullName.split(" ")[0],
             otp: otp,
