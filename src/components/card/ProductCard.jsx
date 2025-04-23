@@ -94,7 +94,7 @@ export default function PopularServiceCard1({
             <Link
               href={
                 customized || !data.price
-                  ? "/contact-us"
+                  ? "/service-inquiry"
                   : `/products/${data._id}`
               }
             >

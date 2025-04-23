@@ -7,6 +7,9 @@ const ContactUsSchema = new mongoose.Schema(
       required: [true, "Please provide a name"],
       // unique: true,
     },
+    projectName: {
+      type: String,
+    },
     email: {
       type: String,
       required: [true, "Please provide an email"],

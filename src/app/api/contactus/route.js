@@ -3,7 +3,6 @@ import { throwUserResponse } from "@/utils";
 import debugConsole from "@/utils/debugger";
 import { IS_ADMIN_CONFIG } from "../email/config";
 import { sendMailWithNM } from "../email/service";
-import { addContactToMDcontactsGroup } from "../email/service/maildrip";
 import requiredReqBodyCheck from "../middleware/requiredReqBodyCheck";
 import { contactUsAutoRespEmailBody } from "./contactus.email";
 import ContactUsModel from "./contactus.model";
