@@ -1,7 +1,13 @@
 import mongoose from "mongoose";
+import Counter from "../counter/counter.model";
 
 const CheckoutSchema = new mongoose.Schema(
   {
+    orderId: {
+      type: String,
+      unique: true,
+      required: true,
+    },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "clients",
@@ -66,6 +72,20 @@ const CheckoutSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+CheckoutSchema.pre("validate", async function (next) {
+  if (this.isNew && !this.orderId) {
+    const counter = await Counter.findOneAndUpdate(
+      { id: "orderId" },
+      { $inc: { seq: 1 } },
+      { new: true, upsert: true }
+    );
+
+    this.orderId = `ORD${counter.seq}`; // No need to add 10000 manually anymore
+  }
+
+  next();
+});
+
 const Checkout =
   mongoose.models.checkout || mongoose.model("checkout", CheckoutSchema);
 

@@ -50,7 +50,7 @@ const OrderHistory = () => {
                   {orderHistory.length ? (
                     orderHistory.map((res) => (
                       <tr key={res._id}>
-                        <td className="pl30 ">{res._id}</td>
+                        <td className="pl30 ">{res.orderId}</td>
                         <td className="max-w-3/12">
                           {res.products.map((val) => (
                             <p key={val._id}>{val.product.title}, </p>

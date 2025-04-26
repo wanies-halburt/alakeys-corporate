@@ -92,7 +92,7 @@ export async function POST(req) {
       bcc: IS_ADMIN_CONFIG ? process.env.FOS_SALES_MAIL : undefined,
       html: checkoutAutoRespEmailBody({
         firstname: customerFirstName,
-        orderId: checkout._id,
+        orderId: checkout.orderId,
         price: reqBody.totalPrice,
       }),
       // dsn: {

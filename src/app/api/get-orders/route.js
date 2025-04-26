@@ -2,6 +2,7 @@ import connectMongoDB from "@/dbConfig/mongodb";
 import { throwUserResponse } from "@/utils";
 import Checkout from "../checkout/checkout.model";
 import jwt from "jsonwebtoken";
+import Counter from "../counter/counter.model";
 
 connectMongoDB();
 
@@ -16,6 +17,7 @@ export async function GET(req) {
     });
   }
   try {
+    await Counter.findOneAndUpdate({ id: "orderId" }, { $set: { seq: 10000 } });
     const decoded = jwt.verify(token, "secret");
     const userId = decoded._id;
     const checkouts = await Checkout.find({ user: userId })
