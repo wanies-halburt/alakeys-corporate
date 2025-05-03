@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import ProductCard from "@/components/card/ProductCard";
+import { Loader } from "@/components/Loader";
 import axios from "axios";
 
 const Favorites = () => {
@@ -10,21 +11,26 @@ const Favorites = () => {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
     async function fetchProducts() {
-      const token = localStorage.getItem("alakeys-token");
-      const response = await axios.get("/api/favorite", {
-        headers: {
-          authorization: `${token}`, // Assuming you're using a Bearer token
-        },
-      });
-      setProducts(response.data?.data);
-      setIsLoading(false);
+      try {
+        const token = localStorage.getItem("alakeys-token");
+        const response = await axios.get("/api/favorite", {
+          headers: {
+            authorization: `${token}`,
+          },
+        });
+        setProducts(response.data?.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
     }
     fetchProducts();
   }, []);
   return (
     <div className="p-5">
+      <h3 className="title text-center fw-bold pb-3">Favourites</h3>
       <div className="row">
         <div className="col-lg-12">
           <div className="row">
@@ -34,6 +40,10 @@ const Favorites = () => {
                   <ProductCard data={item.product} />
                 </div>
               ))
+            ) : isLoading ? (
+              <div className="loader-container">
+                <Loader />
+              </div>
             ) : (
               <div className="col-lg-12">
                 <h3 className="text-center mt30">

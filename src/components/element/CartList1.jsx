@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import shopStore from "@/store/shopStore";
+import Link from "next/link";
 
 export default function CartList1({ data, quantity }) {
   const isLoading = shopStore((state) => state.isLoading);
@@ -19,7 +20,11 @@ export default function CartList1({ data, quantity }) {
             <div className="cart-img">
               <Image height={60} width={60} src={data.img} alt="cart-1.png" />
             </div>
-            <h5 className="mb-0">{data.title.substring(0, 30) + "..."}</h5>
+            <h5 className="mb-0">
+              <Link href={`/products/${data._id}`}>
+                {data.title.substring(0, 30)}
+              </Link>
+            </h5>
           </div>
         </td>
         <td>

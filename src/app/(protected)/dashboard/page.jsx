@@ -4,6 +4,7 @@ import React from "react";
 const page = () => {
   return (
     <div className=" p-5">
+      <h3 className="title text-center fw-bold pb-3">Dashboard</h3>
       <ShopCartArea1 />
     </div>
   );

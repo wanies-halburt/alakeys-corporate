@@ -47,6 +47,7 @@ const Profile = () => {
   };
   return (
     <div className=" p-5">
+      <h3 className="title text-center fw-bold pb-3">User Profile</h3>
       <form className="form2">
         <div className="row">
           <div className="col-sm-6">

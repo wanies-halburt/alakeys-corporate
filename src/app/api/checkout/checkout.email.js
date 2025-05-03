@@ -1,7 +1,12 @@
 import path from "path";
 import { parseHtmlFile } from "../email/templates";
 
-export const checkoutAutoRespEmailBody = ({ firstname, price, orderId }) => {
+export const checkoutAutoRespEmailBody = ({
+  firstname,
+  price,
+  orderId,
+  products,
+}) => {
   const variable = [
     {
       variable: "FIRST_NAME",
@@ -18,6 +23,10 @@ export const checkoutAutoRespEmailBody = ({ firstname, price, orderId }) => {
     {
       variable: "FOS_EMAIL",
       value: process.env.FOS_SALES_MAIL,
+    },
+    {
+      variable: "PRODUCTS",
+      value: products,
     },
   ];
   const filePath = path.join(
@@ -41,6 +50,7 @@ export const checkoutAdminAutoRespEmailBody = ({
   message,
   price,
   orderId,
+  products,
 }) => {
   const variable = [
     {
@@ -66,6 +76,10 @@ export const checkoutAdminAutoRespEmailBody = ({
     {
       variable: "PRICE",
       value: price,
+    },
+    {
+      variable: "PRODUCTS",
+      value: products,
     },
   ];
   const filePath = path.join(

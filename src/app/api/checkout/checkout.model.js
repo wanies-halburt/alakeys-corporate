@@ -74,18 +74,17 @@ const CheckoutSchema = new mongoose.Schema(
 );
 CheckoutSchema.pre("validate", async function (next) {
   if (this.isNew && !this.orderId) {
-    const counter = await Counter.findOneAndUpdate(
-      { id: "orderId" },
-      { $inc: { seq: 1 } },
-      { new: true, upsert: true }
-    );
-
-    this.orderId = `ORD${counter.seq}`; // No need to add 10000 manually anymore
+    let counter = await Counter.findOne({ id: "orderId" });
+    if (!counter) {
+      counter = new Counter({ id: "orderId", seq: 10001 });
+      await counter.save();
+    }
+    counter.seq += 1;
+    await counter.save();
+    this.orderId = `ORD${counter.seq}`;
   }
-
   next();
 });
-
 const Checkout =
   mongoose.models.checkout || mongoose.model("checkout", CheckoutSchema);
 

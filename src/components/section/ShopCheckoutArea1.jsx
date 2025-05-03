@@ -21,6 +21,7 @@ export default function ShopCheckoutArea1() {
   const { user } = useAuthStore();
   const [isLoading, setIsLoading] = useState(false);
   const cart = shopStore((state) => state.cart);
+  const getCart = shopStore((state) => state.getCart);
   const router = useRouter();
 
   let total = 0;
@@ -51,6 +52,7 @@ export default function ShopCheckoutArea1() {
       const res = await axios.post(`/api/checkout`, payload, {
         headers: { authorization: `${token}` },
       });
+      getCart();
       toast.success(res.data?.message || "Order has been made");
       // Reset form fields
       setAddress("");
@@ -197,7 +199,7 @@ export default function ShopCheckoutArea1() {
                     onClick={handleSubmit}
                     disabled={isLoading}
                   >
-                    Place Order
+                    {isLoading ? "Loading..." : "Place Order"}
                     <i className="fal fa-arrow-right-long" />
                   </button>
                 </div>

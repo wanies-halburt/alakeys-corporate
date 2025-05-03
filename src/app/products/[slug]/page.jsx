@@ -32,7 +32,7 @@ export default function Page() {
           <Loader />
         </div>
       ) : (
-        <div className=" pt-60">
+        <div className="pt-60">
           <Breadcumb3
             path={["products", `${product?.tag}`]}
             link={`/products/${product?._id}`}

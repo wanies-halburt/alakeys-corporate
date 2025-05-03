@@ -51,10 +51,8 @@ export async function POST(req) {
     );
     if (action === "increment") {
       if (existingCartItem) {
-        console.log("increasing by 1");
         const currentQty = parseInt(existingCartItem.quantity) || 1;
         existingCartItem.quantity = currentQty + 1;
-        console.log("updated quantity:", existingCartItem.quantity);
         // const itemIndex = user.cart.findIndex(
         //   (item) => item.product.toString() === productId.toString()
         // );
@@ -66,7 +64,6 @@ export async function POST(req) {
       }
     } else if (action === "decrement") {
       if (existingCartItem && existingCartItem.quantity > 1) {
-        console.log("decreasing by 1");
         existingCartItem.quantity -= 1;
       } else {
         // remove the item if quantity goes to 0 or below
@@ -81,11 +78,9 @@ export async function POST(req) {
     } else {
       // toggle behavior (add/remove)
       if (existingCartItem) {
-        console.log("reached update here");
         // if already exists, increase quantity
         existingCartItem.quantity += 1;
       } else {
-        console.log("reached new here");
         user.cart.push({ product: productId, quantity: 1 });
       }
     }

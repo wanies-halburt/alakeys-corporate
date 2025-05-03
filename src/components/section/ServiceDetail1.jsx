@@ -24,19 +24,19 @@ export default function ServiceDetail1({ img, title, description, _id }) {
       <StickyContainer>
         <section className="pt10 pb90 pb30-md">
           <div className="container">
-            <div className="row wrap">
+            <div className="row justify-content-between align-items-center">
               <div className="col-lg-6">
                 {/* <ServiceDetailSlider1 /> */}
                 <Image
-                  width={600}
+                  width={550}
                   height={350}
                   src={img}
                   alt={title}
-                  className=" w-full shadow rounded"
+                  className="w-full shadow rounded"
                 />
               </div>
-              <div className=" col-lg-6">
-                <h2>{title}</h2>
+              <div className=" col-lg-5">
+                <h2 className="mt30">{title}</h2>
                 <div className="service-about">
                   <div
                     className="list_bullet"

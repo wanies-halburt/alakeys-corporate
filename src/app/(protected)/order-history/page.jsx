@@ -2,26 +2,35 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Loader } from "@/components/Loader";
+import Link from "next/link";
 
 const OrderHistory = () => {
   const [orderHistory, setOrderHistory] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const fetchCart = async () => {
-      const token = localStorage.getItem("alakeys-token");
-
-      const res = await axios.get(`/api/get-orders`, {
-        headers: {
-          authorization: `${token}`, // Assuming you're using a Bearer token
-        },
-      });
-      console.log("res", res);
-      setOrderHistory(res.data?.data);
+    const fetchOrderHistory = async () => {
+      try {
+        const token = localStorage.getItem("alakeys-token");
+        const res = await axios.get(`/api/get-orders`, {
+          headers: {
+            authorization: `${token}`,
+          },
+        });
+        setOrderHistory(res.data?.data);
+      } catch (error) {
+        console.error(error); // Handle error logging or display
+      } finally {
+        setIsLoading(false);
+      }
     };
-    fetchCart();
+
+    fetchOrderHistory();
   }, []);
+
   return (
     <div className="shop-checkout pt-0">
-      <h5 className="title text-center">Order History</h5>
+      <h3 className="title text-center fw-bold pb-3">Order History</h3>
       <div className="container">
         <div className="row wow fadeInUp" data-wow-delay="300ms">
           <div className="">
@@ -47,13 +56,17 @@ const OrderHistory = () => {
                   </tr>
                 </thead>
                 <tbody className="table_body">
-                  {orderHistory.length ? (
+                  {!isLoading && orderHistory.length ? (
                     orderHistory.map((res) => (
                       <tr key={res._id}>
                         <td className="pl30 ">{res.orderId}</td>
-                        <td className="max-w-3/12">
+                        <td className="">
                           {res.products.map((val) => (
-                            <p key={val._id}>{val.product.title}, </p>
+                            <p key={val._id}>
+                              <Link href={`/products/${val._id}`}>
+                                {val.product.title}
+                              </Link>
+                            </p>
                           ))}
                         </td>
                         <td>{res.products.length}</td>
@@ -64,9 +77,13 @@ const OrderHistory = () => {
                             maximumFractionDigits: 2,
                           })}
                         </td>
-                        <td className="max-w-3/12">{res.message}</td>
+                        <td className="">{res.message}</td>
                       </tr>
                     ))
+                  ) : isLoading ? (
+                    <div className="loader-container mt-10">
+                      <Loader />
+                    </div>
                   ) : (
                     <h2 className="text-center mx-auto mt-5">
                       No Service has been ordered

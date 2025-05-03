@@ -31,7 +31,6 @@ export async function POST(req) {
       "address",
       "state",
       "country",
-      "message",
       "totalPrice",
       "phone",
       "firstName",
@@ -43,7 +42,7 @@ export async function POST(req) {
     }
     const decoded = jwt.verify(token, "secret");
     const userId = decoded._id;
-    let user = await Client.findById(userId);
+    let user = await Client.findById(userId).populate("cart.product");
     if (!user) {
       return throwUserResponse({
         status: 404,
@@ -52,10 +51,11 @@ export async function POST(req) {
       });
     }
     const clientAddress = `${reqBody.address}, ${reqBody.state}. ${reqBody.country}`;
+
     const checkout = new Checkout({
       user: userId,
       products: user.cart.map((product) => ({
-        product: product.product,
+        product: product.product._id,
         quantity: product.quantity,
       })),
       totalPrice: reqBody.totalPrice,
@@ -72,7 +72,6 @@ export async function POST(req) {
     });
     await checkout.save();
     // Update user's productsPurchased
-
     user = await Client.findByIdAndUpdate(
       userId,
       { $set: { cart: [] } },
@@ -83,6 +82,9 @@ export async function POST(req) {
     await user.save();
 
     const customerFirstName = user.fullName.split(" ")[0];
+    const currentCheckout = await Checkout.findById(checkout._id).populate(
+      "products.product"
+    );
 
     // mail sent to the client
     const mailOptions = {
@@ -92,8 +94,12 @@ export async function POST(req) {
       bcc: IS_ADMIN_CONFIG ? process.env.FOS_SALES_MAIL : undefined,
       html: checkoutAutoRespEmailBody({
         firstname: customerFirstName,
-        orderId: checkout.orderId,
+        orderId: currentCheckout.orderId,
         price: reqBody.totalPrice,
+        products: currentCheckout.products.map((product) => ({
+          title: product.product.title,
+          quantity: product.quantity,
+        })),
       }),
       // dsn: {
       //   id: `${user.fullName}-${user?._id}`,
@@ -114,9 +120,13 @@ export async function POST(req) {
         customerName: user.fullName,
         address: clientAddress,
         email: user.email,
-        orderId: checkout._id,
+        orderId: currentCheckout.orderId,
         message: reqBody.message,
         price: reqBody.totalPrice,
+        products: currentCheckout.products.map((product) => ({
+          title: product.product.title,
+          quantity: product.quantity,
+        })),
       }),
       dsn: {
         id: `${user.fullName}-${user?._id}`,

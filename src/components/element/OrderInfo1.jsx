@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function OrderInfo1({ total, products }) {
   const vat = total * 1.075;
   return (
@@ -16,13 +18,20 @@ export default function OrderInfo1({ total, products }) {
           {products?.map((item, i) => (
             <li key={i} className="mb20">
               <p className="body-color">
-                {item?.product.title}
+                <Link href={`/products/${item.product._id}`}>
+                  {" "}
+                  {item?.product.title.substring(0, 25)}
+                </Link>
+
                 <span className="float-end">
-                  ₦
-                  {Number(item?.product.price).toLocaleString(undefined, {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })}
+                  ₦{" "}
+                  {Number(item?.product?.price * item?.quantity).toLocaleString(
+                    undefined,
+                    {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    }
+                  )}
                 </span>
               </p>
             </li>

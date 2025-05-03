@@ -5,11 +5,12 @@ import DashboardHeader from "./header/DashboardHeader";
 import DashboardSidebar from "./sidebar/DashboardSidebar";
 import { useAuth } from "@/hook/useAuth";
 import { Loader } from "@/components/Loader";
+import DashboardNavigation from "./header/DashboardNavigation";
 
 export default function DashboardLayout({ children }) {
   const isActive = toggleStore((state) => state.isDasboardSidebarActive);
   const auth = useAuth();
-  const { isAuthenticating, userData } = auth;
+  const { isAuthenticating } = auth;
 
   return isAuthenticating ? (
     <div className="loader-container">
@@ -18,6 +19,7 @@ export default function DashboardLayout({ children }) {
   ) : (
     <>
       <DashboardHeader />
+      <DashboardNavigation />
       <div className="dashboard_content_wrapper">
         <div
           className={`dashboard dashboard_wrapper pr30 pr0-xl ${
@@ -30,5 +32,4 @@ export default function DashboardLayout({ children }) {
       </div>
     </>
   );
-  console.log("authenticating", isAuthenticating);
 }
